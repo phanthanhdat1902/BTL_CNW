@@ -1,8 +1,8 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+$routing = array(
+    '/admin\/(.*?)\/(.*?)\/(.*)/' => 'admin/\1_\2/\3'
+);
 
+$default['controller'] = 'categories';
+$default['action'] = 'index';

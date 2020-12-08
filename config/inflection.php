@@ -7,7 +7,5 @@
   );
 
  * */
-// vi du
 $irregularWords = array(
-    'singular' => 'plural'
 );
