@@ -13,33 +13,34 @@ function setReporting() {
     }
 }
 
-/** Check for Magic Quotes and remove them * */
-function stripSlashesDeep($value) {
-    $value = is_array($value) ? array_map('stripSlashesDeep', $value) : stripslashes($value);
-    return $value;
-}
-
-function removeMagicQuotes() {
-    if (get_magic_quotes_gpc()) {
-        $_GET = stripSlashesDeep($_GET);
-        $_POST = stripSlashesDeep($_POST);
-        $_COOKIE = stripSlashesDeep($_COOKIE);
-    }
-}
-
-/** Check register globals and remove them * */
-function unregisterGlobals() {
-    if (ini_get('register_globals')) {
-        $array = array('_SESSION', '_POST', '_GET', '_COOKIE', '_REQUEST', '_SERVER', '_ENV', '_FILES');
-        foreach ($array as $value) {
-            foreach ($GLOBALS[$value] as $key => $var) {
-                if ($var === $GLOBALS[$key]) {
-                    unset($GLOBALS[$key]);
-                }
-            }
-        }
-    }
-}
+//
+///** Check for Magic Quotes and remove them * */
+//function stripSlashesDeep($value) {
+//    $value = is_array($value) ? array_map('stripSlashesDeep', $value) : stripslashes($value);
+//    return $value;
+//}
+//
+//function removeMagicQuotes() {
+//    if (get_magic_quotes_gpc()) {
+//        $_GET = stripSlashesDeep($_GET);
+//        $_POST = stripSlashesDeep($_POST);
+//        $_COOKIE = stripSlashesDeep($_COOKIE);
+//    }
+//}
+//
+///** Check register globals and remove them * */
+//function unregisterGlobals() {
+//    if (ini_get('register_globals')) {
+//        $array = array('_SESSION', '_POST', '_GET', '_COOKIE', '_REQUEST', '_SERVER', '_ENV', '_FILES');
+//        foreach ($array as $value) {
+//            foreach ($GLOBALS[$value] as $key => $var) {
+//                if ($var === $GLOBALS[$key]) {
+//                    unset($GLOBALS[$key]);
+//                }
+//            }
+//        }
+//    }
+//}
 
 /** Secondary Call Function * */
 function performAction($controller, $action, $queryString = null, $render = 0) {
@@ -76,7 +77,7 @@ function callHook() {
     } else {
         $url = routeURL($url);
         $urlArray = array();
-        $urlArray = explode("/", $url);
+        $urlArray = explode("/", $url); // tuong tu nhu split
         $controller = $urlArray[0];
         array_shift($urlArray);
         if (isset($urlArray[0])) {
@@ -132,11 +133,11 @@ function gzipOutput() {
 gzipOutput() || ob_start("ob_gzhandler");
 
 
-$cache = & new Cache();
-$inflect = & new Inflection();
+$cache = new Cache();
+$inflect = new Inflection();
 
 setReporting();
-removeMagicQuotes();
-unregisterGlobals();
+//removeMagicQuotes();
+//unregisterGlobals();
 callHook();
 ?>
