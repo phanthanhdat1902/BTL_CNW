@@ -1,0 +1,30 @@
+application – chứa code
+config – cấu hình db
+db – database backups
+library – chứa framework, trong đó có file controllers abstract để các controller khác kế thừa và SQL Query, Model Abstract để các models khác kế thừa, file template để chuyển hướng đến file hiển thị đúng
+public – chứa js/css/images, chứa file index.
+scripts – ?
+tmp – chứa dữ liệu cache, dữ liệu tạm thời
+
+Rule:
+
++)Tên bảng table trong mySQL luôn luôn là số nhiều và viết thường: items,cars
+
+
++)Tên class Model luôn luôn là số ít và viết hoa chữ cái đầu : Item,Car
+
+
+
++)Tên file của class Model luôn là số ít và viết thường
+
++)Tên Class Controlers luôn luôn phải có Controller đằng sau, 
+viết hoa chữ đầu và là số nhiều: ItemsController, CarsController và kế thừa từ class Controller.class trong thư mục library
+Tuy nhiên tên file của Controllers luôn là số nhiều, viết thường, có từ controller ở sau: itemscontroller
+
+
++)Các file php hiển thị trong thư mục View phải có tên model đằng trước số nhiều, 
+viết thường và theo sau là tên hành động : items/view.php, cars/buy.php
+
+Đọc quy tắc trong mỗi thư mục trước khi code.
+LƯU Ý: Ở mỗi thư mục, t sẽ để sẵn 1 file code mẫu của nó, mọi người khi code bám sát theo và tham khảo
+chứ không phải code t code cho project của mình.
