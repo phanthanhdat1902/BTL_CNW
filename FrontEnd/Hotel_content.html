@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel_body</title>
+</head>
+<link rel="stylesheet" href="Hotel_content.css">
+<script>
+    function showMenu() {
+        var myMenu = document.getElementById("myMenu");
+        if (myMenu.className === "navHeader") {
+            myMenu.className += " responsive";
+        } else {
+            myMenu.className = "navHeader";
+        }
+    }
+</script>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <h4>LOGO</h4>
+            </div>
+            <ul class="navHeader" id="myMenu">
+                <li><a href="#">Khách sạn</a></li>
+                <li><a href="#">Tour</a></li>
+                <li><a href="#">Vé máy bay</a></li>
+                <li><a href="#">Cẩm nang du lịch</a></li>
+                <li><a href="#">...</a>
+                    <ul class="subMenu">
+                        <li><a href="#">Tài khoản đặt tour</a></li>
+                        <li><a href="#">Ưu đãi đặc biệt</a></li>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Hỏi đáp</a></li>
+                        <li><a href="#">Hỗ trợ</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="userControl">
+                <a href="#">Đăng ký</a>
+                <a href="#">Đăng nhập</a>
+                <span id="btnMenu" onclick="showMenu()">&#9776;</span>
+            </div>
+        </div>
+    </div>
+    <div class="tourHomeHeader">
+        <div class="container">
+            <div class="">
+                <div class="title">
+                    <h1>Du lịch theo phong cách riêng</h1>
+                    <h2>Trải nghiệm trọn vẹn - Giá cả phải chăng.</h2>
+                </div>
+            </div>
+            <div class="searchForm">
+                <input type="text" placeholder="search here ..." style="width: 100%;">
+                <input type="date">
+                <input type="text" placeholder="Khởi hành từ">
+                <input type="button" class="btnSearch" value="Tìm kiếm">
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <div class="Content">
+        <p class="title">Du lịch an toàn</p>
+        <p class="detail">Nâng cao súc khỏe, cân bằng cuộc sống</p>
+        <div class="Content_1">
+
+            <a href="https://www.ivivu.com/chu-de/tet-tay"></a>
+                <div class="col_1">
+                    <div class="card_1">
+                        <p class="Infor">Năm mới</p>
+                        <p class="description">Nghỉ lễ xả hơi, chào năm tươi mới - <span>98 khách sạn</span></p>
+                    </div>
+                </div>
+            </a>
+
+            <div class="col_1">
+                <div class="card_2">
+                    <p class="Infor">Tích cực</p>
+                    <p class="description">Nghỉ lễ xả hơi, chào năm tươi mới - <span>98 khách sạn</span></p>
+                </div>
+            </div>
+            <div class="col_1">
+                <div class="card_3">
+                    <p class="Infor">Vượt dịch</p>
+                    <p class="description">Nghỉ lễ xả hơi, chào năm tươi mới - <span>98 khách sạn</span></p>
+                </div>
+            </div>
+            <div class="col_1">
+                <div class="card_4">
+                    <p class="Infor">Năm mới</p>
+                    <p class="description">Nghỉ lễ xả hơi, chào năm tươi mới - <span>98 khách sạn</span></p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="Content_2">
+            <p class="title">Ưu đãi tốt nhất hôm nay</p>
+            <p class="detail">Nhanh tay đặt ngay. Để mai sẽ lỡ</p>
+            <div class="Discount"></div>
+        </div>
+
+        <div class="Content_3">
+            <p class="title">Điểm đến yêu thích trong nước</p>
+            <p class="detail">Lên rừng xuống biển. Trọn vẹn Việt Nam</p>
+            <div class="area">
+               
+                    <div class="area_1">
+                        <a href="https://www.ivivu.com/khach-san-phu-quoc"> <p>Phú Quốc</p></a>  
+                    </div>
+                
+
+                
+                    <div class="area_2">
+                        <p>Nha Trang</p>
+                    </div>
+                
+
+                
+                    <div class="area_3">
+                        <p>Quy Nhơn</p>
+                    </div>
+                
+                
+                    <div class="area_4">
+                        <p>Vũng Tàu</p>
+                    </div>
+                
+                
+                    <div class="area_5">
+                        <p>Đà Lạt</p>
+                    </div>
+                
+            
+                    <div class="area_6">
+                        <p>Sa Pa</p>
+                    </div>
+            
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
