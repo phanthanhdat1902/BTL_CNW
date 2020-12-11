@@ -1,6 +1,6 @@
 <?php
 
-class ProductsController extends VanillaController {
+class ProductsController extends Controller {
 
     function beforeAction() {
         
