@@ -3,7 +3,7 @@ RewriteEngine On
  
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
- 
+RewriteCond %{REQUEST_URI} !\.(css|png|jpg|html|pdf|js|zip|rar|txt)$
 # Rewrite all other URLs to index.php/URL
 RewriteRule ^(.*)$ index.php?url=$1 [PT,L]
 

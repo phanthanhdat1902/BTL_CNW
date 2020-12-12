@@ -49,17 +49,17 @@ class UsersController extends Controller {
      * Ngay tao:10/12/2020      */
 
     function register() {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $email = $_POST['email'];
-        $google_acount = $_POST['google_acount'];
-        $faceook_acount = $_POST['facebook_acount'];
-        $this->User->username = $username;
-        $this->User->password = $password;
-        $this->User->email = $email;
-        $this->User->google_acount = $google_acount;
-        $result = $this->User->save();
-        $this->User->set('result', $result);
+//        $username = $_POST['username'];
+//        $password = $_POST['password'];
+//        $email = $_POST['email'];
+//        $google_acount = $_POST['google_acount'];
+//        $faceook_acount = $_POST['facebook_acount'];
+//        $this->User->username = $username;
+//        $this->User->password = $password;
+//        $this->User->email = $email;
+//        $this->User->google_acount = $google_acount;
+//        $result = $this->User->save();
+//        $this->User->set('result', $result);
     }
 
     function update() {
