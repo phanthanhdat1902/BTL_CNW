@@ -24,12 +24,17 @@ class UsersController extends Controller {
      * Ngay tao:10/12/2020     */
 
     function login() {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $this->User->id = $username;
-        $this->User->where('password', $password);
-        $user = $this->User->search();
-        $this->set('user', $user);
+        if (isset($_POST['username']) && isset($_POST['password'])) {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            $this->User->where('username', $username);
+            $this->User->where('password', $password);
+            $user = $this->User->search();
+            $this->set('user', $user);
+            $this->set('isLogin', true);
+        }else{
+            $this->set('isLogin', false);
+        }
     }
 
     /*

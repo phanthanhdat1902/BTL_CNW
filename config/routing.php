@@ -5,4 +5,4 @@ $routing = array(
 );
 
 $default['controller'] = 'users';
-$default['action'] = 'register';
+$default['action'] = 'login';

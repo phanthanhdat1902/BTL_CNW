@@ -44,11 +44,11 @@ class SQLQuery {
 
     /** Select Query * */
     function where($field, $value) {
-        $this->_extraConditions .= '`' . $this->_model . '`.`' . $field . '` = \'' . mysqli_real_escape_string($value) . '\' AND ';
+        $this->_extraConditions .= '`' . $this->_model . '`.`' . $field . '` = \'' . mysqli_real_escape_string($this->_dbHandle, $value) . '\' AND ';
     }
 
     function like($field, $value) {
-        $this->_extraConditions .= '`' . $this->_model . '`.`' . $field . '` LIKE \'%' . mysqli_real_escape_string($value) . '%\' AND ';
+        $this->_extraConditions .= '`' . $this->_model . '`.`' . $field . '` LIKE \'%' . mysqli_real_escape_string($this->_dbHandle, $value) . '%\' AND ';
     }
 
     function showHasOne() {
@@ -116,7 +116,7 @@ class SQLQuery {
 
         $this->_query = 'SELECT * FROM ' . $from . ' WHERE ' . $conditions;
         #echo '<!--'.$this->_query.'-->';
-        $this->_result = mysqli_query( $this->_dbHandle,$this->_query);
+        $this->_result = mysqli_query($this->_dbHandle, $this->_query);
         $result = array();
         $table = array();
         $field = array();
@@ -148,7 +148,7 @@ class SQLQuery {
 
                         $queryChild = 'SELECT * FROM ' . $fromChild . ' WHERE ' . $conditionsChild;
                         #echo '<!--'.$queryChild.'-->';
-                        $resultChild = mysqli_query($this->_dbHandle,$queryChild);
+                        $resultChild = mysqli_query($this->_dbHandle, $queryChild);
 
                         $tableChild = array();
                         $fieldChild = array();
@@ -200,7 +200,7 @@ class SQLQuery {
 
                         $queryChild = 'SELECT * FROM ' . $fromChild . ' WHERE ' . $conditionsChild;
                         #echo '<!--'.$queryChild.'-->';
-                        $resultChild = mysqli_query( $this->_dbHandle,$queryChild);
+                        $resultChild = mysqli_query($this->_dbHandle, $queryChild);
 
                         $tableChild = array();
                         $fieldChild = array();
@@ -251,7 +251,7 @@ class SQLQuery {
 
         global $inflect;
 
-        $this->_result = mysqli_query( $this->_dbHandle,$query);
+        $this->_result = mysqli_query($this->_dbHandle, $query);
 
         $result = array();
         $table = array();
@@ -288,7 +288,7 @@ class SQLQuery {
         if (!$this->_describe) {
             $this->_describe = array();
             $query = 'DESCRIBE ' . $this->_table;
-            $this->_result = mysqli_query( $this->_dbHandle,$query);
+            $this->_result = mysqli_query($this->_dbHandle, $query);
             while ($row = mysqli_fetch_row($this->_result)) {
                 array_push($this->_describe, $row[0]);
             }
@@ -306,7 +306,7 @@ class SQLQuery {
     function delete() {
         if ($this->id) {
             $query = 'DELETE FROM ' . $this->_table . ' WHERE `id`=\'' . mysqli_real_escape_string($this->id) . '\'';
-            $this->_result = mysqli_query( $this->_dbHandle,$query);
+            $this->_result = mysqli_query($this->_dbHandle, $query);
             $this->clear();
             if ($this->_result == 0) {
                 /** Error Generation * */
@@ -346,7 +346,7 @@ class SQLQuery {
 
             $query = 'INSERT INTO ' . $this->_table . ' (' . $fields . ') VALUES (' . $values . ')';
         }
-        $this->_result = mysqli_query( $this->_dbHandle,$query);
+        $this->_result = mysqli_query($this->_dbHandle, $query);
         $this->clear();
         if ($this->_result == 0) {
             /** Error Generation * */
@@ -375,7 +375,7 @@ class SQLQuery {
             $pattern = '/SELECT (.*?) FROM (.*)LIMIT(.*)/i';
             $replacement = 'SELECT COUNT(*) FROM $2';
             $countQuery = preg_replace($pattern, $replacement, $this->_query);
-            $this->_result = mysqli_query( $this->_dbHandle,$countQuery);
+            $this->_result = mysqli_query($this->_dbHandle, $countQuery);
             $count = mysqli_fetch_row($this->_result);
             $totalPages = ceil($count[0] / $this->_limit);
             return $totalPages;
