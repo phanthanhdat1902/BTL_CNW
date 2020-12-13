@@ -1,0 +1,117 @@
+body{
+    background-color: #ecf0f5;
+}
+.content{
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.content .container .contentHeader{
+    background-color: #ecf0f5;
+    padding-bottom: 5px;
+}
+.content .container .contentHeader ol{
+    list-style: none;
+    padding-left: 0px;
+}
+.content .container .contentHeader ol li{
+    display: inline;
+}
+.content .container .contentHeader ol>li+li:before {
+    content: "/ ";
+}
+
+.content .container .pageTitle{
+    padding: 10px 0px 20px 0px;
+    color: #003c71;
+    font-weight: bold;
+    font-size: 36px;
+    background-color: #ecf0f5;
+}
+.content .container .mainContainer{
+    width: 100%;
+    clear: both;
+    content: "";
+    display: flex;
+    flex-direction: row;
+}
+
+.content .container .mainContainer .tourListSideBar{
+    margin-right: 10px;
+    width: 25%;
+}
+@media screen and (max-width:900px){
+    .content .container .mainContainer .tourListSideBar{
+        display: none;
+    }
+    .content .container .mainContainer .tourListContainer{
+        width: 100% !important;
+        margin-left: auto;
+        margin-left: auto;
+    }
+
+}
+.content .container .mainContainer .tourListContainer{
+    width: 75%;
+}
+.content .container .mainContainer .tourListSideBar .sideBarGroup{
+    border: 1px solid #ddd;
+    margin-top: 10px;
+}
+.content .container .mainContainer .tourListSideBar .sideBarHeader{
+    background-color: #f5f5f5;
+    padding: 10px;
+    font-size: 14px;
+}
+.content .container .mainContainer .tourListSideBar .sideBarBody{
+    padding: 10px;
+    background-color: white;
+}
+.content .container .mainContainer .tourListSideBar .sideBarBody ul{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+.content .container .mainContainer .tourListSideBar .sideBarBody ul li{
+    padding: 10px;
+}
+.content .container .mainContainer .tourListSideBar .sideBarBody ul li a{
+    text-decoration: none;
+}
+
+.content .container .mainContainer .tourListContainer .tourItem{
+    padding: 15px;
+    display: flex;
+    margin:10px 0px 10px 0px;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    min-width: 500px;
+}
+.tourItem .tourItemContent{
+    width: 70%;
+    padding: 10px;
+}
+.tourItem .tourItemImage{
+    width: 15%;
+    background: url("/image/ha-noi-sapa-ha-long.jpg") no-repeat center;
+    background-size: 100%;
+}
+.tourItem .tourItemContentPrice{
+    width: 15%;
+}
+.tourItem .tourItemContent .tourListPros{
+    list-style: none;
+    padding-left: 0px;
+}
+.tourItem .tourItemContent .tourListPros li{
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
+    
+}
+.tourItem .tourItemContent .tourListPros li:before {
+    content: "\2022  ";
+}
+.tourItem .tourItemContentPrice{
+    float: right;
+}
