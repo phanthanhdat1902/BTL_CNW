@@ -51,7 +51,7 @@ class UsersController extends Controller {
     function logout() {
         session_start();
         unset($_SESSION["email"]);
-        header("Location:");
+        header("Location:index");
     }
 
     /*
