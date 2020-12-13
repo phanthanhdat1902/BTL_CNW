@@ -24,16 +24,21 @@ class UsersController extends Controller {
      * Ngay tao:10/12/2020     */
 
     function login() {
-        if (isset($_POST['username']) && isset($_POST['password'])) {
-            $username = $_POST['username'];
+        if (isset($_POST['email']) && isset($_POST['password'])) {
+            $username = $_POST['email'];
             $password = $_POST['password'];
-            $this->User->where('username', $username);
+            $this->User->where('email', $username);
             $this->User->where('password', $password);
             $user = $this->User->search();
-            $this->set('user', $user);
-            $this->set('isLogin', true);
-        }else{
-            $this->set('isLogin', false);
+            if ($user) {
+                $this->set('user', $user);
+                session_start();
+                $_SESSION["email"] = $user[0]['User']['email'];
+                header("Location: " . $_COOKIE['currentURL']);
+                return;
+            } else {
+                $this->set('isLogin', false);
+            }
         }
     }
 
@@ -44,7 +49,9 @@ class UsersController extends Controller {
      * Ngay tao:12/10/2020     */
 
     function logout() {
-        
+        session_start();
+        unset($_SESSION["email"]);
+        header("Location:");
     }
 
     /*
@@ -54,17 +61,17 @@ class UsersController extends Controller {
      * Ngay tao:10/12/2020      */
 
     function register() {
-//        $username = $_POST['username'];
-//        $password = $_POST['password'];
-//        $email = $_POST['email'];
-//        $google_acount = $_POST['google_acount'];
-//        $faceook_acount = $_POST['facebook_acount'];
-//        $this->User->username = $username;
-//        $this->User->password = $password;
-//        $this->User->email = $email;
-//        $this->User->google_acount = $google_acount;
-//        $result = $this->User->save();
-//        $this->User->set('result', $result);
+        if (isset($_POST['email']) && isset($_POST['password'])) {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $this->User->email = $email;
+            $this->User->password = $password;
+            $this->User->id_role = 1;
+            $this->User->create_time = gmdate('Y-m-d h:i:s \G\M\T');
+            $result = $this->User->save();
+            $this->_template->_action = 'index';
+            $this->set('result', $result);
+        }
     }
 
     function update() {

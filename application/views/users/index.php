@@ -1,17 +1,21 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<?php
+session_start();
+setcookie('currentURL','index',time() + (86400 * 30), "/");
+?>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>zzzzz</title>
+        <title>User Login</title>
     </head>
     <body>
+
         <?php
-        echo 'Hello world'
-        ?>
+        if (isset($_SESSION["email"])) {
+            ?>
+            Welcome <?php echo $_SESSION["email"]; ?>. Click here to <a href="../users/logout" tite="Logout">Logout.
+                <?php } else {
+                echo "<h1>Please login first .</h1>";
+                ?>
+                 <a href="../users/login">Dang nhap</a>
+            <?php } ?>
     </body>
 </html>

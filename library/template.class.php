@@ -4,7 +4,7 @@ class Template {
 
     protected $variables = array();
     protected $_controller;
-    protected $_action;
+    public $_action;
 
     function __construct($controller, $action) {
         $this->_controller = $controller;

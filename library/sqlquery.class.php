@@ -96,7 +96,7 @@ class SQLQuery {
         }
 
         if ($this->id) {
-            $conditions .= '`' . $this->_model . '`.`id` = \'' . mysqli_real_escape_string($this->id) . '\' AND ';
+            $conditions .= '`' . $this->_model . '`.`id` = \'' . mysqli_real_escape_string($this->_dbHandle, $this->id) . '\' AND ';
         }
 
         if ($this->_extraConditions) {
@@ -123,12 +123,14 @@ class SQLQuery {
         $tempResults = array();
         $numOfFields = mysqli_num_fields($this->_result);
         for ($i = 0; $i < $numOfFields; ++$i) {
-            array_push($table, mysqli_field_table($this->_result, $i));
-            array_push($field, mysqli_field_name($this->_result, $i));
+            $finfo = $this->_result->fetch_field_direct($i);
+            array_push($table, $finfo->table);
+            array_push($field, $finfo->name);
         }
         if (mysqli_num_rows($this->_result) > 0) {
             while ($row = mysqli_fetch_row($this->_result)) {
                 for ($i = 0; $i < $numOfFields; ++$i) {
+//                    $table[$i] = trim(ucfirst($table[$i]), "s");
                     $tempResults[$table[$i]][$field[$i]] = $row[$i];
                 }
 
@@ -158,8 +160,8 @@ class SQLQuery {
                         if (mysqli_num_rows($resultChild) > 0) {
                             $numOfFieldsChild = mysqli_num_fields($resultChild);
                             for ($j = 0; $j < $numOfFieldsChild; ++$j) {
-                                array_push($tableChild, mysqli_field_table($resultChild, $j));
-                                array_push($fieldChild, mysqli_field_name($resultChild, $j));
+                                array_push($tableChild, mysqli_fetch_field_direct($resultChild, $j));
+                                array_push($fieldChild, mysqli_fetch_field_direct($resultChild, $j));
                             }
 
                             while ($rowChild = mysqli_fetch_row($resultChild)) {
@@ -210,8 +212,8 @@ class SQLQuery {
                         if (mysqli_num_rows($resultChild) > 0) {
                             $numOfFieldsChild = mysqli_num_fields($resultChild);
                             for ($j = 0; $j < $numOfFieldsChild; ++$j) {
-                                array_push($tableChild, mysqli_field_table($resultChild, $j));
-                                array_push($fieldChild, mysqli_field_name($resultChild, $j));
+                                array_push($tableChild, mysqli_fetch_field_direct($resultChild, $j));
+                                array_push($fieldChild, mysqli_fetch_field_direct($resultChild, $j));
                             }
 
                             while ($rowChild = mysqli_fetch_row($resultChild)) {
@@ -262,8 +264,8 @@ class SQLQuery {
             if (mysqli_num_rows($this->_result) > 0) {
                 $numOfFields = mysqli_num_fields($this->_result);
                 for ($i = 0; $i < $numOfFields; ++$i) {
-                    array_push($table, mysqli_field_table($this->_result, $i));
-                    array_push($field, mysqli_field_name($this->_result, $i));
+                    array_push($table, mysqli_fetch_field_direct($this->_result, $i));
+                    array_push($field, mysqli_fetch_field_direct($this->_result, $i));
                 }
                 while ($row = mysqli_fetch_row($this->_result)) {
                     for ($i = 0; $i < $numOfFields; ++$i) {
@@ -305,7 +307,7 @@ class SQLQuery {
     /** Delete an Object * */
     function delete() {
         if ($this->id) {
-            $query = 'DELETE FROM ' . $this->_table . ' WHERE `id`=\'' . mysqli_real_escape_string($this->id) . '\'';
+            $query = 'DELETE FROM ' . $this->_table . ' WHERE `id`=\'' . mysqli_real_escape_string($this->_dbHandle, $this->id) . '\'';
             $this->_result = mysqli_query($this->_dbHandle, $query);
             $this->clear();
             if ($this->_result == 0) {
@@ -325,20 +327,20 @@ class SQLQuery {
             $updates = '';
             foreach ($this->_describe as $field) {
                 if ($this->$field) {
-                    $updates .= '`' . $field . '` = \'' . mysqli_real_escape_string($this->$field) . '\',';
+                    $updates .= '`' . $field . '` = \'' . mysqli_real_escape_string($this->_dbHandle, $this->$field) . '\',';
                 }
             }
 
             $updates = substr($updates, 0, -1);
 
-            $query = 'UPDATE ' . $this->_table . ' SET ' . $updates . ' WHERE `id`=\'' . mysqli_real_escape_string($this->id) . '\'';
+            $query = 'UPDATE ' . $this->_table . ' SET ' . $updates . ' WHERE `id`=\'' . mysqli_real_escape_string($this->_dbHandle, $this->id) . '\'';
         } else {
             $fields = '';
             $values = '';
             foreach ($this->_describe as $field) {
                 if ($this->$field) {
                     $fields .= '`' . $field . '`,';
-                    $values .= '\'' . mysqli_real_escape_string($this->$field) . '\',';
+                    $values .= '\'' . mysqli_real_escape_string($this->_dbHandle, $this->$field) . '\',';
                 }
             }
             $values = substr($values, 0, -1);

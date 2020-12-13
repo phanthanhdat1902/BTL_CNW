@@ -20,6 +20,5 @@ class User extends Model {
     var $email;
     var $google_acount;
     var $facebook_acount;
-    var $hasMany = array('Role' => 'Role');
-
+    var $hasOne = array('Role' => 'Role');
 }
