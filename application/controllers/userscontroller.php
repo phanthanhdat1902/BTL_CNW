@@ -25,12 +25,11 @@ class UsersController extends Controller {
 
     function login() {
         if (isset($_POST['email']) && isset($_POST['password'])) {
-            $username = $_POST['email'];
+            $email = $_POST['email'];
             $password = $_POST['password'];
-            $this->User->where('email', $username);
-            $this->User->where('password', $password);
+            $this->User->where('email', $email);
             $user = $this->User->search();
-            if ($user) {
+            if (password_verify($password, $user[0]['User']['password'])) {
                 $this->set('user', $user);
                 session_start();
                 $_SESSION["email"] = $user[0]['User']['email'];
@@ -63,14 +62,23 @@ class UsersController extends Controller {
     function register() {
         if (isset($_POST['email']) && isset($_POST['password'])) {
             $email = $_POST['email'];
-            $password = $_POST['password'];
-            $this->User->email = $email;
-            $this->User->password = $password;
-            $this->User->id_role = 1;
-            $this->User->create_time = gmdate('Y-m-d h:i:s \G\M\T');
-            $result = $this->User->save();
-            $this->_template->_action = 'index';
-            $this->set('result', $result);
+            $this->User->where('email', $email);
+            $searchResult = $this->User->search();
+            if ($searchResult == null) {
+                $password = $_POST['password'];
+                $this->User->email = $email;
+                $this->User->password = password_hash($password, PASSWORD_DEFAULT);
+                $this->User->id_role = 1;
+                $this->User->create_time = gmdate('Y-m-d h:i:s \G\M\T');
+                $result = $this->User->save();
+                session_start();
+                $_SESSION["email"] = $email;
+                header("Location:index");
+            } else {
+                $this->set('result', false);
+            }
+        } else {
+            $this->set('result', true);
         }
     }
 

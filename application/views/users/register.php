@@ -15,13 +15,12 @@
     </head>
     <body>
         <div class="form">
-            <?php if(!isset($result)){ ?>
-            <script>
-                alert('Đăng ký thành công');
-            </script>
-            <?php }else {?>
-            
-            <?php }?>
+            <?php if (!$result) { ?>
+                <script>
+                    alert('Đã tồn tại email đăng nhập');
+                </script>
+            <?php } else { ?>
+            <?php } ?>
             <form action="register" method="POST">
                 <h3 class="text_register"> Đăng kí bằng:</h3>
                 <div class="By">

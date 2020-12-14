@@ -44,11 +44,11 @@ class SQLQuery {
 
     /** Select Query * */
     function where($field, $value) {
-        $this->_extraConditions .= '`' . $this->_model . '`.`' . $field . '` = \'' . mysqli_real_escape_string($this->_dbHandle, $value) . '\' AND ';
+        $this->_extraConditions .= '`' . $this->_model . '`.`' . $field . '` = \'' . mysqli_real_escape_string($this->_dbHandle, htmlentities($value, ENT_QUOTES)) . '\' AND ';
     }
 
     function like($field, $value) {
-        $this->_extraConditions .= '`' . $this->_model . '`.`' . $field . '` LIKE \'%' . mysqli_real_escape_string($this->_dbHandle, $value) . '%\' AND ';
+        $this->_extraConditions .= '`' . $this->_model . '`.`' . $field . '` LIKE \'%' . mysqli_real_escape_string($this->_dbHandle, htmlentities($value, ENT_QUOTES)) . '%\' AND ';
     }
 
     function showHasOne() {
@@ -340,7 +340,7 @@ class SQLQuery {
             foreach ($this->_describe as $field) {
                 if ($this->$field) {
                     $fields .= '`' . $field . '`,';
-                    $values .= '\'' . mysqli_real_escape_string($this->_dbHandle, $this->$field) . '\',';
+                    $values .= '\'' . mysqli_real_escape_string($this->_dbHandle, htmlentities($this->$field, ENT_QUOTES)) . '\',';
                 }
             }
             $values = substr($values, 0, -1);
