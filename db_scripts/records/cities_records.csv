@@ -1,0 +1,65 @@
+id_city,name,number_of_hotels,image
+1,"An Giang",0,NULL
+2,"Bà Rịa - Vũng Tàu",0,NULL
+3,"Bắc Giang",0,NULL
+4,"Bắc Kạn",0,NULL
+5,"Bạc Liêu",0,NULL
+6,"Bắc Ninh",0,NULL
+7,"Bến Tre",0,NULL
+8,"Bình Định",0,NULL
+9,"Bình Dương",0,NULL
+10,"Bình Phước",0,NULL
+11,"Bình Thuận",0,NULL
+12,"Cà Mau",0,NULL
+13,"Cao Bằng",0,NULL
+14,"Đắk Lắk",0,NULL
+15,"Đắk Nông",0,NULL
+16,"Điện Biên",0,NULL
+17,"Đồng Nai",0,NULL
+18,"Đồng Tháp",0,NULL
+19,"Gia Lai",0,NULL
+20,"Hà Giang",0,NULL
+21,"Hà Nam",0,NULL
+22,"Hà Tĩnh",0,NULL
+23,"Hải Dương",0,NULL
+24,"Hậu Giang",0,NULL
+25,"Hoà Bình",0,NULL
+26,"Hưng Yên",0,NULL
+27,"Khánh Hoà",0,NULL
+28,"Kiên Giang",0,NULL
+29,"Kon Tum",0,NULL
+30,"Lai Châu",0,NULL
+31,"Lâm Đồng",0,NULL
+32,"Lạng Sơn",0,NULL
+33,"Lào Cai",0,NULL
+34,"Long An",0,NULL
+35,"Nam Định",0,NULL
+36,"Nghệ An",0,NULL
+37,"Ninh Bình",0,NULL
+38,"Ninh Thuận",0,NULL
+39,"Phú Thọ",0,NULL
+40,"Quảng Bình",0,NULL
+41,"Quảng Nam",0,NULL
+42,"Quảng Ngãi",0,NULL
+43,"Quảng Ninh",0,NULL
+44,"Quảng Trị",0,NULL
+45,"Sóc Trăng",0,NULL
+46,"Sơn La",0,NULL
+47,"Tây Ninh",0,NULL
+48,"Thái Bình",0,NULL
+49,"Thái Nguyên",0,NULL
+50,"Thanh Hoá",0,NULL
+51,"Thừa Thiên Huế",0,NULL
+52,"Tiền Giang",0,NULL
+53,"Trà Vinh",0,NULL
+54,"Tuyên Quang",0,NULL
+55,"Vĩnh Long",0,NULL
+56,"Vĩnh Phúc",0,NULL
+57,"Yên Bái",0,NULL
+58,"Phú Yên",0,NULL
+59,"Cần Thơ",0,NULL
+60,"Thừa Thiên Huế",0,NULL
+61,"Đà Nẵng",0,NULL
+62,"Hải Phòng",0,NULL
+63,"Hà Nội",0,NULL
+64,"Thành phố Hồ Chí Minh",0,NULL
