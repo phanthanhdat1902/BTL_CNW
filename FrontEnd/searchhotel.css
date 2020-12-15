@@ -1,0 +1,284 @@
+
+/* header */
+body{
+    margin: 0;
+    min-width: 300px;
+  }
+  
+  .header {
+    background-color: #003C71;
+    height: 60px;
+  }
+  .header .container .logo{
+    color: white;
+    float: left;
+    cursor: pointer;
+  }
+  .header .container{
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  .header .container .navHeader{
+    list-style: none;
+    float: left;
+    line-height: 28px;
+  }
+  .header .container .navHeader li{
+    font-size: 16px;
+    padding: 10px;
+    display: inline;
+    position:relative;
+  }
+  .header .container .navHeader li a{
+    color: white;
+    text-decoration: none;
+    padding: 7px 10px;
+    border-radius: 5px;
+  }
+  .header .container .navHeader li a:hover{
+    border: 1px solid white;
+    transition: .5s;
+  }
+  
+  .header .container .navHeader .subMenu{
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: -40px;
+    width: 200px;
+    background-color: #003C71;
+  }
+  .header .container .navHeader .subMenu li{
+    display: block;
+  }
+  .header .container .navHeader li:hover>.subMenu{
+    display: block;
+  }
+  
+  .header .container .userControl{
+    float: right;
+    display: flex;
+    line-height: 50px;
+    margin: 5px;
+  }
+  .header .container .userControl a{
+    text-decoration: none;
+    margin-right: 10px;
+    color: white;
+    
+  }
+  .header .container #btnMenu{
+   color: white;
+   display: none;
+  }
+  .header .container #btnMenu:hover{
+    cursor: pointer;
+    border: 1px solid white;
+    transition: .5s;
+    border-radius: 5px;
+    width: 40px;
+    font-size: 30px;
+    text-align: center;
+  }
+  @media(max-width:1000px){
+    .header .container .navHeader{
+        display: none;
+    }
+    .header .container .navHeader.responsive{
+        position: absolute;
+        top:43px;
+        left: 0px;
+        display: block;
+        background-color: #003C71;
+        width: 100%;
+        overflow: hidden;
+    }
+    .header .container #btnMenu{
+        display: block;
+    }
+    .header .container .navHeader li{
+        display: block;
+        text-align: center;
+        border-bottom: 1px solid white
+    }
+  }
+  .tourHomeHeader{
+    height: 492px;
+    background-image: url("/image/moc-chau2.png");
+    padding: 50px 0px;
+  }
+  .tourHomeHeader .container {
+    width: 750px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .tourHomeHeader .container .title{
+    color: white;
+  }
+  .tourHomeHeader .container .searchForm{
+    padding: 15px;
+    background: rgba(0,0,0,0.3);
+    text-align: center;
+  }
+  .tourHomeHeader .container .searchForm input{
+    outline: #e0e0e0;
+    border: 1px solid#e0e0e0;
+    border-radius: 5px;
+    padding: 16px;
+    margin: 5px;
+    font-size: 16px;
+    height: 60px;
+  }
+  .tourHomeHeader .container .searchForm .btnSearch{
+    background: #f79321;
+  }
+  
+
+/* search */
+@media screen and (max-width: 900px) {
+    .left {
+        display: none;
+    }
+    .right{
+        margin-left: auto;
+        margin-right: auto;
+    }
+  }
+  
+.container {
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 1800px;
+    display: flex;
+    flex-direction: row;
+}
+.left {
+    width: 25%;
+    
+}
+.right {
+    width: 75%;
+    height: 100%;
+    background-color: white;
+}
+
+
+/* left */
+.left .support .avatar {
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 120px;
+    height: 120px;
+    background-image: url('/image/da lat.jpg');
+    border-radius: 50%;
+}
+.support {
+    margin-left: 5px;
+    width: 90%;
+    height: 180px;
+    display: flex;
+    flex-direction: row;
+    border:1px solid orange;
+    border-radius: 2%;
+}
+.support .numberphone {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    color: orange;
+}
+.support .numberphone .number {
+    margin-left: 10px;
+}
+.star {
+    margin-top: 4%;
+    margin-left: 5px;
+    width: 90%;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    border:1px solid orange;
+    border-radius: 2%;
+}
+.star .search {
+    margin-left: 10px;
+    width: 80%;
+    height: 30px;
+    margin-top: 5%;
+}
+.left .title {
+    margin-left: 10px;
+   font-size: 18px;
+}
+.left .checkbox_star {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column-reverse;
+    color: orange;
+}
+.left .checkbox:hover {
+    color: blue;
+}
+.experience {
+    margin-top: 2%;
+    margin-left: 5px;
+    width: 90%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    border:1px solid orange;
+    border-radius: 2%;
+}
+.experience .detail {
+    margin-left: 10px;
+}
+
+/* right */
+
+
+.container .right .hotel_combo {
+    margin-left: 5%;
+    
+}
+.container .right .hotel_item_combo{
+    width: 90%;
+    height: 200px;
+    background-color: white; 
+    border-radius: 3%;
+    border:1px solid orange;
+    margin-top: 3%;
+}
+.container .right .title {
+    width: 100%px;
+    height: 30px;
+    background-color: orange;
+}
+.container .right .hotel_item {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.container  .right .hotel_item .left{
+    width: 15%;
+    background-image: url('/image/moc-chau2.png');
+}
+.container  .right .hotel_item .left .voucher{
+    width: 90%;
+    height: 25px;
+    background-color:#f79321;
+    
+}
+
+
+.container .right .hotel_item .center {
+    width: 60%;
+    margin-left: 5%;
+}
+.container .right .hotel_item .right_item {
+    width: 20%;
+}

@@ -1,0 +1,25 @@
+.container .row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.container .row .column {
+    background-image: url('/image/vungtau_detil.jpg');
+    margin: 3%;
+}
+
+@media screen and (max-width: 900px) {
+    .col_1 {
+      width: 50%;
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .col_1 {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
