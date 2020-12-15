@@ -263,47 +263,82 @@ body{
     height: 250px;
   }
   .area{
-    display: grid;
     width: 100%;
-    height: 600px;
-    /* background-color: teal; */
-    grid-template-columns: auto auto auto;
-    padding: 10px;
-    grid-gap: 10px;
+    height: 800px;
   }
-  .area_1{
-    grid-column: 1 /5;
-    /* background-color: tomato; */
+  .area .row_1 {
+    width: 100%;
+    height: 23.8%;
+    display: flex;
+    flex-direction: row;
+  }
+  .area .row_1 .area_1 {
+    height: 100%;
+    width: 45%;
     background-image: url('/image/phuquoc-755x190.jpg');
   }
-  .area_2 {
-    grid-row: 2/ span 4;
-    background-color: yellow;
-    background-image: url('/image/nhatrang_1-370x190.jpg');
-  }
-  .area_3 {
-    grid-column: 2/5;
-    background-color: yellowgreen;
+  .area .row_1 .area_2 {
+    height: 100%;
+    width: 26.5%;
     background-image: url('/image/quynhon_2-370x190.jpg');
+    margin-left: 1%;
   }
-  .area_4 {
-    grid-row: 3/ span 3;
-    background-color: whitesmoke;
-    background-image: url('/image/Vung_tau.png');
-  }
-  .area_5 {
-    grid-row: 3 /span 3;
-    background-color: #f79321;
-    background-image: url('/image/da-lat-755x190.jfif');
-  }
-  .area_6 {
-    grid-row: 3 /span 3;
-    background-color: blueviolet;
+  .area .row_1 .area_3{
+    height: 100%;
+    width: 26.5%;
     background-image: url('/image/sa-pa-370x190.jfif');
+    margin-left: 1%;
   }
-  .area p{
-    font-size: 30px;
-    color: white;
-    margin-left: 10px;
+    
+  .area .row_2 {
+   
+    width: 100%;
+    height: 42%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+  }
+  .area .row_2 .area_4{
+    width: 37%;
+    height: 100%;
+    background-image: url('/image/Da Nang.jpg');
+  }
+  .area .row_2 .area_5 {
+    width: 62%;
+    height: 100%;
+    background-image: url('/image/da lat.jpg');
+    margin-left: 1%;
+  }
+  .area .row_3 {
+   
+    width: 100%;
+    height: 24%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+  }
 
+  .area .row_3 .area_6 {
+    height: 100%;
+    width: 30%;
+    background-image: url('/image/vungtau_2-370x395.jpg');
+  }
+  .area .row_3 .area_7 {
+    height: 100%;
+    width: 34%;
+    background-image: url('/image/Nha trang.jpg');
+    margin-left: 1%;
+  }
+
+  .area .row_3 .area_8 {
+    height: 100%;
+    width: 34%;
+    background-image: url('/image/moc-chau2.png');
+    margin-left: 1%;
+  }
+
+  .Content_3 .area .name {
+    color: white;
+    font-size: 35px;
+    padding-left: 10px;
   }
