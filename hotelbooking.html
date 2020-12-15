@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel booking</title>
+    <link rel="stylesheet" href="hotelbooking.css">
+</head>
+<script>
+    function showMenu() {
+        var myMenu = document.getElementById("myMenu");
+        if (myMenu.className === "navHeader") {
+            myMenu.className += " responsive";
+        } else {
+            myMenu.className = "navHeader";
+        }
+    }
+</script>
+<body>
+
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <h4>LOGO</h4>
+            </div>
+            <ul class="navHeader" id="myMenu">
+                <li><a href="#">Khách sạn</a></li>
+                <li><a href="#">Tour</a></li>
+                <li><a href="#">Vé máy bay</a></li>
+                <li><a href="#">Cẩm nang du lịch</a></li>
+                <li><a href="#">...</a>
+                    <ul class="subMenu">
+                        <li><a href="#">Tài khoản đặt tour</a></li>
+                        <li><a href="#">Ưu đãi đặc biệt</a></li>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Hỏi đáp</a></li>
+                        <li><a href="#">Hỗ trợ</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="userControl">
+                <a href="#">Đăng ký</a>
+                <a href="#">Đăng nhập</a>
+                <span id="btnMenu" onclick="showMenu()">&#9776;</span>
+            </div>
+        </div>
+    </div>
+    <div class="tourHomeHeader">
+        <div class="container">
+            <div class="">
+                <div class="title">
+                    <h1>Du lịch theo phong cách riêng</h1>
+                    <h2>Trải nghiệm trọn vẹn - Giá cả phải chăng.</h2>
+                </div>
+            </div>
+            <div class="searchForm">
+                <input type="text" placeholder="search here ..." style="width: 100%;">
+                <input type="date">
+                <input type="text" placeholder="Khởi hành từ">
+                <input type="button" class="btnSearch" value="Tìm kiếm">
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+        </div>
+
+<!-- Content -->
+    <div class="container">
+        <div class="left">
+            <p class="title">
+                Trải nghiệm phải thử ở InterContinental Đà Nẵng Sun Peninsula Resort </p>
+            <p class="detail">
+                - Thoải mái bơi lội trong làn nước ấm áp với 2 hồ bơi rộng lớn ở khuôn viên Resort
+
+                - Thưởng thức những viên kem miễn phí mát lạnh khi lưu trú tại Resort
+
+                - Nhấm nháp 01 Ly rượu vang hay đơn giản các loại Cocktail, Smoothies... tại The Long Bar với kiến trúc
+                độc đáo, gần ngay bên cạnh hồ bơi trẻ em
+
+                - Hòa mình vào loạt hoạt động thú vị tại Resort: Lướt ván buồm, chèo kayak, lặn ngắm san hô ở vùng biển
+                lặng sóng của vịnh Bãi Bắc riêng tư hay thư giãn với các động tác uyển chuyển của Thái Cực Quyền và Yoga
+
+                - Thiên đường mua sắm Heritage Village nơi quý khách có thể tìm thấy những món quà ý nghĩa dành cho bạn
+                bè người thân hay đơn giản dành riêng cho bản thân mình
+            </p>
+            <p class="Khachsantuongtu"> Khách sạn tương tự</p>
+            <div class="hotel_item">
+                <div class="hotel_image"></div>
+                <div class="hotel_infor">
+                    <p>Khách sạn đà nẵng</p>
+                    <p> 7 đánh giá </p>
+                </div>
+            </div>
+            <div class="hotel_item">
+                <div class="hotel_image"></div>
+                <div class="hotel_infor">
+                    <p>Khách sạn đà nẵng</p>
+                    <p> 7 đánh giá </p>
+                </div>
+            </div>
+            <div class="hotel_item">
+                <div class="hotel_image"></div>
+                <div class="hotel_infor">
+                    <p>Khách sạn đà nẵng</p>
+                    <p> 7 đánh giá </p>
+                </div>
+            </div>
+            <div class="hotel_item">
+                <div class="hotel_image"></div>
+                <div class="hotel_infor">
+                    <p>Khách sạn đà nẵng</p>
+                    <p> 7 đánh giá </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="right">
+            <div class="hotel_booking_header">
+                <p class="title">
+                    InterContinental Đà Nẵng Sun Peninsula Resort
+                </p>
+                <label class="title_price"> Giá chỉ từ <p class="price"> 37.065.000 VNĐ</p></label>
+                <input type="submit" class="submit" value="Đặt ngay">
+            </div>
+            <!-- full slideshow -->
+            <div class="slideshow">
+                <div class="mySlide">
+                    <img src="/image/image_1.jpg" style="width: 100%;">
+                </div>
+                <div class="mySlide">
+                    <img src="/image/image_2.png" style="width: 100%;">
+                </div>
+                <div class="mySlide">
+                    <img src="/image/image_3.jpg" style="width: 100%;">
+                </div>
+                <div class="mySlide">
+                    <img src="/image/image_4.jpg" style="width: 100%;">
+                </div>
+                <div class="mySlide">
+                    <img src="/image/image_5.jpg" style="width: 100%;">
+                </div>
+                <div class="mySlide">
+                    <img src="/image/image_6.jpg" style="width: 100%;">
+                </div>
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                <!-- Line image -->
+
+                <div class="row">
+                    <div class="column">
+                        <img class="demo cursor" src="/image/image_1.jpg" style="width:100%" onclick="currentSlide(1)">
+                    </div>
+                    <div class="column">
+                        <img class="demo cursor" src="/image/image_2.png" style="width:100%" onclick="currentSlide(2)">
+                    </div>
+                    <div class="column">
+                        <img class="demo cursor" src="/image/image_3.jpg" style="width:100%" onclick="currentSlide(3)">
+                    </div>
+                    <div class="column">
+                        <img class="demo cursor" src="/image/image_4.jpg" style="width:100%" onclick="currentSlide(4)">
+                    </div>
+                    <div class="column">
+                        <img class="demo cursor" src="/image/image_5.jpg" style="width:100%" onclick="currentSlide(5)">
+                    </div>
+                    <div class="column">
+                        <img class="demo cursor" src="/image/image_6.jpg" style="width:100%" onclick="currentSlide(6)">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail -->
+            <div class="detail">
+                <div class="detail_left">
+                    <p class="title">
+                        Kì nghỉ đẳng cấp 2N1Đ + Phòng ban công riêng hướng biển +
+                        Vé máy bay + Ăn sáng + Voucher + Miễn phí trẻ em
+                    </p>
+                    <p class="combo_detail">
+                        Miễn phí trẻ em
+                        Combo bao gồm
+                        - Vé máy bay khứ hồi
+                        - 01 đêm nghỉ dưỡng tại phòng Resort Classic Room đẳng cấp từ thiết kế của kiến trúc sư đại tài
+                        Bill Bensley
+                        - Bữa sáng tuyệt vời tại Nhà hàng Citron/ Club Lounge với tầm nhìn toàn Vịnh Biển của Bán Đảo
+                        Sơn Trà
+                        - Tặng Resort Credit 1,000,000/phòng, sử dụng cho các dịch vụ Ăn uống và Spa (trừ La Maison
+                        1888) (*)
+                        - Miễn phí ăn sáng 01 trẻ em dưới 12 tuổi (ngủ chung giường với ba mẹ) - áp dụng đến 24/12/2020
+                        - Thoải mái bơi lội trong làn nước ấm áp với 2 hồ bơi rộng lớn ở khuôn viên Resort
+                        - Sử dụng phòng Gym với các trang thiết bị hiện đại
+                        - Hòa mình vào loạt hoạt động thú vị tại Resort: Lướt ván buồm, chèo kayak, lặn ngắm san hô ở
+                        vùng biển lặng sóng của vịnh Bãi Bắc riêng tư hay thư giãn với các động tác uyển chuyển của Thái
+                        Cực Quyền và Yoga
+                        * Áp dụng lưu trú các ngày trong tuần đến 24/12/2020 (Từ Chủ Nhật - Thứ 5)
+                    </p>
+                </div>
+                <div class="detail_right">
+                    <div class="">Khởi hành từ Hồ Chí Minh</div>
+                    <div class="khoihanh"> 
+                        <div class="time">01/12 → 24/12</div>
+                        <div class="price">5.699.000đ</div>
+                    </div>
+
+                    <div class="">Khởi hành từ Hồ Chí Minh</div>
+                    <div class="khoihanh"> 
+                        <div class="time">01/12 → 24/12</div>
+                        <div class="price">5.699.000đ</div>
+                    </div>
+
+                    <div class="">Khởi hành từ Hồ Chí Minh</div>
+                    <div class="khoihanh"> 
+                        <div class="time">01/12 → 24/12</div>
+                        <div class="price">5.699.000đ</div>
+                    </div>
+                    <div class="">Khởi hành từ Hồ Chí Minh</div>
+                    <div class="khoihanh"> 
+                        <div class="time">01/12 → 24/12</div>
+                        <div class="price">5.699.000đ</div>
+                    </div>
+                    <div class="">Khởi hành từ Hồ Chí Minh</div>
+                    <div class="khoihanh"> 
+                        <div class="time">01/12 → 24/12</div>
+                        <div class="price">5.699.000đ</div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="hotelbooking.js"></script>
+
+</body>
+
+</html>
