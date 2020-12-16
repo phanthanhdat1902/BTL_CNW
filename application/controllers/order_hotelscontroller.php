@@ -11,6 +11,6 @@
  *
  * @author dat.pt173001
  */
-class order_hotelscontroller {
+class Order_hotelsController {
     //put your code here
 }

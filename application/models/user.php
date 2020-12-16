@@ -21,4 +21,5 @@ class User extends Model {
     var $google_acount;
     var $facebook_acount;
     var $hasOne = array('Role' => 'Role');
+    var $hasMany=array('Order'=>'Order');
 }

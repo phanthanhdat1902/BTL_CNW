@@ -8,5 +8,6 @@
 
  * */
 $irregularWords = array(
-    'city' => 'cities'
+    'city' => 'cities',
+    'utility' =>'utilities'
 );

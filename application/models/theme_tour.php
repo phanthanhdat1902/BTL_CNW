@@ -13,6 +13,7 @@
  */
 class Theme_tour extends Model {
 
-    var $hasMany = array('Tour' => 'Tour');
+    var $hasMany = array('Tour' => 'Tour',
+        'city'=>'City');
 
 }

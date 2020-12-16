@@ -15,6 +15,7 @@ class SQLQuery {
     protected $_hMABTM;
     protected $_page;
     protected $_limit;
+    protected $_left_On;
 
     /** Connects to database * */
     function connect($address, $account, $pwd, $name) {
@@ -76,6 +77,16 @@ class SQLQuery {
         $this->_order = $order;
     }
 
+    function leftOn($nameTable1, $field, $nameTable2 = null) {
+        if ($nameTable2 == null) {
+            $this->_left_On .= 'LEFT JOIN `' . $nameTable1 . '` as `' . $nameTable1. '` ';
+            $this->_left_On .= 'ON `' . $nameTable1 . '`.`' . $field . '` = `' . $this->_model . '`' . '.`' . $field . '`';
+        } else {
+            $this->_left_On .= 'LEFT JOIN `' . $nameTable1 . '` as `' . $nameTable1 . '` ';
+            $this->_left_On .= 'ON `' . $nameTable1 . '`.`' . $field . '` = `' . $nameTable2 . '`' . '.`' . $field . '`';
+        }
+    }
+
     function search() {
 
         global $inflect;
@@ -84,19 +95,21 @@ class SQLQuery {
         $conditions = '\'1\'=\'1\' AND ';
         $conditionsChild = '';
         $fromChild = '';
-
+        if (isset($this->_left_On)) {
+            $from .= $this->_left_On;
+        }
         if ($this->_hO == 1 && isset($this->hasOne)) {
 
             foreach ($this->hasOne as $alias => $model) {
                 $table = strtolower($inflect->pluralize($model));
                 $singularAlias = strtolower($alias);
                 $from .= 'LEFT JOIN `' . $table . '` as `' . $alias . '` ';
-                $from .= 'ON `' . $this->_model . '`.`' . $singularAlias . '_id` = `' . $alias . '`.`id`  ';
+                $from .= 'ON `' . $this->_model . '`.`id_' . $singularAlias . '` = `id_' . $alias . '`';
             }
         }
 
-        if ($this->id) {
-            $conditions .= '`' . $this->_model . '`.`id` = \'' . mysqli_real_escape_string($this->_dbHandle, $this->id) . '\' AND ';
+        if (isset($this->id)) {
+            $conditions .= '`' . $this->_model . '`.`id_'.$this->_model.'` = \'' . mysqli_real_escape_string($this->_dbHandle, $this->id) . '\' AND ';
         }
 
         if ($this->_extraConditions) {
@@ -307,7 +320,7 @@ class SQLQuery {
     /** Delete an Object * */
     function delete() {
         if ($this->id) {
-            $query = 'DELETE FROM ' . $this->_table . ' WHERE `id`=\'' . mysqli_real_escape_string($this->_dbHandle, $this->id) . '\'';
+            $query = 'DELETE FROM ' . $this->_table . ' WHERE `id_'.$this->_models.'`=\'' . mysqli_real_escape_string($this->_dbHandle, $this->id) . '\'';
             $this->_result = mysqli_query($this->_dbHandle, $query);
             $this->clear();
             if ($this->_result == 0) {
@@ -333,14 +346,19 @@ class SQLQuery {
 
             $updates = substr($updates, 0, -1);
 
-            $query = 'UPDATE ' . $this->_table . ' SET ' . $updates . ' WHERE `id`=\'' . mysqli_real_escape_string($this->_dbHandle, $this->id) . '\'';
+            $query = 'UPDATE ' . $this->_table . ' SET ' . $updates . ' WHERE `id_'.$this->_model.'`=\'' . mysqli_real_escape_string($this->_dbHandle, $this->id) . '\'';
         } else {
             $fields = '';
             $values = '';
             foreach ($this->_describe as $field) {
                 if ($this->$field) {
-                    $fields .= '`' . $field . '`,';
-                    $values .= '\'' . mysqli_real_escape_string($this->_dbHandle, htmlentities($this->$field, ENT_QUOTES)) . '\',';
+                    if (strpos($field, 'id') === 0) {
+                        $fields .= '`' . $field . '`,';
+                        $values .= mysqli_real_escape_string($this->_dbHandle, htmlentities($this->$field, ENT_QUOTES)) . ',';
+                    } else {
+                        $fields .= '`' . $field . '`,';
+                        $values .= '\'' . mysqli_real_escape_string($this->_dbHandle, htmlentities($this->$field, ENT_QUOTES)) . '\',';
+                    }
                 }
             }
             $values = substr($values, 0, -1);

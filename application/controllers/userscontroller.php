@@ -63,17 +63,22 @@ class UsersController extends Controller {
         if (isset($_POST['email']) && isset($_POST['password'])) {
             $email = $_POST['email'];
             $this->User->where('email', $email);
+            $this->User->showHasOne();
             $searchResult = $this->User->search();
             if ($searchResult == null) {
                 $password = $_POST['password'];
                 $this->User->email = $email;
                 $this->User->password = password_hash($password, PASSWORD_DEFAULT);
                 $this->User->id_role = 1;
-                $this->User->create_time = gmdate('Y-m-d h:i:s \G\M\T');
+                $this->User->create_time = gmdate('Y-m-d h:i:s');
                 $result = $this->User->save();
-                session_start();
-                $_SESSION["email"] = $email;
-                header("Location:index");
+                if ($result != -1) {
+                    session_start();
+                    $_SESSION["email"] = $email;
+                    header("Location:index");
+                } else {
+                    $this->set('result', false);
+                }
             } else {
                 $this->set('result', false);
             }
