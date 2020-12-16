@@ -22,6 +22,7 @@ class Theme_toursController extends Controller{
         $this->Theme_tour->showHasMany();
         $tour_theme=$this->Theme_tour->search();
         $this->set('tour_theme',$tour_theme);
+        echo 'haha';
     }
     function afterAction(){
         
