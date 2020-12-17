@@ -1,114 +1,72 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<?php
+$result = substr($_SERVER['REQUEST_URI'], 9);
+SETCOOKIE("currentURL", $result, 0, "/");
+session_start();
+//$user_ip = getenv('REMOTE_ADDR');
+//$geo = unserialize(file_get_contents("http://www.geoplugin.net/php.gp?ip=58.186.57.196"));
+//echo $geo[''];
+?>
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>My E-Commerce Website</title>
-        <style>
-            html, body, div, span, applet, object, iframe,
-            h2, h2, h3, h4, h5, h6, p, blockquote, pre,
-            a, abbr, acronym, address, big, cite, code,
-            del, dfn, em, font, img, ins, kbd, q, s, samp,
-            small, strike, strong, sub, sup, tt, var,
-            dl, dt, dd, ol, ul, li,
-            fieldset, form, label, legend,
-            table, caption, tbody, tfoot, thead, tr, th, td {
-                margin: 0;
-                padding: 0;
-                border: 0;
-                outline: 0;
-                font-weight: inherit;
-                font-style: inherit;
-                font-size: 100%;
-                font-family: inherit;
-                vertical-align: baseline;
-            }
-            /* remember to define focus styles! */
-            :focus {
-                outline: 0;
-            }
-            body {
-                line-height: 1;
-                color: black;
-                background: white;
-
-            }
-            ol, ul {
-                list-style: none;
-            }
-
-            table {
-                border-collapse: separate;
-                border-spacing: 0;
-            }
-            caption, th, td {
-                text-align: left;
-                font-weight: normal;
-            }
-            blockquote:before, blockquote:after,
-            q:before, q:after {
-                content: "";
-            }
-            blockquote, q {
-                quotes: "" "";
-            }
-            html { overflow: -moz-scrollbars-vertical; }
-            html { overflow-x: auto; }
-
-
-
-            h1 {
-                color:#000000;
-                font-family: Cambria, serif;
-                font-size: 34px;
-                font-style: normal;
-                font-weight: bold;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                line-height: 1.7em;
-                padding:0;
-                margin:0;
-                padding:10px;
-            }
-
-            h2 {
-                color:#000000;
-                font-family: Cambria, serif;
-                font-size: 14px;
-                font-style: normal;
-                font-weight: bold;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                line-height: 1.7em;
-                padding:0;
-                margin:0;
-                padding:10px;
-            }
-
-            .category {
-                font-family: Georgia, "Times New Roman", Times, serif;
-                margin:10px;
-                margin-left:0px;
-                margin-bottom:20px;
-            }
-
-            .tag {
-                font-family: Georgia, "Times New Roman", Times, serif;
-
-                padding:10px;
-            }
-
-            .category a {
-                font-size:14px;
-                padding:10px;
-                color:#333333;
-                text-decoration:none;
-            }
-
-            .category a:hover{ 
-                background-color:#FFFF33
-            }
-        </style>
+        <meta charset="UTF-8">
+        <title>Đặt Tour VIP </title>
+        <link rel="stylesheet" href="../public/css/styleTour.css" />
+        <script src="../public/js/scriptHome.js"></script>
     </head>
-
     <body>
-        <div class="navigation"><h1>My E-Commerce Website</h1>
+        <div class="header">
+            <div class="container">
+                <div class="logo">
+                    <!--                    <h4>LOGO</h4>-->
+                    <img src="../public/img/logo.svg"/>
+                </div>
+                <ul class="navHeader" id="myMenu">
+                    <li><a href="#">Khách sạn</a></li>
+                    <li><a href="#">Tour</a></li>
+                    <li><a href="#">Vé máy bay</a></li>
+                    <li><a href="#">Cẩm nang du lịch</a></li>
+                    <li><a href="#">...</a>
+                        <ul class="subMenu">
+                            <li><a href="#">Tài khoản đặt tour</a></li>
+                            <li><a href="#">Ưu đãi đặc biệt</a></li>
+                            <li><a href="#">Giới thiệu</a></li>
+                            <li><a href="#">Hỏi đáp</a></li>
+                            <li><a href="#">Hỗ trợ</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="userControl">
+                    <?php if (!isset($_SESSION["email"])) {
+                        ?>
+                        <a href="../users/register">Đăng ký</a>
+                        <a href="../users/login">Đăng nhập</a>
+                    <?php } else { ?>
+                        <span style="color:white;">Xin Chào <?php echo $_SESSION["email"]; ?>&nbsp;</span>
+                        <a href="../users/logout">Logout</a>
+                    <?php } ?>
+                    <span id="btnMenu" onclick="showMenu()">&#9776;</span>
+                </div>
+            </div>
+        </div>
+        <div class="tourHomeHeader">
+            <div class="container">
+                <div class="">
+                    <div class="title">
+                        <h1>Du lịch theo phong cách riêng</h1>
+                        <h2>Trải nghiệm trọn vẹn - Giá cả phải chăng.</h2>
+                    </div>
+                </div>
+                <div class="searchForm">
+                    <input type="text" placeholder="Search here ..." style="width: 100%;">
+                    <input type="date">
+                    <input type="text" placeholder="Khởi hành từ">
+                    <input type="button" class="btnSearch" value="Tìm kiếm">
+                </div>
+            </div>
+        </div>

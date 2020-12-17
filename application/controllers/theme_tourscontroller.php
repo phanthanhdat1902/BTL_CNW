@@ -34,8 +34,10 @@ class Theme_toursController extends Controller {
         $template_theme = null;
         for ($i = 0; $i < count($theme_tour); $i++) {
             if (isset($theme_tour[$i + 1]['Theme_tour']['id_theme'])) {
-                if ($id != $theme_tour[$i + 1]['Theme_tour']['id_theme']) {
+                if (isset($theme_tour[$i]['tours']['id_tour'])) {
                     array_push($arrayTour, $theme_tour[$i]['tours']);
+                }
+                if ($id != $theme_tour[$i + 1]['Theme_tour']['id_theme']) {
                     $template_theme = $theme_tour[$i]['Theme_tour'];
                     $template['tours'] = $arrayTour;
                     $template['theme'] = $template_theme;
@@ -43,11 +45,8 @@ class Theme_toursController extends Controller {
                     unset($arrayTour);
                     $arrayTour = array();
                     $id = $theme_tour[$i + 1]['Theme_tour']['id_theme'];
-                } else {
-                    array_push($arrayTour, $theme_tour[$i]['tours']);
                 }
             } else {
-                array_push($arrayTour, $theme_tour[$i]['tours']);
                 $template['tours'] = $arrayTour;
                 $template['theme'] = $template_theme;
                 array_push($result, $template);

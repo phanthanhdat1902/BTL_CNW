@@ -1,0 +1,332 @@
+
+body{
+    margin: 0;
+    min-width: 300px;
+}
+
+.header {
+    background-color: #003C71;
+    height: 60px;
+}
+.header .container .logo{
+    color: white;
+    float: left;
+    cursor: pointer;
+}
+.header .container{
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.header .container .navHeader{
+    list-style: none;
+    float: left;
+    line-height: 28px;
+}
+.header .container .navHeader li{
+    font-size: 16px;
+    padding: 10px;
+    display: inline;
+    position:relative;
+}
+.header .container .navHeader li a{
+    color: white;
+    text-decoration: none;
+    padding: 7px 10px;
+    border-radius: 5px;
+}
+.header .container .navHeader li a:hover{
+    border: 1px solid white;
+    transition: .5s;
+}
+
+.header .container .navHeader .subMenu{
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: -40px;
+    width: 200px;
+    background-color: #003C71;
+}
+.header .container .navHeader .subMenu li{
+    display: block;
+}
+.header .container .navHeader li:hover>.subMenu{
+    display: block;
+}
+
+.header .container .userControl{
+    float: right;
+    display: flex;
+    line-height: 50px;
+    margin: 5px;
+}
+.header .container .userControl a{
+    text-decoration: none;
+    margin-right: 10px;
+    color: white;
+    
+}
+.header .container #btnMenu{
+   color: white;
+   display: none;
+}
+.header .container #btnMenu:hover{
+    cursor: pointer;
+    border: 1px solid white;
+    transition: .5s;
+    border-radius: 5px;
+    width: 40px;
+    font-size: 30px;
+    text-align: center;
+}
+@media screen and (max-width:1000px){
+    .header .container .navHeader{
+        display: none;
+    }
+    .header .container .navHeader.responsive{
+        position: absolute;
+        top:43px;
+        left: 0px;
+        display: block;
+        background-color: #003C71;
+        width: 100%;
+        overflow: hidden;
+    }
+    .header .container #btnMenu{
+        display: block;
+    }
+    .header .container .navHeader li{
+        display: block;
+        text-align: center;
+        border-bottom: 1px solid white
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.tourHomeHeader{
+    height: 492px;
+    background-image: url("/image/moc-chau2.png");
+    padding: 50px 0px;
+}
+.tourHomeHeader .container {
+    width: 750px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.tourHomeHeader .container .title{
+    color: white;
+}
+.tourHomeHeader .container .searchForm{
+    padding: 15px;
+    background: rgba(0,0,0,0.3);
+    text-align: center;
+}
+.tourHomeHeader .container .searchForm input{
+    outline: #e0e0e0;
+    border: 1px solid#e0e0e0;
+    border-radius: 5px;
+    padding: 16px;
+    margin: 5px;
+    font-size: 16px;
+    height: 60px;
+}
+.tourHomeHeader .container .searchForm .btnSearch{
+    background: #f79321;
+}
+
+.footer {
+    border: 1px solid #eeeeee;
+    background-color:#26272b;
+    color: white;
+    text-align: center;
+}
+.footer a{
+    color: white;
+}
+.content{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.localHeaderLine{
+    position: relative;
+    margin-bottom: 30px;
+    margin-top: 5px;
+    border-bottom: 2px solid #003C71;
+    padding: 10px;
+}
+.localHeaderLine a{
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+}
+.localHeaderLine a .title{
+    font-size: 32px;
+}
+.localHeaderLine a .readMoreTuor{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;;
+
+}
+
+
+
+
+
+/*
+Xem ky nhes
+*/
+
+* {
+    box-sizing: border-box;
+  }
+  
+/*
+responsive colum 
+*/
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    min-width: 200px; 
+}
+  /* Clear floats after the columns */
+.row {
+    content: "";
+    display: table;
+    clear: both;
+    width: 100%;
+}
+  /* Responsive layout - when the screen is less than 600px wide, make the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+      min-width: 400px;
+    }
+    .col_x{
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .column {
+      width: 50%;
+      margin-bottom: 20px;
+      min-width: 300px;
+    }
+    .col_x{
+      width: 50%;
+      margin-bottom: 20px;
+      min-width: 300px;
+    }
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    background-color: #f1f1f1;
+  }
+.card .col_img{
+    width: 100%;
+}
+.card .col_1{
+    width: 100%;
+    padding: 0px 16px 0px 16px;
+}
+.card img {
+    width: 100%;
+}
+.card .tourName{
+    font-weight: bold;
+    font-size: 16px;
+    color: #003C71;
+}
+
+.card .cardItemPrice {
+    width: 100%;
+    text-align: right;
+}
+.card .cardItemPrice span{
+    color: #00C1DE;
+}
+.card .cardItemPrice .price{
+    font-size: 22px;
+    font-weight: bold;
+}
+.card .cardItemPrice .unitPrice{
+    font-size: 13px;
+    font-weight: initial;
+}
+.card .tourListPros{
+    padding-left: 0;
+    margin: 0px;
+    list-style: none;
+    color: #00abc5;
+}
+.card .tourListPros>li{
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+/*
+    Thêm dấu . trước thẻ li
+*/
+.card .tourListPros li:before {
+    content: "\2022  ";
+}
+
+.card .col_1 .tourTime{
+    color: #337ab7;
+}
+.card .col_1 .tourTransport{
+    float: right;
+}
+
+/*
+css với các điểm du lịch phổ biến
+*/
+.row .col_x{
+    float: left;
+    width: 33%;
+    padding: 0 10px;
+    margin-bottom: 20px;
+}
+.row .col_x img{
+    width: 100%;
+}
+.row .col_x .tourItemPopular{
+    width: 100%;
+    position: relative;
+}
+.row .col_x .tourLocation{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    padding: 15px;
+    font-size: 22px;
+    color: white;
+    background: rgba(0,70,126,0.8);
+    width: 100%;
+}

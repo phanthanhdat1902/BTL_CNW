@@ -14,7 +14,7 @@
 class UsersController extends Controller {
 
     function beforeAction() {
-        //check cookie
+        $this->doNotRenderHeader = 1;
     }
 
     /*
@@ -33,7 +33,7 @@ class UsersController extends Controller {
                 $this->set('user', $user);
                 session_start();
                 $_SESSION["email"] = $user[0]['User']['email'];
-                header("Location: " . $_COOKIE['currentURL']);
+                header("Location:http://localhost/BTL_CNW/" . $_COOKIE['currentURL']);
                 return;
             } else {
                 $this->set('isLogin', false);
@@ -50,7 +50,7 @@ class UsersController extends Controller {
     function logout() {
         session_start();
         unset($_SESSION["email"]);
-        header("Location:index");
+        header("Location:http://localhost/BTL_CNW/" . $_COOKIE['currentURL']);
     }
 
     /*
@@ -75,7 +75,7 @@ class UsersController extends Controller {
                 if ($result != -1) {
                     session_start();
                     $_SESSION["email"] = $email;
-                    header("Location:index");
+                    header("Location:http://localhost/BTL_CNW/" . $_COOKIE['currentURL']);
                 } else {
                     $this->set('result', false);
                 }
