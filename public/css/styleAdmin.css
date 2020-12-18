@@ -381,3 +381,17 @@ tr:nth-child(even){
     background-color:#95A5A6 !important;
 }
 /**/
+.pageTable .btn_page{
+    background-color: #ECF0F1;
+    color:#5D6D7E ;
+    padding: 0px;
+    width: 35px;
+    border: 0px;
+    font-size: 24px;
+    font-weight: 100;
+    border-radius: 2px;
+}
+.pageTable input{
+    width: 60px;
+}
+

@@ -27,6 +27,7 @@
                         <a href="#about">About</a>
                         <a href="#contact">Thoát</a>
                     </div>
+
                 </li>
             </ul>
 
@@ -63,11 +64,12 @@
     </div>
     <div class="content show">
         <div class="container">
-            <h1>Danh sách hotel</h1>
+            <h1>Duyệt hotel</h1>
             <div class="action">
                 <div class="action_left">
                     <button id="btnAdd" onclick="onActionBtn(this)">Thêm mới</button>
                     <button id="btnUpdate" class="disable" onclick="onActionBtn(this)">Cập nhật</button>
+                    <button id="btnApproval" class="disable">Duyệt</button>
                     <button id="btnDelete" class="disable">Xóa</button>
                 </div>
                 <div class="action_right">
@@ -82,10 +84,8 @@
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>ID</th>
-                            <th>Tên</th>
-                            <th>Ngày khởi hành</th>
-                            <th>abc</th>
+                            <th>Name</th>
+                            <th>Tiền</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -93,33 +93,13 @@
                             <td>1</td>
                             <td>123</td>
                             <td>Từ a đến b</td>
-                            <td>10/12/2020</td>
-                            <td>xyz</td>
                             <input type="hidden" value="1" name="id">
                         </tr>
                         <tr>
                             <td>1</td>
                             <td>123</td>
                             <td>Từ a đến b</td>
-                            <td>10/12/2020</td>
-                            <td>xyz</td>
                             <input type="hidden" value="2" name="id">
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>123</td>
-                            <td>Từ a đến b</td>
-                            <td>10/12/2020</td>
-                            <td>xyz</td>
-                            <input type="hidden" value="3" name="id">
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>123</td>
-                            <td>Từ a đến b</td>
-                            <td>10/12/2020</td>
-                            <td>xyz</td>
-                            <input type="hidden" value="4" name="id">
                         </tr>
                     </tbody>
                 </table>
@@ -165,37 +145,58 @@
                 </div>
             </div>
         </div>
+        <!-- The Modal Duyệt-->
+        <div id="modalApproval" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="title">
+                        <h2>Bạn duyệt tất cả tour?</h2>
+                    </div>
+                    <div class="btnConfirm">
+                        <button type="button" class="btnConfirmYes" onclick="onActionBtn(this,2)">Yes</button>
+                        <button type="button" class="btnConfirmNo">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="footer">
             <span>Copyright © Your Website 2020</span>
         </div>
     </div>
-
     <script>
-        function onActionBtn(button, status) {
+        function onActionBtn(button,status) {
             var btn = button;
             if (btn.id === "btnAdd") {
                 window.location = "/adminThemHotel.html"
             }
             if (btn.id === "btnUpdate") {
                 if (!btn.classList.contains("disable")) {
-                    /*
-                    Lấy id của user được click
-                    */
-                    var row = Array.from(document.querySelectorAll('.main-table tbody tr.tick input'), el => el.value);
-                    var hotelId = row[0];
-                    alert("tour id: " + hotelId);
-                    //window.location = "/adminThemHotel.html?id="+userId;
+                    //lấy id tour muốn update
+                    var row=Array.from(document.querySelectorAll('.main-table tbody tr.tick input'),el => el.value);
+                    var idTour=row[0];
+                    alert("ID hotel là:"+ idTour);
+                    //
                 }
             }
             //TH bấm yes
-            if (btn.classList.contains("btnConfirmYes")) {
-                var row = Array.from(document.querySelectorAll('.main-table tbody tr.tick input'), el => el.value);
+            if(btn.classList.contains("btnConfirmYes")){
+                var row=Array.from(document.querySelectorAll('.main-table tbody tr.tick input'),el => el.value);
                 //xóa
-                if (status === 1) {
-                    alert("xóa hotel: " + row);
+                if(status===1){
+                    alert("xóa hotel: "+row);
+                }
+                //duyệt
+                if(status===2){
+                    alert("duyệt hotel: "+ row);
                 }
             }
         }
+
     </script>
 </body>
 
