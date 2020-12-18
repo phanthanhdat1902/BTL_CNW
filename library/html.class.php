@@ -21,7 +21,7 @@ class HTML {
     }
 
     function sanitize($data) {
-        return mysql_real_escape_string($data);
+        return mysqli_real_escape_string($data);
     }
 
     function link($text, $path, $prompt = null, $confirmMessage = "Are you sure?") {
@@ -35,12 +35,23 @@ class HTML {
     }
 
     function includeJs($fileName) {
-        $data = '<script src="' . BASE_PATH . '/js/' . $fileName . '.js"></script>';
+        $data = '<script src="' . BASE_PATH . '/public/js/' . $fileName . '.js"></script>';
         return $data;
     }
 
     function includeCss($fileName) {
-        $data = '<style href="' . BASE_PATH . '/css/' . $fileName . '.css"></script>';
+        $data = '<link rel="stylesheet" href="' . BASE_PATH . '/public/css/' . $fileName . '.css">';
+        return $data;
+    }
+
+    function asDollars($value) {
+        if ($value < 0)
+            return "-" . asDollars(-$value);
+        return number_format($value, 0) . ' VND';
+    }
+
+    function includeImg($fileName) {
+        $data = 'style = "background: url(\'http://localhost/BTL_CNW/public/img/'.$fileName.'\') no-repeat center;"';
         return $data;
     }
 

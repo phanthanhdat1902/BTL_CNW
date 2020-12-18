@@ -7,18 +7,19 @@
  */
 
 /**
- * Description of hotelscontroller
+ * Description of theme_hotels
  *
  * @author dat.pt173001
  */
-class HotelsController extends Controller {
+class Theme_hotelsController extends Controller {
 
     function beforeAction() {
-        
+        //check cookie
     }
 
     function viewall() {
-        
+        $theme_hotels = $this->Theme_hotel->search();
+        $this->set('theme_hotels', $theme_hotels);
     }
 
     function afterAction() {

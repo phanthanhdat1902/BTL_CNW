@@ -7,24 +7,29 @@ session_start();
 //echo $geo[''];
 ?>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <meta charset="UTF-8">
         <title>Đặt Tour VIP </title>
-        <link rel="stylesheet" href="../public/css/styleTour.css" />
-        <script src="../public/js/scriptHome.js"></script>
+        <script src="http://localhost/BTL_CNW/public/js/scriptHome.js"></script>
+        <link rel="stylesheet" href="http://localhost/BTL_CNW/public/css/header.css" />
+        <script>
+            function showMenu() {
+                var myMenu = document.getElementById("myMenu");
+                if (myMenu.className === "navHeader") {
+                    myMenu.className += " responsive";
+                } else {
+                    myMenu.className = "navHeader";
+                }
+            }
+        </script>
     </head>
     <body>
-        <div class="header">
+        <div class="header" >
             <div class="container">
                 <div class="logo">
                     <!--                    <h4>LOGO</h4>-->
-                    <img src="../public/img/logo.svg"/>
+                    <img src="http://localhost/BTL_CNW/public/img/logo.svg"/>
                 </div>
                 <ul class="navHeader" id="myMenu">
                     <li><a href="#">Khách sạn</a></li>
@@ -51,22 +56,6 @@ and open the template in the editor.
                         <a href="../users/logout">Logout</a>
                     <?php } ?>
                     <span id="btnMenu" onclick="showMenu()">&#9776;</span>
-                </div>
-            </div>
-        </div>
-        <div class="tourHomeHeader">
-            <div class="container">
-                <div class="">
-                    <div class="title">
-                        <h1>Du lịch theo phong cách riêng</h1>
-                        <h2>Trải nghiệm trọn vẹn - Giá cả phải chăng.</h2>
-                    </div>
-                </div>
-                <div class="searchForm">
-                    <input type="text" placeholder="Search here ..." style="width: 100%;">
-                    <input type="date">
-                    <input type="text" placeholder="Khởi hành từ">
-                    <input type="button" class="btnSearch" value="Tìm kiếm">
                 </div>
             </div>
         </div>

@@ -33,7 +33,7 @@ class UsersController extends Controller {
                 $this->set('user', $user);
                 session_start();
                 $_SESSION["email"] = $user[0]['User']['email'];
-                header("Location:http://localhost/BTL_CNW/" . $_COOKIE['currentURL']);
+                header("Location:" . BASE_PATH . $_COOKIE['currentURL']);
                 return;
             } else {
                 $this->set('isLogin', false);
@@ -50,7 +50,7 @@ class UsersController extends Controller {
     function logout() {
         session_start();
         unset($_SESSION["email"]);
-        header("Location:http://localhost/BTL_CNW/" . $_COOKIE['currentURL']);
+        header("Location:" . BASE_PATH . $_COOKIE['currentURL']);
     }
 
     /*

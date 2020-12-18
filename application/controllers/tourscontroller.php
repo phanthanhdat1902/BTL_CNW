@@ -32,20 +32,15 @@ class ToursController extends Controller {
 
      * Ham thuc hien chuc nang lay thong tin ve Tour theo ID     */
 
-//    function view($idTour=null) {
-//        $this->Tour->where('id_tour', $idTour);
-//        $tour = $this->Tour->search();
-//        $this->set('tour', $tour);
-//    }
-
     function afterAction() {
         
     }
 
-    function view($idTour) {
+    function view($idTour = null) {
         $this->Tour->id = $idTour;
-        $tour=$this->Tour->search();
-        $this->set('tour', $tour);
+        $tour = $this->Tour->search();
+        $this->set('tour', $tour['Tour']);
+//        header("Location:" . BASE_PATH . '');
     }
 
 }

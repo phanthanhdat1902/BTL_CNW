@@ -7,22 +7,10 @@
  */
 
 /**
- * Description of hotelscontroller
+ * Description of theme_hotel
  *
  * @author dat.pt173001
  */
-class HotelsController extends Controller {
-
-    function beforeAction() {
-        
-    }
-
-    function viewall() {
-        
-    }
-
-    function afterAction() {
-        
-    }
-
+class Theme_hotel extends Model{
+    //put your code here
 }

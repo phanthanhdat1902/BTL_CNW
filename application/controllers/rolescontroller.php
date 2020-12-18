@@ -11,6 +11,6 @@
  *
  * @author dat.pt173001
  */
-class rolescontroller {
+class RolesController {
     //put your code here
 }
