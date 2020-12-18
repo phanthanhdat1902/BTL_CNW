@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/styleAdmin.css" />
     <link rel="stylesheet" href="/styleAdminDialog.css" />
     <script src="/scriptAdmin.js"></script>
-
+    
 </head>
 
 <body>
@@ -58,18 +58,17 @@
                     <li><a href="#">Duyệt hotel</a></li>
                 </ul>
             </li>
+            <li><a href="#">Quản lý nhân viên</a></li>
             <li><a href="#">Overview</a></li>
-            <li><a href="#">Chart</a></li>
         </ul>
     </div>
     <div class="content show">
         <div class="container">
-            <h1>Duyệt tour</h1>
+            <h1>Danh sách hotel</h1>
             <div class="action">
                 <div class="action_left">
                     <button id="btnAdd">Thêm mới</button>
                     <button id="btnUpdate" class="disable">Cập nhật</button>
-                    <button id="btnApproval" class="disable">Duyệt</button>
                     <button id="btnDelete" class="disable">Xóa</button>
                 </div>
                 <div class="action_right">
@@ -84,13 +83,10 @@
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>Email</th>
-                            <th>ID Tour</th>
-                            <th>Kiểu thanh toán</th>
-                            <th>Số lượng trẻ em</th>
-                            <th>Số lượng người lớn</th>
-                            <th>Ngày bắt đầu</th>
-                            <th>Ngày kết thúc</th>
+                            <th>ID</th>
+                            <th>Tên</th>
+                            <th>Ngày khởi hành</th>
+                            <th>abc</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -100,9 +96,6 @@
                             <td>Từ a đến b</td>
                             <td>10/12/2020</td>
                             <td>xyz</td>
-                            <td>123</td>
-                            <td>Từ a đến b</td>
-                            <td>10/12/2020</td>
                         </tr>
                         <tr>
                             <td>1</td>
@@ -110,37 +103,14 @@
                             <td>Từ a đến b</td>
                             <td>10/12/2020</td>
                             <td>xyz</td>
-                            <td>123</td>
-                            <td>Từ a đến b</td>
-                            <td>10/12/2020</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>123</td>
-                            <td>Từ a đến b</td>
-                            <td>10/12/2020</td>
-                            <td>xyz</td>
-                            <td>123</td>
-                            <td>Từ a đến b</td>
-                            <td>10/12/2020</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>123</td>
-                            <td>Từ a đến b</td>
-                            <td>10/12/2020</td>
-                            <td>xyz</td>
-                            <td>123</td>
-                            <td>Từ a đến b</td>
-                            <td>10/12/2020</td>
                         </tr>
                     </tbody>
                 </table>
                 <div>Phân trang 1.2.3</div>
             </div>
         </div>
-        <!-- The Modal Delete -->
-        <div id="modalDelete" class="modal">
+         <!-- The Modal Delete -->
+         <div id="modalDelete" class="modal">
             <!-- Modal content -->
             <div class="modal-content">
                 <div class="modal-header">
@@ -157,25 +127,6 @@
                 </div>
             </div>
         </div>
-        <!-- The Modal Duyệt-->
-        <div id="modalApproval" class="modal">
-            <!-- Modal content -->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <span class="close">&times;</span>
-                </div>
-                <div class="modal-body">
-                    <div class="title">
-                        <h2>Bạn duyệt tất cả tour?</h2>
-                    </div>
-                    <div class="btnConfirm">
-                        <button type="button" class="btnConfirmYes">Yes</button>
-                        <button type="button" class="btnConfirmNo">No</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="footer">
             <span>Copyright © Your Website 2020</span>
         </div>

@@ -5,8 +5,9 @@
     <meta charset="utf-8">
     <title>Đây là trang quản trị</title>
     <link rel="stylesheet" href="/styleAdmin.css" />
+    <link rel="stylesheet" href="/styleAdminDialog.css" />
     <script src="/scriptAdmin.js"></script>
-    
+
 </head>
 
 <body>
@@ -26,7 +27,6 @@
                         <a href="#about">About</a>
                         <a href="#contact">Thoát</a>
                     </div>
-
                 </li>
             </ul>
 
@@ -57,13 +57,13 @@
                     <li><a href="#">Duyệt hotel</a></li>
                 </ul>
             </li>
+            <li><a href="#">Quản lý nhân viên</a></li>
             <li><a href="#">Overview</a></li>
-            <li><a href="#">Chart</a></li>
         </ul>
     </div>
     <div class="content show">
         <div class="container">
-            <h1>Danh sách hotel</h1>
+            <h1>Danh sách nhân viên</h1>
             <div class="action">
                 <div class="action_left">
                     <button id="btnAdd">Thêm mới</button>
@@ -82,10 +82,10 @@
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>ID</th>
-                            <th>Tên</th>
-                            <th>Ngày khởi hành</th>
-                            <th>abc</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Địa chỉ</th>
+                            <th>Số điện thoại</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -108,7 +108,24 @@
                 <div>Phân trang 1.2.3</div>
             </div>
         </div>
-
+        <!-- The Modal Delete -->
+        <div id="modalDelete" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="title">
+                        <h2>Bạn có chắc chắn xóa?</h2>
+                    </div>
+                    <div class="btnConfirm">
+                        <button type="button" class="btnConfirmYes">Yes</button>
+                        <button type="button" class="btnConfirmNo">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="footer">
             <span>Copyright © Your Website 2020</span>
         </div>
