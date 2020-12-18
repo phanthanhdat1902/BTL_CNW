@@ -59,7 +59,7 @@
                                         </div>
                                         <div class="cardItemPrice">
                                             <span class="price"><?php
-                                                echo $touritem['price_per_adult'] * 2;
+                                                echo $html->asDollars($touritem['price_per_adult'] * 2);
                                                 echo '/2N'
                                                 ?></span>
                                             <span class="unitPrice">VND</span>

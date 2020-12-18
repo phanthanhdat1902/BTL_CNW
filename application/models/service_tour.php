@@ -11,6 +11,6 @@
  *
  * @author dat.pt173001
  */
-class service_tour {
+class Service_tour extends Model{
     //put your code here
 }

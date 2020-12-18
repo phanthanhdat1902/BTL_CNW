@@ -11,6 +11,16 @@
  *
  * @author dat.pt173001
  */
-class service_tourscontroller {
-    //put your code here
+class Service_toursController extends Controller {
+
+    function findService($tourId = null) {
+        $this->Service_tour->where('id_tour', $tourId);
+        $temp = $this->Service_tour->search();
+        $result = array();
+        foreach ($temp as $item):
+            array_push($result, $item['Service_tour']['name']);
+        endforeach;
+        return $result;
+    }
+
 }

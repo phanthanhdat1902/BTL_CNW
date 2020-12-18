@@ -11,7 +11,10 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        print_r($tour);
+         foreach ($tour as $key=>$value){
+             echo $key;
+             echo $value;
+         }
         ?>
     </body>
 </html>

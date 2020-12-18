@@ -47,7 +47,7 @@ class HTML {
     function asDollars($value) {
         if ($value < 0)
             return "-" . asDollars(-$value);
-        return number_format($value, 0) . ' VND';
+        return number_format($value, 0,'-','.') . ' VND';
     }
 
     function includeImg($fileName) {
