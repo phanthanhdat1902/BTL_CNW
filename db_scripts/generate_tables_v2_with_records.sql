@@ -1436,3 +1436,7 @@ INSERT INTO `booking_db`.`type_of_payments` (`id_type_of_payment`, `name`) VALUE
 
 COMMIT;
 
+ALTER TABLE `booking_db`.`tours` 
+ADD COLUMN `introduction_heading` VARCHAR(255) NULL AFTER `description`,
+ADD COLUMN `description_heading` VARCHAR(255) NULL AFTER `introduction_heading`;
+
