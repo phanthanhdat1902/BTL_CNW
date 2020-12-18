@@ -1,0 +1,383 @@
+
+
+/*
+*transition: left 0.4s ease; sẽ thêm ở .menu và #btnMenu và left là áp dụng với thuộc tính left
+*/
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.menu{
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    left: -250px;
+    background: #1b1b1b;
+    transition: left 0.4s ease;
+}
+
+.menu .logo{
+    color: white;
+    background: #1e1e1e;
+    text-align: center;
+    line-height: 65px;
+}
+
+.menu ul{
+    background: #1b1b1b;
+    height: 100%;
+    width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+    list-style: none;
+}
+.menu ul li{
+    line-height: 60px;
+    border-bottom: 1px solid #ddd;
+}
+.menu ul li a{
+    color: white;
+    text-decoration: none;
+    padding-left: 20px;
+    font-weight: 600;
+    display: block;
+    width: 100%;
+    border-left: 3px solid transparent;
+    position: relative;
+}
+.menu ul li a:hover{
+    color: cyan;
+    background: #1e1e1e;
+    border-left-color: cyan;
+}
+
+.menu ul ul{
+    position: static;
+    display: none;
+}
+/*
+* css này sẽ được add vào khi người dùng click
+*/
+.menu ul ul.active{
+    display: block;
+    margin-left: -30px;
+}
+.menu ul ul li{
+    line-height: 42px;
+    border-bottom: none;
+}
+.menu ul ul li a{
+    font-size: 17px;
+    color: #e6e6e6;
+    padding-left: 80px;
+}
+.menu ul li a span{
+    position: absolute;
+    top: 50%;
+    color: white;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    transition: transform 0.4s;
+}
+.menu ul li a span.rotate{
+    transform: translateY(-50%) rotate(90deg);
+}
+
+#btnMenu{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    height: 45px;
+    width: 45px;
+    text-align: center;
+    background: #1b1b1b;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: left 0.4s ease;
+}
+#btnMenu span{
+    color: white;
+    font-size: 22px;
+    line-height: 45px;
+}
+#btnMenu.click{
+    left: 260px;
+}
+.menu.show{
+    left: 0px;
+}
+
+/*css header*/
+.header{
+    position: absolute;
+    height: 64px;
+    left: 0px;
+    right: 0px;
+    background-color:#1e1e1e;
+}
+.header .header_conent{
+    margin-left: 80px;
+    padding-right: 10px;
+    height: 100%;
+    display: flex;
+}
+.header .header_conent .center{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.header .header_conent h1{
+    color: white;
+}
+.header .header_conent .btn_search{
+    margin-left: 170px;
+    position: relative;
+}
+.header .header_conent .btn_search input{
+    padding: 10px;
+    border-radius: 15px;
+    outline: none;
+    font-size: 14px;
+    border: 0px;
+}
+.header .header_conent .btn_search .btn_submit_search{
+    background-color: #03506f;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    left: 180px;
+}
+.header .header_conent ul{
+    list-style: none;
+    margin-left: auto;
+    line-height: 0px;
+}
+.header .header_conent ul li{
+    padding: 10px;
+    display: inline;
+    position:relative;
+    margin: 10px;
+}
+.header .header_conent ul li>a:hover{
+    border: 2px solid white;
+}
+.header .header_conent ul li>a{
+    font-size: 20px;
+    color: white;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 5px;
+    text-decoration: none;
+    border: 2px solid transparent;
+}
+
+/*css người dùng click vào xin chao admin*/
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    height: 100px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    left: 0px;
+    height: 150px;
+    top: 35px;
+    right: 10px;
+    text-align: center;
+    border-radius: 5px;
+    z-index: 1;
+}
+.dropdown-content.show {display: block;}
+
+.dropdown-content a {
+    color: black !important;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+}
+.dropdown-content a:hover{background-color: #ddd;}
+
+/**/
+.content{
+    position: absolute;
+    top: 64px;
+    height: 100%;
+    right: 0px;
+    left: 0px;
+    transition: left 0.4s ease;
+}
+.content.show{
+    left: 255px;
+}
+.content .container{
+    padding: 10px;
+    min-height: 890px;
+    position: relative;
+}
+
+.footer{
+    margin-top: 30px;
+    width: 100%;
+    min-height: 64px;
+    background-color: #e6e6e6;
+    padding: 10px;
+}
+.footer span{
+    line-height: 48px;
+}
+
+
+/*css các nút trong phần danh sách tour và danh sách hotel*/
+.container .action{
+    width: 100%;
+    margin-top: 10px;
+    display: inline-block;
+}
+.container .action .action_left{
+    float: left;
+}
+.container .action .action_left button{
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 15px;
+    border: 1px solid#d0d0d0;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    font-weight: 600;
+}
+.action_left button.disable{
+    background-color: #5F6A6A !important;
+}
+#btnDelete{
+    background-color: #C0392B;
+}
+#btnAdd{
+    background-color: #21618C;
+}
+#btnUpdate{
+    background-color: #F57F17;
+}
+
+.container .action .action_right{
+    float: right;
+    position: relative;
+}
+.container .action .action_right input{
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+}
+.action_right #btnSearchTour{
+    background-color: #330066;
+    cursor: pointer;
+    color: white;
+    font-weight: 600;
+}
+
+
+.container input{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid#d0d0d0;
+    outline: none;
+    font-size: 16px;
+}
+.container select{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid#d0d0d0;
+}
+.container button{
+    padding: 10px;
+    background-color: #003c71;
+    font-weight: 600;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.container textarea{
+    width: 80%;
+    height: 50px;
+}
+.container .row{
+    width: 100%;
+    display: table;
+    text-align: center;
+}
+.container .row .col1{
+    width: 47%;
+    float: left;
+    margin: 10px;
+}
+.container .row .col2{
+    width: 80%;
+    float: left;
+    margin: 10px;
+}
+.container .row .col2 textarea{
+    width: 80%;
+    float: right;
+    height: 90px;
+}
+.container .row .col1 input{
+    width: 80%;
+    float: right;
+}
+.container .row .col1 textarea{
+    width: 80%;
+    float: right;
+    height: 90px;
+}
+.container h1{
+    color: #003c71;
+}
+.container h2{
+    border-top: 2px solid #d0d0d0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    color: #003c71;
+}
+
+.container .btn_add_tour{
+    background-color: #00FF00;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    border: 0px;
+    color: white;
+}
+/*css table*/
+table{
+    margin-top: 10px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+thead{
+    background-color: #003c71;
+    color: white;
+}
+table,th,td{
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #d0d0d0;
+}
+tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+.tick {
+    background-color:#95A5A6 !important;
+}
+/**/

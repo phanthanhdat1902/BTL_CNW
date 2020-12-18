@@ -63,8 +63,50 @@
     </div>
     <div class="content show">
         <div class="container">
-            <h1>Dashboard</h1>
-            
+            <h1>Danh sách hotel</h1>
+            <div class="action">
+                <div class="action_left">
+                    <button id="btnAdd">Thêm mới</button>
+                    <button id="btnUpdate" class="disable">Cập nhật</button>
+                    <button id="btnDelete" class="disable">Xóa</button>
+                </div>
+                <div class="action_right">
+                    <form>
+                        <input type="text" placeholder="Search here ...">
+                        <input type="submit" id="btnSearchTour" value="Tìm kiếm">
+                    </form>
+                </div>
+            </div>
+            <div class="main-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>ID</th>
+                            <th>Tên</th>
+                            <th>Ngày khởi hành</th>
+                            <th>abc</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>123</td>
+                            <td>Từ a đến b</td>
+                            <td>10/12/2020</td>
+                            <td>xyz</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>123</td>
+                            <td>Từ a đến b</td>
+                            <td>10/12/2020</td>
+                            <td>xyz</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>Phân trang 1.2.3</div>
+            </div>
         </div>
 
         <div class="footer">

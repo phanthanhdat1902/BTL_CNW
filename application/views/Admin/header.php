@@ -6,9 +6,7 @@
     <title>Đây là trang quản trị</title>
     <link rel="stylesheet" href="/styleAdmin.css" />
     <script src="/scriptAdmin.js"></script>
-    
 </head>
-
 <body>
     <div class="header">
         <div class="header_conent">
@@ -63,14 +61,3 @@
     </div>
     <div class="content show">
         <div class="container">
-            <h1>Dashboard</h1>
-            
-        </div>
-
-        <div class="footer">
-            <span>Copyright © Your Website 2020</span>
-        </div>
-    </div>
-</body>
-
-</html>
