@@ -11,10 +11,10 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-         foreach ($tour as $key=>$value){
-             echo $key;
-             echo $value;
-         }
+        foreach ($tour as $item):
+            print_r($item);
+            echo"<br>";
+        endforeach;
         ?>
     </body>
 </html>

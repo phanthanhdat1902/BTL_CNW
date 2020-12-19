@@ -21,11 +21,11 @@ class ToursController extends Controller {
 
      * Ham thuc hien chuc nang tim kiem tour theo thanh pho     */
 
-    function searchCity() {
-        $id_city = $_GET['id_city'];
-        $this->Tour->where('id_city', $id_city);
-        $listTours = $this->Tour->search();
-        $this->set('listTours', listTours);
+    function searchTour() {
+//        $id_city = $_GET['id_city'];
+//        $this->Tour->where('id_city', $id_city);
+//        $listTours = $this->Tour->search();
+//        $this->set('listTours', listTours);
     }
 
     /*
@@ -49,11 +49,15 @@ class ToursController extends Controller {
         $service_tour = performAction('service_tours', 'findService', array($idTour));
         $city = performAction('cities', 'findCity', array($tour['Tour']['id_city']));
         $transportation = performAction('tour_transportations', 'findTrasportation', array($tour['Tour']['id_transportation']));
+        $reviewUsers = performAction('review_tours', 'findReviewById', array($idTour));
+        $departures = performAction('departures', 'findDepartureById', array($idTour));
         $tour['Tour']['service_tours'] = $service_tour;
-        $tour['Tour']['city']=$city;
-        $tour['Tour']['transportation']=$transportation;
+        $tour['Tour']['city'] = $city;
+        $tour['Tour']['transportation'] = $transportation;
+        $tour['Tour']['reviewUsers']=$reviewUsers;
+        $tour['Tour']['departures']=$departures;
         $this->set('tour', $tour['Tour']);
 //        header("Location:" . BASE_PATH . '');
     }
-
+    
 }

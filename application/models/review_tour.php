@@ -11,6 +11,6 @@
  *
  * @author dat.pt173001
  */
-class review_tour {
+class Review_tour extends Model{
     //put your code here
 }

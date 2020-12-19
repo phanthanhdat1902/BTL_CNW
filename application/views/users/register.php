@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Register</title>
-        <link href="../public/css/style.css" rel="stylesheet" type="text/css"/>
+        <?php echo $html->includeCss('style'); ?>   
         <style>
             .form{
                 margin-left: auto;
@@ -41,11 +41,11 @@
 
                     <p> Password</p>
 
-                    <input type="text" placeholder="password" name="password">
+                    <input type="password" placeholder="password" name="password">
 
                     <p>Confirm Password</p>
 
-                    <input type="text">
+                    <input type="password">
                 </div>
 
                 <div class="agree">

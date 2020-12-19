@@ -93,7 +93,6 @@ body{
 }
 .tourItem .tourItemImage{
     width: 15%;
-    background: url("/image/ha-noi-sapa-ha-long.jpg") no-repeat center;
     background-size: 100%;
 }
 .tourItem .tourItemContentPrice{

@@ -49,11 +49,11 @@ session_start();
                 <div class="userControl">
                     <?php if (!isset($_SESSION["email"])) {
                         ?>
-                        <a href="../users/register">Đăng ký</a>
-                        <a href="../users/login">Đăng nhập</a>
+                        <?php echo $html->link('Đăng ký','users/register')?>
+                        <?php echo $html->link('Đăng nhập','users/login')?>
                     <?php } else { ?>
                         <span style="color:white;">Xin Chào <?php echo $_SESSION["email"]; ?>&nbsp;</span>
-                        <a href="../users/logout">Logout</a>
+                        <?php echo $html->link('Logout','users/logout')?>
                     <?php } ?>
                     <span id="btnMenu" onclick="showMenu()">&#9776;</span>
                 </div>

@@ -11,6 +11,20 @@
  *
  * @author dat.pt173001
  */
-class review_tourscontroller {
-    //put your code here
+class Review_toursController extends Controller {
+
+    function findReviewById($tourId) {
+        $this->Review_tour->leftOn('users', 'id_user');
+        $this->Review_tour->where('id_tour', $tourId);
+        $temp = $this->Review_tour->search();
+        $reviewArr = array();
+
+        foreach ($temp as $item):
+            $item['Review_tour']['email'] = $item['users']['email'];
+            array_push($reviewArr, $item['Review_tour']);
+        endforeach;
+        $result['Review_tour'] = $reviewArr;
+        return $result;
+    }
+
 }

@@ -43,7 +43,7 @@
         </div>
 
         <div class="tourHeaderContainer">
-            <div class="tourHeaderImage"<?php echo $html->includeImg($tour['thumbnail']) ?>></div>
+            <div class="tourHeaderImage"<?php echo $html->includeImg($tour['image']) ?>></div>
             <div class="tourHeaderInfor">
                 <span><?php echo $tour['city'] ?></span>
                 <span><?php echo $tour['number_of_days'] ?> Ngày <?php echo $tour['number_of_nights'] ?>  Đêm</span>
@@ -84,30 +84,14 @@
                     <th>Giá</th>
                     </thead>
                     <tbody>
+                        <?php foreach ($tour['departures'] as $item):?>
                         <tr>
-                            <td>T4, 09/12/2020</td>
-                            <td>CN, 13/12/2020</td>
+                            <td><?php echo $item['Departure']['start_date']?></td>
+                            <td><?php echo $item['Departure']['end_date']?></td>
                             <td>Liên hệ</td>
-                            <td>6.290.000 VND</td>
+                            <td><?php echo $html->asDollars($tour['price_per_adult'] * 2); ?>/2 người lớn</td>
                         </tr>
-                        <tr>
-                            <td>T4, 09/12/2020</td>
-                            <td>CN, 13/12/2020</td>
-                            <td>Liên hệ</td>
-                            <td>6.290.000 VND</td>
-                        </tr>
-                        <tr>
-                            <td>T4, 09/12/2020</td>
-                            <td>CN, 13/12/2020</td>
-                            <td>Liên hệ</td>
-                            <td>6.290.000 VND</td>
-                        </tr>
-                        <tr>
-                            <td>T4, 09/12/2020</td>
-                            <td>CN, 13/12/2020</td>
-                            <td>Liên hệ</td>
-                            <td>6.290.000 VND</td>
-                        </tr>
+                        <?php endforeach;?>
                     </tbody>
                 </table>
             </form>
@@ -182,14 +166,18 @@
 
         <div>
             <h1>Đánh giá gần đây</h1>
-            <div>
-                <h2>Trang Nguyễn</h2>
-                <span>
-                    8.0 Rất tốt 24-06-2020Tour tư vấn ban đầu có 25 khách nhưng khi đến sân bay là 45 khách. Tour đi
-                    quá
-                    đông, hdv không thể chăm sóc tốt hết được
-                </span>
-            </div>
+            <dl>
+                <?php
+                foreach ($tour['reviewUsers'] as $item):
+                    foreach ($item as $content):
+                        ?>
+                        <h1><dt><?php echo $content['email'] . ' - ' . str_replace('-', '/', $content['create_time']) ?> :</dt></h1>
+                        <dd>- <?php echo $content['content'] ?></dd>
+                        <?php
+                    endforeach;
+                endforeach;
+                ?>
+            </dl>
         </div>
     </div>
 </div>
