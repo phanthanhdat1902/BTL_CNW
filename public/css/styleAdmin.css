@@ -3,6 +3,7 @@ body{
     font-family: sans-serif;
     color: #494b55;
 }
+
 /*
 *transition: left 0.4s ease; sẽ thêm ở .menu và #btnMenu và left là áp dụng với thuộc tính left
 */
@@ -17,7 +18,7 @@ body{
     width: 250px;
     height: 100%;
     left: -250px;
-    background: #283593;
+    background: #1b1b1b;
     transition: left 0.4s ease;
 }
 
@@ -256,6 +257,8 @@ body{
     color: white;
     font-weight: 600;
 }
+
+
 .action_left button.disable{
     background-color: #5F6A6A !important;
 }
@@ -325,6 +328,11 @@ body{
     float: left;
     margin: 10px;
 }
+.container .row .col2 input{
+    width: 80%;
+    float: right;
+}
+
 .container .row .col2 textarea{
     width: 80%;
     float: right;
@@ -339,6 +347,19 @@ body{
     float: right;
     height: 90px;
 }
+
+.container .row .col4{
+    float: left;
+    width: 20%;
+}
+.container .row .col4 input{
+    width: 60%;
+}
+.container .row .col4 select{
+    width: 60%;
+}
+
+
 .container h1{
     color: #003c71;
 }
@@ -398,3 +419,22 @@ tr:nth-child(even){
     width: 60px;
 }
 
+.container .wrap{
+    display: flex;
+    flex-direction: row;
+}
+.wrap .container_left{
+    background-color: #d0d0d0;
+    width: 250px;
+    height: 500px;
+    flex-direction: column;
+    overflow: hidden;
+}
+.wrap .container_right{
+    flex-direction: column;
+    width: 100%;
+}
+
+.wrap .container_left .rank{
+    display: block;
+}
