@@ -43,6 +43,22 @@
                 <?php endforeach; ?>
             </ul>
         </div>
+
+        <div class="tourSchedule">
+            <h1>Chương trình tour</h1>
+
+            <h3>NGÀY 01: TP HỒ CHÍ MINH - SAPA ( ĂN TRƯA, TỐI)</h3>
+            <span>Sáng: 05h30 Nhân viên đón đoàn tại sân bay Tân Sơn Nhất làm thủ tục bay đi Hà Nội ( chuyến bay của Viet Jet Air VJ 128 lúc 07h55). Đến sân bay Nội Bài, xe khởi hành đưa đoàn đi Sapa.Đoàn dùng cơm trưa tại Lào Cai.Quý khách tự do tham quan và chụp hình tại cột mốc hữu nghị Việt Nam – Trung Quốc,</span>
+            <img src="https://cdn2.ivivu.com/2020/05/19/11/ivivu-cua-khau-huu-nghi.gif">
+            <p><em>Cột mốc Hữu Nghị.</em></p>
+
+            <h3>NGÀY 02: KHÁM PHÁ SAPA ( ĂN SÁNG, TRƯA, ĂN TỐI TỰ TÚC)</h3>
+            <span>Sáng: Điểm tâm sáng, Xe và HDV đưa Quý khách đến bản Cát Cát, bắt đầu hành trình khám phá bản làng - Tham quan bản Cát Cát - Sín Chải của người H’mong. Quý khách sẽ được thăm và tìm hiểu phong tục tập quán sinh hoạt kỳ thú, đơn sơ đến bình dị của những người dân tộc thiểu số.</span>
+            <img src="https://cdn2.ivivu.com/2020/05/19/11/ivivu-cat-cat-sin-chai.gif">
+            <p><em>Bản Cát Cát - Sín Chải.</em></p>
+
+        </div>
+
         <div class="departureSchedule">
             <form>
                 <h1>Lịch khởi hành</h1>

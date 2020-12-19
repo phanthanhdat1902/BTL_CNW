@@ -105,6 +105,22 @@ body{
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
+/*
+*Chương trình tour
+*/
+.tourSchedule img{
+    width: 100%; 
+    padding: 10px 10px 0px 10px;
+}
+.tourSchedule p{
+    text-align: center;
+}
+.tourSchedule p em{
+    font-style: italic;
+}
+
+
 /*
 *   Lịch khởi hành
 */
