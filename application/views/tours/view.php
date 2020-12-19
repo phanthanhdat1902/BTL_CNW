@@ -94,8 +94,8 @@
                         <span id="price1"><?php echo ($html->asDollars($tour['price_per_adult'])); ?></span>
                         <input type="hidden" value="20000" id="price_old">
                         <span>VND</span>
-                        <button id="btnSubOld" onclick="onActionOrderTour(this)">-</button>
-                        <button id="btnAddOld" onclick="onActionOrderTour(this)">+</button>
+                        <button type="button" id="btnSubOld" onclick="onActionOrderTour(this)">-</button>
+                        <button type="button" id="btnAddOld" onclick="onActionOrderTour(this)">+</button>
                     </div>
                 </div>
                 <div class="rowx">
@@ -108,8 +108,8 @@
                         <span id="price2"><?php echo ($html->asDollars($tour['price_per_adult'])); ?></span>
                         <span>VND</span>
                         <input type="hidden" value="50000" id="price_chil">
-                        <button id="btnSubChil" onclick="onActionOrderTour(this)">-</button>
-                        <button id="btnAddChil" onclick="onActionOrderTour(this)">+</button>
+                        <button type="button" id="btnSubChil" onclick="onActionOrderTour(this)">-</button>
+                        <button type="button" id="btnAddChil" onclick="onActionOrderTour(this)">+</button>
                     </div>
                 </div>
                 <div class="rowx">
