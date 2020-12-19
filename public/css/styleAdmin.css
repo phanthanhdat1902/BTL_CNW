@@ -17,19 +17,19 @@ body{
     width: 250px;
     height: 100%;
     left: -250px;
-    background: #1b1b1b;
+    background: #283593;
     transition: left 0.4s ease;
 }
 
 .menu .logo{
     color: white;
-    background: #1e1e1e;
+    background: #07294d;
     text-align: center;
     line-height: 65px;
 }
 
 .menu ul{
-    background: #1b1b1b;
+    background: #07294d;
     height: 100%;
     width: 100%;
     padding-left: 8px;
