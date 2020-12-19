@@ -4,5 +4,5 @@ $routing = array(
     '/admin\/(.*?)\/(.*?)\/(.*)/' => 'admin/\1_\2/\3'
 );
 
-$default['controller'] = 'users';
-$default['action'] = 'login';
+$default['controller'] = 'theme_tours';
+$default['action'] = 'viewall';

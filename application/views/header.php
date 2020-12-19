@@ -33,7 +33,7 @@ session_start();
                 </div>
                 <ul class="navHeader" id="myMenu">
                     <li><a href="#">Khách sạn</a></li>
-                    <li><a href="#">Tour</a></li>
+                    <li><a href="http://localhost/BTL_CNW/">Tour</a></li>
                     <li><a href="#">Vé máy bay</a></li>
                     <li><a href="#">Cẩm nang du lịch</a></li>
                     <li><a href="#">...</a>

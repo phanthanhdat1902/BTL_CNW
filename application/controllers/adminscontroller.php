@@ -11,6 +11,25 @@
  *
  * @author dat.pt173001
  */
-class AdminsController extends Controller{
-    //put your code here
+class AdminsController extends Controller {
+
+    function beforeAction() {
+        $this->doNotRenderHeader = 1;
+        $this->doNotRenderSearch = 1;
+    }
+
+    function index() {
+        
+    }
+
+    function logout() {
+        session_start();
+        unset($_SESSION["admin"]);
+        header("Location:" . BASE_PATH);
+    }
+
+    function afterAction() {
+        
+    }
+
 }

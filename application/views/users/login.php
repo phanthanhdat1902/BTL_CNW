@@ -16,7 +16,7 @@
 
     <body>
         <div class="form">
-            <form action="login" method="post">
+            <form action="http://localhost/BTL_CNW/users/login" method="post">
                 <?php if (isset($isLogin)) { ?>
                     <span>Login fail</span>
                 <?php } ?>

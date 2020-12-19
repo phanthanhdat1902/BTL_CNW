@@ -11,6 +11,19 @@
  *
  * @author dat.pt173001
  */
-class RolesController {
-    //put your code here
+class RolesController extends Controller {
+
+    function beforeAction() {
+        
+    }
+
+    function findRoleById($roleId) {
+        $this->Role->id = $roleId;
+        return $this->Role->search();
+    }
+
+    function afterAction() {
+        
+    }
+
 }

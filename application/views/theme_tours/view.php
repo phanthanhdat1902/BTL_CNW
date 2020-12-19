@@ -1,22 +1,4 @@
 <?php echo $html->includeCss('styleTourSearch'); ?>
-<div class="tourHomeHeader" style="background-image: url('http://localhost/BTL_CNW/public/img/moc-chau2.png')">
-    <div class="container">
-        <div class="">
-            <div class="title">
-                <h1>Du lịch theo phong cách riêng</h1>
-                <h2>Trải nghiệm trọn vẹn - Giá cả phải chăng.</h2>
-            </div>
-        </div>
-        <div class="searchForm">
-            <form action="<?php echo (BASE_PATH . 'tours/encodingUrl') ?>" method="GET">
-                <input type="text" name="toCity" placeholder="Search here ..." style="width: 100%;">
-                <input type="date">
-                <input type="text" name="fromCity" placeholder="Khởi hành từ">
-                <input type="submit" class="btnSearch" value="Tìm kiếm">
-            </form>
-        </div>
-    </div>
-</div>
 <div class="content">
     <div class="container">
         <div class="contentHeader">
@@ -25,9 +7,9 @@
                 <li>Hà Nội</li>
             </ol>
         </div>
-        <div class="pageTitle">
+<!--        <div class="pageTitle">
             <span>Tour Miền Tây 2N1D: Bến Tre - Trà Vinh - Cồn Chim Tết</span>
-        </div>
+        </div>-->
         <div class="mainContainer">
             <div class="tourListSideBar">
                 <div class="sideBarGroup">
@@ -82,7 +64,11 @@
             </div>
             <div class="tourListContainer">
                 <div class="pageTitle">
-                    <span>Tour du lịch Hà Nội từ Hồ Chí Minh</span>
+                    <span>Tour du lịch 
+                        <?php 
+                        echo $listTour['Theme_tour']['name'];
+                        unset($listTour['Theme_tour']);
+                        ?></span>
                 </div>
                 <div class="orderTitle">
                     <span>Sắp xêp theo: </span>
@@ -91,7 +77,7 @@
                     <span>Tên tour</span>
                 </div>
                 <?php foreach ($listTour as $item): ?>
-                <a href="<?php echo ( BASE_PATH . 'tours/view/'. $item['Tour']['id_tour'])?>">
+                    <a href="<?php echo ( BASE_PATH . 'tours/view/' . $item['Tour']['id_tour']) ?>">
                         <div class="tourItem">
                             <div class="tourItemImage"<?php echo $html->includeImg($item['Tour']['thumbnail']) ?>></div>
                             <div class="tourItemContent">

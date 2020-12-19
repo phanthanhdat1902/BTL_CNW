@@ -15,6 +15,7 @@ class UsersController extends Controller {
 
     function beforeAction() {
         $this->doNotRenderHeader = 1;
+        $this->doNotRenderSearch = 1;
     }
 
     /*
@@ -31,6 +32,13 @@ class UsersController extends Controller {
             $user = $this->User->search();
             if (password_verify($password, $user[0]['User']['password'])) {
                 $this->set('user', $user);
+                $role = performAction('roles', 'findRoleById', array($user[0]['User']['id_role']));
+                if ($role['Role']['name'] == 'admin') {
+                    session_start();
+                    $_SESSION['admin'] = $user[0]['User']['email'];
+                    header('Location:' . BASE_PATH . 'admins/index');
+                    return;
+                }
                 session_start();
                 $_SESSION["email"] = $user[0]['User']['email'];
                 header("Location:" . BASE_PATH . $_COOKIE['currentURL']);

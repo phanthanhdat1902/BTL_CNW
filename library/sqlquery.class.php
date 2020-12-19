@@ -254,7 +254,7 @@ class SQLQuery {
                 array_push($result, $tempResults);
             }
 
-            if (mysqli_num_rows($this->_result) == 1 && $this->id != null) {
+            if (mysqli_num_rows($this->_result) == 1 && isset($this->id)) {
                 mysqli_free_result($this->_result);
                 $this->clear();
                 return($result[0]);

@@ -11,6 +11,6 @@
  *
  * @author dat.pt173001
  */
-class role {
+class Role extends Model{
     //put your code here
 }

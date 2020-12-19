@@ -17,7 +17,7 @@ class Template {
     }
 
     /** Display Template * */
-    function render($doNotRenderHeader = 0) {
+    function render($doNotRenderHeader = 0,$doNotRenderSearch = 0) {
 
         $html = new HTML;
         extract($this->variables);
@@ -30,7 +30,10 @@ class Template {
                 include (ROOT . DS . 'application' . DS . 'views' . DS . 'header.php');
             }
         }
-
+        
+        if ($doNotRenderSearch ==0){
+            include (ROOT . DS . 'application' . DS . 'views' . DS . 'header_search.php');
+        }
         if (file_exists(ROOT . DS . 'application' . DS . 'views' . DS . $this->_controller . DS . $this->_action . '.php')) {
             include (ROOT . DS . 'application' . DS . 'views' . DS . $this->_controller . DS . $this->_action . '.php');
         }

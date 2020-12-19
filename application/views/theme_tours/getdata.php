@@ -11,16 +11,12 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        foreach ($theme_tour as $value) {
-            print_r($value);
-            echo sizeof($value['tours']);
-            ?>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <?php
-            }?>
+        print_r($listTour);
+//        foreach ($listTour as $value) {
+//            print_r($value);
+//            echo '<br>';
+//        }
+        ?>
+
     </body>
 </html>

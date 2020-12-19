@@ -51,6 +51,25 @@ class ToursController extends Controller {
         }
     }
 
+    function findTourByThemeId($themeId) {
+        $this->Tour->where('id_theme', $themeId);
+        $fields = array();
+        array_push($fields, 'id_tour');
+        array_push($fields, 'name');
+        array_push($fields, 'number_of_reviews');
+        array_push($fields, 'score');
+        array_push($fields, 'price_per_adult');
+        array_push($fields, 'thumbnail');
+        $listTours = $this->Tour->search($fields);
+        $result = array();
+        foreach ($listTours as $item) :
+            $temp = performAction('departures', 'findDepartureById', array($item['Tour']['id_tour']));
+            $item['departures'] = $temp;
+            array_push($result, $item);
+        endforeach;
+        return $result;
+    }
+
     /*
 
      * Ham thuc hien chuc nang lay thong tin ve Tour theo ID     */
@@ -60,6 +79,7 @@ class ToursController extends Controller {
     }
 
     function view($idTour = null) {
+        $this->doNotRenderSearch = 1;
         $this->Tour->id = $idTour;
         $tour = $this->Tour->search();
         $tour['Tour']['introduction'] = explode('\n', $tour['Tour']['introduction']);

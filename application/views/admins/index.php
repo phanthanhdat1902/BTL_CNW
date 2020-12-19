@@ -1,11 +1,18 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['admin'])){
+        header('Location:'.BASE_PATH.'users/login');
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <title>Đây là trang quản trị</title>
-    <link rel="stylesheet" href="/styleAdmin.css" />
-    <script src="/scriptAdmin.js"></script>
+    <link rel="stylesheet" href="http://localhost/BTL_CNW/public/css/styleAdmin.css" />
+    <script src="http://localhost/BTL_CNW/public/js/scriptAdmin.js"></script>
     
 </head>
 
@@ -24,7 +31,7 @@
                     <div id="myDropdown" class="dropdown-content">
                         <a href="#home">Thông tin tài khoản</a>
                         <a href="#about">About</a>
-                        <a href="#contact">Thoát</a>
+                        <?php echo $html->link('Logout','admins/logout')?>
                     </div>
 
                 </li>
@@ -44,9 +51,9 @@
             <li>
                 <a id="features">Quản lý tour <span id="iconFirst">&#10097;</span></a>
                 <ul class="subFeatures">
-                    <li><a href="/adminDanhSachTour.html">Danh sách tour</a></li>
-                    <li><a href="/adminThemTour.html">Thêm tour</a></li>
-                    <li><a href="/adminDuyetTour.html">Duyệt tour</a></li>
+                    <li><a href="adminDanhSachTour.html">Danh sách tour</a></li>
+                    <li><a href="adminThemTour.html">Thêm tour</a></li>
+                    <li><a href="adminDuyetTour.html">Duyệt tour</a></li>
                 </ul>
             </li>
             <li>

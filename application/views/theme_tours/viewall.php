@@ -1,19 +1,3 @@
-<div class="tourHomeHeader" style="background-image: url('http://localhost/BTL_CNW/public/img/moc-chau2.png')">
-    <div class="container">
-        <div class="">
-            <div class="title">
-                <h1>Du lịch theo phong cách riêng</h1>
-                <h2>Trải nghiệm trọn vẹn - Giá cả phải chăng.</h2>
-            </div>
-        </div>
-        <div class="searchForm">
-            <input type="text" placeholder="Search here ..." style="width: 100%;">
-            <input type="date">
-            <input type="text" placeholder="Khởi hành từ">
-            <input type="button" class="btnSearch" value="Tìm kiếm">
-        </div>
-    </div>
-</div>
 <div class="content">
     <?php
     foreach ($theme_tour as $theme_touritem):
@@ -21,18 +5,18 @@
             ?>
             <div>
                 <div class="localHeaderLine">
-                    <a href="../views/theme_tours/view/<?php echo $theme_touritem['theme']['id_theme'] ?>">
+                    <a href="<?php echo BASE_PATH . 'theme_tours/view/' . $theme_touritem['theme']['id_theme'] ?>">
                         <span class="title"><?php echo $theme_touritem['theme']['name'] ?></span>
                         <span class="readMoreTuor">Xem thêm tour</span>
                     </a>
                 </div>
                 <div class="row">
                     <?php foreach ($theme_touritem['tours'] as $touritem): ?>
-                    <a href="../tours/view/<?php echo $touritem['id_tour']?>">
+                        <a href="<?php echo BASE_PATH . 'tours/view/' . $touritem['id_tour'] ?>">
                             <div class="column">
                                 <div class="card">
                                     <div class="col_img">
-                                        <img src="../public/img/<?php echo $touritem['thumbnail'] ?>" />
+                                        <img src="<?php echo BASE_PATH . 'public/img/' . $touritem['thumbnail'] ?>" />
                                     </div>
                                     <div class="col_4">
                                         <span class="tourName"><?php echo $touritem['name'] ?></span>
