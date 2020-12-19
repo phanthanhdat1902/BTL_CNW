@@ -22,10 +22,33 @@ class ToursController extends Controller {
      * Ham thuc hien chuc nang tim kiem tour theo thanh pho     */
 
     function searchTour() {
-//        $id_city = $_GET['id_city'];
-//        $this->Tour->where('id_city', $id_city);
-//        $listTours = $this->Tour->search();
-//        $this->set('listTours', listTours);
+        if (isset($_GET['toCity'])) {
+            $city = base64_decode($_GET['toCity']);
+            $this->Tour->like('name', $city);
+            $fields = array();
+            array_push($fields, 'id_tour');
+            array_push($fields, 'name');
+            array_push($fields, 'number_of_reviews');
+            array_push($fields, 'score');
+            array_push($fields, 'price_per_adult');
+            array_push($fields, 'thumbnail');
+            $listTours = $this->Tour->search($fields);
+            $result = array();
+            foreach ($listTours as $item) :
+                $temp = performAction('departures', 'findDepartureById', array($item['Tour']['id_tour']));
+                $item['departures'] = $temp;
+                array_push($result, $item);
+            endforeach;
+            $this->set('listTour', $result);
+        }
+    }
+
+    function encodingUrl() {
+        if (isset($_GET['toCity'])) {
+            $url = BASE_PATH . 'tours/searchTour?toCity=' . base64_encode(($_GET['toCity']));
+            $this->render = 0;
+            header("Location:" . $url);
+        }
     }
 
     /*
@@ -54,10 +77,10 @@ class ToursController extends Controller {
         $tour['Tour']['service_tours'] = $service_tour;
         $tour['Tour']['city'] = $city;
         $tour['Tour']['transportation'] = $transportation;
-        $tour['Tour']['reviewUsers']=$reviewUsers;
-        $tour['Tour']['departures']=$departures;
+        $tour['Tour']['reviewUsers'] = $reviewUsers;
+        $tour['Tour']['departures'] = $departures;
         $this->set('tour', $tour['Tour']);
 //        header("Location:" . BASE_PATH . '');
     }
-    
+
 }

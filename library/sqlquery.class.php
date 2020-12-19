@@ -79,7 +79,7 @@ class SQLQuery {
 
     function leftOn($nameTable1, $field, $nameTable2 = null) {
         if ($nameTable2 == null) {
-            $this->_left_On .= 'LEFT JOIN `' . $nameTable1 . '` as `' . $nameTable1. '` ';
+            $this->_left_On .= 'LEFT JOIN `' . $nameTable1 . '` as `' . $nameTable1 . '` ';
             $this->_left_On .= 'ON `' . $nameTable1 . '`.`' . $field . '` = `' . $this->_model . '`' . '.`' . $field . '`';
         } else {
             $this->_left_On .= 'LEFT JOIN `' . $nameTable1 . '` as `' . $nameTable1 . '` ';
@@ -87,7 +87,7 @@ class SQLQuery {
         }
     }
 
-    function search() {
+    function search($fields=null) {
 
         global $inflect;
 
@@ -109,7 +109,7 @@ class SQLQuery {
         }
 
         if (isset($this->id)) {
-            $conditions .= '`' . $this->_model . '`.`id_'.$this->_model.'` = \'' . mysqli_real_escape_string($this->_dbHandle, $this->id) . '\' AND ';
+            $conditions .= '`' . $this->_model . '`.`id_' . $this->_model . '` = \'' . mysqli_real_escape_string($this->_dbHandle, $this->id) . '\' AND ';
         }
 
         if ($this->_extraConditions) {
@@ -126,9 +126,18 @@ class SQLQuery {
             $offset = ($this->_page - 1) * $this->_limit;
             $conditions .= ' LIMIT ' . $this->_limit . ' OFFSET ' . $offset;
         }
-
-        $this->_query = 'SELECT * FROM ' . $from . ' WHERE ' . $conditions;
+        if (isset($fields)) {
+            $this->_query = 'SELECT ';
+            foreach ($fields as $item):
+                $this->_query.='`'.$item.'`,';
+            endforeach;
+            $this->_query= substr($this->_query, 0,-1);
+            $this->_query.=' FROM';
+        } else {
+            $this->_query = 'SELECT * FROM ' ;
+        }
         #echo '<!--'.$this->_query.'-->';
+        $this->_query.= $from . ' WHERE ' . $conditions;
         $this->_result = mysqli_query($this->_dbHandle, $this->_query);
         $result = array();
         $table = array();
@@ -320,7 +329,7 @@ class SQLQuery {
     /** Delete an Object * */
     function delete() {
         if ($this->id) {
-            $query = 'DELETE FROM ' . $this->_table . ' WHERE `id_'.$this->_models.'`=\'' . mysqli_real_escape_string($this->_dbHandle, $this->id) . '\'';
+            $query = 'DELETE FROM ' . $this->_table . ' WHERE `id_' . $this->_models . '`=\'' . mysqli_real_escape_string($this->_dbHandle, $this->id) . '\'';
             $this->_result = mysqli_query($this->_dbHandle, $query);
             $this->clear();
             if ($this->_result == 0) {
@@ -346,7 +355,7 @@ class SQLQuery {
 
             $updates = substr($updates, 0, -1);
 
-            $query = 'UPDATE ' . $this->_table . ' SET ' . $updates . ' WHERE `id_'.$this->_model.'`=\'' . mysqli_real_escape_string($this->_dbHandle, $this->id) . '\'';
+            $query = 'UPDATE ' . $this->_table . ' SET ' . $updates . ' WHERE `id_' . $this->_model . '`=\'' . mysqli_real_escape_string($this->_dbHandle, $this->id) . '\'';
         } else {
             $fields = '';
             $values = '';

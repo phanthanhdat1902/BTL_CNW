@@ -34,14 +34,7 @@
 
             <button type="submit">Yêu cầu đặt</button>
         </div>
-        <div class="tourSideBar">
-            <ul>
-                <li>Chương trình tour</li>
-                <li>Lịch khởi hành</li>
-                <li>Điều khoản & quy định</li>
-            </ul>
-        </div>
-
+      
         <div class="tourHeaderContainer">
             <div class="tourHeaderImage"<?php echo $html->includeImg($tour['image']) ?>></div>
             <div class="tourHeaderInfor">

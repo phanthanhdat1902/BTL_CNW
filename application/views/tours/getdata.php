@@ -11,8 +11,12 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        foreach ($tour as $item):
+//        print_r($tour);
+        foreach ($listTour as $item):
             print_r($item);
+            echo"<br>";
+            echo"<br>";
+            echo"<br>";
             echo"<br>";
         endforeach;
         ?>
