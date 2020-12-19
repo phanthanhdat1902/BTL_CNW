@@ -1,5 +1,7 @@
 body{
     background-color: #ecf0f5;
+    font-family: sans-serif;
+    color: #494b55;
 }
 .content{
     padding-left: 10%;
@@ -171,6 +173,40 @@ body{
 .container h1{
     color: #003c71;
 }
+.container .customerReview h2{
+    font-weight: bold;
+    font-size: 20px;
+    color: #494b55;
+}
+.container .customerReviewDetail{
+    border-top: 1px solid #d0d0d0;
+    width: 100%;
+    display: table;
+}
+.container .reviewDetailLeft{
+    width: 20%;
+    display: table-cell;
+    color: #333;
+    font-weight: bold;
+    padding-left: 10px;
+}
+.container .reviewDetailRight{
+    width: 80%;
+    display: table-cell;
+}
+
+.container .reviewDetailRight .scoreSpan{
+    color: #D35400;
+}
+.container .reviewDetailRight .scoreReviewDate{
+    color: #95A5A6;
+    font-size: 16px;
+}
+.container .reviewDetailRight .customerReviewContent{
+    font-style: italic;
+    color: #494b55;
+}
+
 
 .modal-body {
     display: grid !important;

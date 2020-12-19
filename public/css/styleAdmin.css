@@ -1,5 +1,8 @@
 
-
+body{
+    font-family: sans-serif;
+    color: #494b55;
+}
 /*
 *transition: left 0.4s ease; sẽ thêm ở .menu và #btnMenu và left là áp dụng với thuộc tính left
 */

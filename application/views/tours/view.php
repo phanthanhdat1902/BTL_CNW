@@ -210,8 +210,8 @@
             </div>
         </div>
 
-        <div>
-            <h1>Đánh giá gần đây</h1>
+        <div class="customerReview">
+            <h2>Đánh giá gần đây</h2>
             <dl>
                 <?php
                 foreach ($tour['reviewUsers'] as $item) :
@@ -226,6 +226,32 @@
                 endforeach;
                 ?>
             </dl>
+            <div class="customerReviewDetail">
+                <div class="reviewDetailLeft">
+                    <span>&#10064;</span>
+                    <span>Trang Nguyễn</span>
+                </div>
+                <div class="reviewDetailRight">
+                    <div>
+                        <span class="scoreSpan">8.0</span>
+                        <span class="scoreReviewDate">24-06-2020</span>
+                    </div>
+                    <span class="customerReviewContent">Tour tư vấn ban đầu có 25 khách nhưng khi đến sân bay là 45 khách. Tour đi quá đông, hdv không thể chăm sóc tốt hết được</span>
+                </div>
+            </div>
+            <div class="customerReviewDetail">
+                <div class="reviewDetailLeft">
+                    <span>&#10064;</span>
+                    <span>Trần Định</span>
+                </div>
+                <div class="reviewDetailRight">
+                    <div>
+                        <span class="scoreSpan">8.0</span>
+                        <span class="scoreReviewDate">24-06-2020</span>
+                    </div>
+                    <span class="customerReviewContent">Tour tư vấn ban đầu có 25 khách nhưng khi đến sân bay là 45 khách. Tour đi quá đông, hdv không thể chăm sóc tốt hết được</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
