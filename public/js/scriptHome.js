@@ -10,7 +10,6 @@ function showMenu() {
     }
 }
 
-
 /*
 * Hàm click vào tab trong tour detail
 */
@@ -31,4 +30,62 @@ function openTabRules(evt, tabName) {
 // Get the element with id="defaultOpen" and click on it
 window.onload = function (e) {
     document.getElementById("defaultOpen").click();
-}    
+
+
+    // Get the modal
+    var modalOrder = document.getElementById("modalOrder");
+    // Get the button that opens the modal
+    var btnRequestOrder = document.getElementById("btnRequestOrder");
+
+    var spanRequestOrder = document.getElementsByClassName("close")[0];
+    if (btnRequestOrder != null) {
+        btnRequestOrder.onclick = function () {
+            modalOrder.style.display = "block";
+
+        }
+    }
+    // When the user clicks on <span> (x), close the modal
+    if (spanRequestOrder != null) {
+        spanRequestOrder.onclick = function () {
+            modalOrder.style.display = "none";
+        }
+    }
+}
+
+
+function onActionOrderTour(button) {
+    var btn = button;
+    var priceOld = document.getElementById("price_old").value;
+    var priceChil = document.getElementById("price_chil").value;
+    var spanNum = document.getElementsByClassName("numPeople");
+    var numPeople = Array.from(spanNum, el => el.innerText);
+    var price1 = document.getElementById("price1");
+    var price2 = document.getElementById("price2");
+    var sunPrice = document.getElementById("sunPrice");
+
+    if (btn.id === "btnSubOld") {
+        if (numPeople[0] === 0) {
+            return
+        } else {
+            price1.innerText = parseInt(price1.innerText) - parseInt(priceOld);
+            spanNum[0].innerText = parseInt(numPeople[0]) - 1;
+        }
+    }
+    if (btn.id === "btnAddOld") {
+        price1.innerText = parseInt(price1.innerText) + parseInt(priceOld);
+        spanNum[0].innerText = parseInt(numPeople[0]) + 1;
+    }
+    if (btn.id === "btnSubChil") {
+        if (numPeople[1] === 0) {
+            return
+        } else {
+            price2.innerText = parseInt(price2.innerText) - parseInt(priceChil);
+            spanNum[1].innerText = parseInt(numPeople[1]) - 1;
+        }
+    }
+    if (btn.id === "btnAddChil") {
+        price2.innerText = parseInt(price2.innerText) + parseInt(priceChil);
+        spanNum[1].innerText = parseInt(numPeople[1]) + 1;
+    }
+    sunPrice.innerText = parseInt(price2.innerText) + parseInt(price1.innerText);
+}

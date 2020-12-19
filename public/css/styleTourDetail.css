@@ -40,6 +40,43 @@ body{
     background-color: #fff;
     border-radius: 5px;
 }
+.container .bookingForm .rowx{
+    width: 100%;
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+}
+.container .bookingForm .rowx .colxl{
+    float: left;
+}
+.container .bookingForm .rowx .colxr{
+    float: right;
+}
+.container .bookingForm .rowx .colxr select{
+    width: 150px;
+    padding: 10px;
+    border: 1px solid#e0e0e0;
+    cursor: pointer;
+}
+.container .bookingForm .rowx .colxr button{
+    width: 73px;
+    color: #003c71;
+    font-size: 24px;
+    font-weight: 600;
+    border: 1px solid#e0e0e0;
+    cursor: pointer;
+}
+.container .bookingForm .rowx>button{
+    padding: 10px;
+    background-color: #BA4A00;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    border: 0px;
+    border-radius: 10px;
+}
+
+
 .content .container .tourSideBar{
     background-color: #fff;
     border-radius: 5px;
@@ -135,3 +172,15 @@ body{
     color: #003c71;
 }
 
+.modal-body {
+    display: grid !important;
+    text-align: unset !important;
+}
+.modal-body input{
+    padding: 10px;
+    border: 1px solid #d0d0d0;
+}
+.modal-body button{
+    padding: 10px;
+    background-color: #f79321;
+}
