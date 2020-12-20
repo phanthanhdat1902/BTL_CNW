@@ -11,6 +11,15 @@
  *
  * @author 1920
  */
-class utility_detailscontroller {
-    //put your code here
+class Utility_detailsController extends Controller {
+    
+    function findUtilityDetail($hotelId = null) {
+        $this->Utility_detail->where('id_hotel', $hotelId);
+        $temp = $this->Utility_detail->search();
+        $result = array();
+        foreach ($temp as $item):
+            array_push($result, $item['Utility_detail']['name']);
+        endforeach;
+        return $result;
+    }
 }
