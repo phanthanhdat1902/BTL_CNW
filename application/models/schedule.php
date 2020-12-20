@@ -7,10 +7,10 @@
  */
 
 /**
- * Description of order_tour
+ * Description of schedules
  *
  * @author dat.pt173001
  */
-class Order_tour extends Model{
+class Schedule extends Model {
     //put your code here
 }

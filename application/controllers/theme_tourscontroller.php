@@ -60,10 +60,10 @@ class Theme_toursController extends Controller {
     function view($themeId) {
         $result = performAction('tours', 'findTourByThemeId', array($themeId));
 //        $this->Theme_tour->id = $themeId;
-        $this->Theme_tour->where('id_theme',$themeId);
+        $this->Theme_tour->where('id_theme', $themeId);
         $fields = array();
         array_push($fields, 'name');
-        $result['Theme_tour']=$this->Theme_tour->search($fields)[0]['Theme_tour'];
+        $result['Theme_tour'] = $this->Theme_tour->search($fields)[0]['Theme_tour'];
         $this->set('listTour', $result);
     }
 

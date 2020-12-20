@@ -328,8 +328,8 @@ class SQLQuery {
 
     /** Delete an Object * */
     function delete() {
-        if ($this->id) {
-            $query = 'DELETE FROM ' . $this->_table . ' WHERE `id_' . $this->_models . '`=\'' . mysqli_real_escape_string($this->_dbHandle, $this->id) . '\'';
+        if (isset($this->id)) {
+            $query = 'DELETE FROM ' . $this->_table . ' WHERE `id_' . $this->_model . '`=\'' . mysqli_real_escape_string($this->_dbHandle, $this->id) . '\'';
             $this->_result = mysqli_query($this->_dbHandle, $query);
             $this->clear();
             if ($this->_result == 0) {
@@ -348,7 +348,7 @@ class SQLQuery {
         if (isset($this->id)) {
             $updates = '';
             foreach ($this->_describe as $field) {
-                if ($this->$field) {
+                if (isset($this->$field)) {
                     $updates .= '`' . $field . '` = \'' . mysqli_real_escape_string($this->_dbHandle, $this->$field) . '\',';
                 }
             }
@@ -360,7 +360,7 @@ class SQLQuery {
             $fields = '';
             $values = '';
             foreach ($this->_describe as $field) {
-                if ($this->$field) {
+                if (isset($this->$field)) {
                     if (strpos($field, 'id') === 0) {
                         $fields .= '`' . $field . '`,';
                         $values .= mysqli_real_escape_string($this->_dbHandle, htmlentities($this->$field, ENT_QUOTES)) . ',';

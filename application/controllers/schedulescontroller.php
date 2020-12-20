@@ -7,10 +7,14 @@
  */
 
 /**
- * Description of order_tour
+ * Description of schedules
  *
  * @author dat.pt173001
  */
-class Order_tour extends Model{
-    //put your code here
+class SchedulesController extends Controller{
+    
+    function findSchedules($tourId){
+        $this->Schedule->where('id_tour',$tourId);
+        return $this->Schedule->search();
+    }
 }
