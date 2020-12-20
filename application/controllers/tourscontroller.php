@@ -178,7 +178,7 @@ class ToursController extends Controller {
             $city = performAction('cities', 'findCity', array($tour['Tour']['id_city']));
             $transportation = performAction('tour_transportations', 'findTrasportation', array($tour['Tour']['id_tour_transportation']));
             $reviewUsers = performAction('review_tours', 'findReviewById', array($idTour));
-            $departures = performAction('departures', 'findDepartureById', array($idTour));
+            $departures = performAction('departures', 'findDepartureByIdTour', array($idTour));
             $schedules = performAction('schedules', 'findSchedules', array($idTour));
             $tour['Tour']['service_tours'] = $service_tour;
             $tour['Tour']['city'] = $city;
