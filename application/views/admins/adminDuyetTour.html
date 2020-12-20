@@ -70,6 +70,7 @@
                     <button id="btnAdd" onclick="onActionBtn(this)">Thêm mới</button>
                     <button id="btnUpdate" class="disable" onclick="onActionBtn(this)">Cập nhật</button>
                     <button id="btnApproval" class="disable">Duyệt</button>
+                    <button id="btnCancel" class="disable">Hủy</button>
                     <button id="btnDelete" class="disable">Xóa</button>
                 </div>
                 <div class="action_right">
@@ -201,12 +202,31 @@
             </div>
         </div>
 
+        <!-- The Modal Hủy Duyệt-->
+        <div id="modalCancel" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="title">
+                        <h2>Bạn hủy duyệt tour?</h2>
+                    </div>
+                    <div class="btnConfirm">
+                        <button type="button" class="btnConfirmYes" onclick="onActionBtn(this,3)">Yes</button>
+                        <button type="button" class="btnConfirmNo">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="footer">
             <span>Copyright © Your Website 2020</span>
         </div>
     </div>
     <script>
-        function onActionBtn(button,status) {
+        function onActionBtn(button, status) {
             var btn = button;
             if (btn.id === "btnAdd") {
                 window.location = "/adminThemTour.html"
@@ -214,22 +234,25 @@
             if (btn.id === "btnUpdate") {
                 if (!btn.classList.contains("disable")) {
                     //lấy id tour muốn update
-                    var row=Array.from(document.querySelectorAll('.main-table tbody tr.tick input'),el => el.value);
-                    var idTour=row[0];
-                    alert("ID tour là:"+ idTour);
+                    var row = Array.from(document.querySelectorAll('.main-table tbody tr.tick input'), el => el.value);
+                    var idTour = row[0];
+                    alert("ID tour là:" + idTour);
                     //
                 }
             }
             //TH bấm yes
-            if(btn.classList.contains("btnConfirmYes")){
-                var row=Array.from(document.querySelectorAll('.main-table tbody tr.tick input'),el => el.value);
+            if (btn.classList.contains("btnConfirmYes")) {
+                var row = Array.from(document.querySelectorAll('.main-table tbody tr.tick input'), el => el.value);
                 //xóa
-                if(status===1){
-                    alert("xóa tour: "+row);
+                if (status === 1) {
+                    alert("xóa tour: " + row);
                 }
                 //duyệt
-                if(status===2){
-                    alert("duyệt hotel: "+ row);
+                if (status === 2) {
+                    alert("duyệt hotel: " + row);
+                }
+                if (status === 3) {
+                    alert("Hủy duyệt tour: " + row);
                 }
             }
         }

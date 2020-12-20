@@ -1,4 +1,8 @@
 body {
+    -moz-user-select: none; /* Trên Firefox */
+    -ms-user-select: none; /* Trên Internet Explorer */
+    -webkit-user-select: none; /* Trên Chrome, Safari, and Opera */
+    -webkit-touch-callout: none; /* Trên Android and iOS callouts (Điện thoại - máy tính bảng)*/
     font-family: sans-serif;
     color: #494b55;
 }
@@ -268,7 +272,10 @@ body {
     background-color: #21618C;
 }
 #btnUpdate{
-    background-color: #F57F17;
+    background-color: #558B2F;
+}
+#btnCancel{
+    background-color: #E65100;
 }
 
 .container .action .action_right{
