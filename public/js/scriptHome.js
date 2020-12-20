@@ -73,7 +73,7 @@ function onActionOrderTour(button) {
         }
     }
     if (btn.id === "btnAddOld") {
-        price1.innerText = formatNumber(parseInt(priceOld) * (parseInt(numPeople[0]) + 1))  + " VND";
+        price1.innerText = formatNumber(parseInt(priceOld) * (parseInt(numPeople[0]) + 1)) + " VND";
         spanNum[0].innerText = parseInt(numPeople[0]) + 1;
     }
     if (btn.id === "btnSubChil") {
@@ -85,11 +85,60 @@ function onActionOrderTour(button) {
         }
     }
     if (btn.id === "btnAddChil") {
-        price2.innerText = formatNumber(parseInt(priceChil) * (parseInt(numPeople[1]) + 1))  + " VND";
+        price2.innerText = formatNumber(parseInt(priceChil) * (parseInt(numPeople[1]) + 1)) + " VND";
         spanNum[1].innerText = parseInt(numPeople[1]) + 1;
     }
-    sunPrice.innerText = formatNumber(parseInt(spanNum[1].innerText) * priceChil + parseInt(spanNum[0].innerText) * priceOld)  + " VND";
+    sunPrice.innerText = formatNumber(parseInt(spanNum[1].innerText) * priceChil + parseInt(spanNum[0].innerText) * priceOld) + " VND";
 }
 function formatNumber(num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
+}
+
+
+function validateForm() {
+    var formLogin = document.forms["formLogin"];
+    var formRegister = document.forms["formRegister"];
+
+    mail = document.getElementById("email");
+    pwd = document.getElementById("password");
+    cfpwd = document.getElementById("comfirmpassword");
+    if (formLogin != null) {
+        var email = formLogin["email"].value;
+        var password = formLogin["password"].value;
+        if (email == "" || email == null) {
+            alert("Email must be filled out");
+            mail.focus();
+            return false;
+        }
+        if (password == "" || password == null) {
+            alert("Password must be filled out");
+            pwd.focus();
+            return false;
+        }
+    }
+    if (formRegister != null) {
+        var email = formRegister["email"].value;
+        var password = formRegister["password"].value;
+        var comfirmpassword = formRegister["comfirmpassword"].value;
+        if (email == "" || email == null) {
+            alert("Email must be filled out");
+            mail.focus();
+            return false;
+        }
+        if (password == "" || password == null) {
+            alert("Password must be filled out");
+            pwd.focus();
+            return false;
+        }
+        if (comfirmpassword == "" || comfirmpassword == null) {
+            alert("Password must be filled out");
+            cfpwd.focus();
+            return false;
+        }
+        if (comfirmpassword !== password) {
+            alert("Comfirm password fail!");
+            cfpwd.focus();
+            return false;
+        }
+    }
 }

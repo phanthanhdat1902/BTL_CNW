@@ -6,20 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login in booking page</title>
         <?php echo $html->includeCss('style'); ?>   
-        <style>
-            .form{
-                margin-left: auto;
-                margin-right: auto;
-            }
-        </style>
     </head>
 
     <body>
         <div class="form">
-            <form action="http://localhost/BTL_CNW/users/login" method="post">
+            <form action="http://localhost/BTL_CNW/users/login" method="post" name="formLogin" onsubmit="return validateForm()" required>
                 <?php if (isset($isLogin)) { ?>
-                    <span>Login fail</span>
-                <?php } ?>
+                    <span>Login fail</span>                <?php } ?>
                 <h3 class="text_register"> Đăng Nhập bằng:</h3>
                 <div class="By">
                     <button class="facebook_btn">
@@ -33,15 +26,17 @@
                 </div>
                 <div class="input_infor">
                     <p> Email/Username</p>
-                    <input type="text" placeholder="email" name="email">
+                    <input type="text" placeholder="email" name="email" id="email">
                     <p> Password</p>
 
-                    <input type="password" placeholder="password" name="password">
+                    <input type="password" placeholder="password" name="password" id="password">
                     <a> <p>Quên mật khẩu?</p></a>
                 </div>          
                 <input class="submit_btn" type="submit" value="Đăng nhập"/>
             </form>
         </div>
+
+        <script src="http://localhost/BTL_CNW/public/js/scriptHome.js"></script>
     </body>
 
 </html>

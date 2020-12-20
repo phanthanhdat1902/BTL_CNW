@@ -1,64 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Register</title>
-        <?php echo $html->includeCss('style'); ?>   
-        <style>
-            .form{
-                margin-left: auto;
-                margin-right: auto;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="form">
-            <?php if (!$result) { ?>
-                <script>
-                    alert('Đã tồn tại email đăng nhập');
-                </script>
-            <?php } else { ?>
-            <?php } ?>
-            <form action="register" method="POST">
-                <h3 class="text_register"> Đăng kí bằng:</h3>
-                <div class="By">
-                    <button class="facebook_btn">
-                        <!-- <div class="image_fb"></div> -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <?php echo $html->includeCss('style'); ?>
+</head>
 
-                        <a href="google.com.vn"> Facebook</a>
-                    </button>
-                    <button class="google_btn">
-                        <i></i>
-                        <a href="facebook.com.vn"> Google</a>
-                    </button>
-                </div>
-                <div class="input_infor">
-                    <p> Email</p>
+<body>
+    <div class="form">
+        <?php if (!$result) { ?>
+            <script>
+                alert('Đã tồn tại email đăng nhập');
+            </script>
+        <?php } else { ?>
+        <?php } ?>
+        <form action="register" method="POST" name="formRegister" onsubmit="return validateForm()" required>
+            <h3 class="text_register"> Đăng kí bằng:</h3>
+            <div class="By">
+                <button class="facebook_btn">
+                    <!-- <div class="image_fb"></div> -->
 
-                    <input type="text" placeholder="email" name="email">
+                    <a href="google.com.vn"> Facebook</a>
+                </button>
+                <button class="google_btn">
+                    <i></i>
+                    <a href="facebook.com.vn"> Google</a>
+                </button>
+            </div>
+            <div class="input_infor">
+                <p> Email</p>
 
-                    <p> Password</p>
+                <input type="text" placeholder="email" name="email" id="email">
 
-                    <input type="password" placeholder="password" name="password">
+                <p> Password</p>
 
-                    <p>Confirm Password</p>
+                <input type="password" placeholder="password" name="password" id="password">
 
-                    <input type="password">
-                </div>
+                <p>Confirm Password</p>
 
-                <div class="agree">
-                    <input type="checkbox">
-                    <span>Bằng việc tham gia iVIVU, tôi đồng ý tất cả
-                        <a>điều kiện & điều khoản</a>
-                    </span>
-                </div>
+                <input type="password" name="comfirmpassword" id="comfirmpassword">
+            </div>
 
-                <input class="submit_btn" type="submit" value="Đăng Ký"/>
-            </form>
+            <div class="agree">
+                <input type="checkbox">
+                <span>Bằng việc tham gia iVIVU, tôi đồng ý tất cả
+                    <a>điều kiện & điều khoản</a>
+                </span>
+            </div>
 
-        </div>
-    </body>
+            <input class="submit_btn" type="submit" value="Đăng Ký" />
+        </form>
+
+    </div>
+    <script src="http://localhost/BTL_CNW/public/js/scriptHome.js"></script>
+</body>
 
 </html>
