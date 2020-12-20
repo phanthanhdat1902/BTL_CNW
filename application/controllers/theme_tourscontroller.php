@@ -14,7 +14,6 @@
 class Theme_toursController extends Controller {
 
     function beforeAction() {
-        
     }
 
     /*
@@ -23,7 +22,7 @@ class Theme_toursController extends Controller {
 
     function viewall() {
 //        $this->Theme_tour->showHasMany();
-        $this->Theme_tour->leftOn('tours', 'id_theme');
+        $this->Theme_tour->leftOn('tours', 'id_theme_tour');
         // tham so 1 la bang can left join, tham so 2 la cot de join
 //        $this->Theme_tour->leftOn('service_tours', 'id_service', 'tours');
         // noi 2 bang voi nhau cung voi bang Theme_tour, tham so 1 la bang can noi,  tham so 2 la cot, tham so 3 la bang noi voi bang trong tham so 1
@@ -60,20 +59,20 @@ class Theme_toursController extends Controller {
     function view($themeId) {
         $result = performAction('tours', 'findTourByThemeId', array($themeId));
 //        $this->Theme_tour->id = $themeId;
-        $this->Theme_tour->where('id_theme', $themeId);
+        $this->Theme_tour->where('id_theme_tour', $themeId);
         $fields = array();
         array_push($fields, 'name');
         $result['Theme_tour'] = $this->Theme_tour->search($fields)[0]['Theme_tour'];
         $this->set('listTour', $result);
     }
-    
-    function viewallTheme($themeId=null){
-        if($themeId!=null){
-            $this->Theme_tour->id=$themeId;
+
+    function viewallTheme($themeId = null) {
+        if ($themeId != null) {
+            $this->Theme_tour->id = $themeId;
         }
         return $this->Theme_tour->search();
     }
-    
+
     function afterAction() {
         
     }

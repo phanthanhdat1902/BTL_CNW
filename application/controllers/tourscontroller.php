@@ -88,7 +88,7 @@ class ToursController extends Controller {
             $tour['Tour']['term_note'] = explode('\n', $tour['Tour']['term_note']);
             $service_tour = performAction('service_tours', 'findService', array($idTour));
             $city = performAction('cities', 'findCity', array($tour['Tour']['id_city']));
-            $transportation = performAction('tour_transportations', 'findTrasportation', array($tour['Tour']['id_transportation']));
+            $transportation = performAction('tour_transportations', 'findTrasportation', array($tour['Tour']['id_destination_city']));
             $reviewUsers = performAction('review_tours', 'findReviewById', array($idTour));
             $departures = performAction('departures', 'findDepartureById', array($idTour));
             $schedules=performAction('schedules','findSchedules',array($idTour));
@@ -107,13 +107,16 @@ class ToursController extends Controller {
     }
 
     function viewall($page = 1, $limit = 1) {
-//        $this->Tour->setLimit($limit);
-//        $this->Tour->setPage($page);
+        $this->Tour->setLimit($limit);
+        $this->Tour->setPage($page);
         $this->Tour->leftOn('Theme_tours', 'id_theme_tour');
         $this->Tour->leftOn('Cities', 'id_city');
         return $this->Tour->search();
     }
-
+    function getTotal($limit=10){
+        $this->Tour->setLimit($limit);
+        return $this->Tour->totalPages();
+    }
     function afterAction() {
         
     }

@@ -400,13 +400,11 @@ class SQLQuery {
 
     /** Pagination Count * */
     function totalPages() {
-        if ($this->_query && $this->_limit) {
-            $pattern = '/SELECT (.*?) FROM (.*)LIMIT(.*)/i';
-            $replacement = 'SELECT COUNT(*) FROM $2';
-            $countQuery = preg_replace($pattern, $replacement, $this->_query);
+        if ($this->_limit) {
+            $countQuery = 'SELECT COUNT(*) FROM '. $this->_table;
             $this->_result = mysqli_query($this->_dbHandle, $countQuery);
-            $count = mysqli_fetch_row($this->_result);
-            $totalPages = ceil($count[0] / $this->_limit);
+            $row = mysqli_fetch_row($this->_result)[0];
+            $totalPages = ceil($row / $this->_limit);
             return $totalPages;
         } else {
             /* Error Generation Code Here */

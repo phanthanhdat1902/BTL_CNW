@@ -5,7 +5,7 @@
             ?>
             <div>
                 <div class="localHeaderLine">
-                    <a href="<?php echo BASE_PATH . 'theme_tours/view/' . $theme_touritem['theme']['id_theme'] ?>">
+                    <a href="<?php echo BASE_PATH . 'theme_tours/view/' . $theme_touritem['theme']['id_theme_tour'] ?>">
                         <span class="title"><?php echo $theme_touritem['theme']['name'] ?></span>
                         <span class="readMoreTuor">Xem thêm tour</span>
                     </a>

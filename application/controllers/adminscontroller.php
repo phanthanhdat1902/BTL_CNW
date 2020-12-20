@@ -29,11 +29,12 @@ class AdminsController extends Controller {
         $this->set('tours', $result);
     }
 
-    function detailtour($idTour) {
+    function getdata($idTour) {
         $result = performAction('Tours', 'view', array($idTour));
         $theme_tours = performAction('Theme_tours', 'viewallTheme', array(null));
         $result['listThemeTours']=$theme_tours;
-        $this->set('tours', $result);
+        $total=performAction('Tours', 'getTotal', array(10));
+        $this->set('tours', $total);
     }
 
     function addTour() {
