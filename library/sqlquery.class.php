@@ -286,8 +286,8 @@ class SQLQuery {
             if (mysqli_num_rows($this->_result) > 0) {
                 $numOfFields = mysqli_num_fields($this->_result);
                 for ($i = 0; $i < $numOfFields; ++$i) {
-                    array_push($table, mysqli_fetch_field_direct($this->_result, $i));
-                    array_push($field, mysqli_fetch_field_direct($this->_result, $i));
+                    array_push($table, mysqli_fetch_field_direct($this->_result, $i)->table);
+                    array_push($field, mysqli_fetch_field_direct($this->_result, $i)->name);
                 }
                 while ($row = mysqli_fetch_row($this->_result)) {
                     for ($i = 0; $i < $numOfFields; ++$i) {

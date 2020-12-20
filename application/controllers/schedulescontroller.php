@@ -11,9 +11,9 @@
  *
  * @author dat.pt173001
  */
-class SchedulesController extends Controller{
+class SchedulesController extends Controller {
     
-    function findSchedules($tourId){
+    function findSchedules($tourId) {
         $this->Schedule->where('id_tour',$tourId);
         return $this->Schedule->search();
     }

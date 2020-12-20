@@ -11,8 +11,8 @@
  *
  * @author dat.pt173001
  */
-class CitiesController extends Controller{
-    function findCity($cityId){
+class CitiesController extends Controller {
+    function findCity($cityId) {
         $this->City->id = $cityId;
         return $this->City->search()['City']['name'];
     }

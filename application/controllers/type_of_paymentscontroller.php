@@ -11,6 +11,6 @@
  *
  * @author dat.pt173001
  */
-class type_of_paymentscontroller {
+class Type_of_paymentsController extends Controller {
     //put your code here
 }

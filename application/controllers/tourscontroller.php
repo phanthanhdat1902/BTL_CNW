@@ -36,7 +36,9 @@ class ToursController extends Controller {
             $result = array();
             foreach ($listTours as $item) :
                 $temp = performAction('departures', 'findDepartureById', array($item['Tour']['id_tour']));
+                $tag = performAction('tag_tours', 'findTagTourById', array($item['Tour']['id_tour']));    
                 $item['departures'] = $temp;
+                $item['tags'] = $tag;
                 array_push($result, $item);
             endforeach;
             $this->set('listTour', $result);
@@ -64,7 +66,9 @@ class ToursController extends Controller {
         $result = array();
         foreach ($listTours as $item) :
             $temp = performAction('departures', 'findDepartureById', array($item['Tour']['id_tour']));
+            $tag = performAction('tag_tours', 'findTagTourById', array($item['Tour']['id_tour']));
             $item['departures'] = $temp;
+            $item['tags'] = $tag;
             array_push($result, $item);
         endforeach;
         return $result;

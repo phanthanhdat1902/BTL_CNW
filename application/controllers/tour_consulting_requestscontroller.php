@@ -11,6 +11,6 @@
  *
  * @author dat.pt173001
  */
-class tour_consulting_requestscontroller {
+class Tour_consulting_requestsController extends Controller {
     //put your code here
 }

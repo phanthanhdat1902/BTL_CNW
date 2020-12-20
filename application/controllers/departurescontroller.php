@@ -11,8 +11,8 @@
  *
  * @author dat.pt173001
  */
-class DeparturesController extends Controller{
-    function findDepartureById($tourId){
+class DeparturesController extends Controller {
+    function findDepartureById($tourId) {
         $this->Departure->where('id_tour',$tourId);
         return $this->Departure->search();
     }

@@ -11,6 +11,6 @@
  *
  * @author dat.pt173001
  */
-class type_of_viewscontroller {
+class Type_of_viewsController extends Controller {
     //put your code here
 }

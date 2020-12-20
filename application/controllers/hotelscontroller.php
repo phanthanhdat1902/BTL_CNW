@@ -98,15 +98,15 @@ class HotelsController extends Controller {
         
         
         $query = '';
-        $id_city = performAction('locations', 'findIdCityByCityName', $city);
+        $id_city = performAction('locations', 'findIdCityByCityName', array($city));
         if (!empty($id_city)) {
             $this->set('typeOfSearch', 0);
             
             //Lấy các area thuộc city để chuẩn bị cho view tiếp theo
-            $list_of_area = performAction('areas', 'findAreaByIdCity', $id_city);
+            $list_of_area = performAction('areas', 'findAreaByIdCity', array($id_city));
             this.set('listArea', $list_of_area);
             
-            $list_id_location = performAction('locations', 'findIdLocationByIdCity', $id_city);    
+            $list_id_location = performAction('locations', 'findIdLocationByIdCity', array($id_city));    
             $list_id_hotel = $this->findIdHotelByListOfIdLocation($list_id_location);
 
             $query = 'SELECT id_hotel'
@@ -208,8 +208,8 @@ class HotelsController extends Controller {
             $location = performAction('locations', 'findLocationById', array($hotel['Hotel']['id_location']));
             $utilityDetails = performAction('utility_details', 'findUtilityDetailById', array($idHotel));
             $reviewUsers = performAction('review_hotels', 'findReviewById', array($idHotel));
-            $combo = performAction('Combo', 'findComboByIdHotel', $idHotel);
-            $starterPackage = performAction('Starter_package', 'findStarterPackageByIdHotel', $idHotel);
+            $combo = performAction('Combo', 'findComboByIdHotel', array($idHotel));
+            $starterPackage = performAction('Starter_package', 'findStarterPackageByIdHotel', array($idHotel));
 
             
             $hotel['Hotel']['location'] = $location;

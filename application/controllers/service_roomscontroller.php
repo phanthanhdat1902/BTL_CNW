@@ -11,6 +11,6 @@
  *
  * @author dat.pt173001
  */
-class service_roomscontroller {
+class Service_roomsController extends Controller {
     //put your code here
 }
