@@ -7,17 +7,21 @@
  */
 
 /**
- * Description of review_tour
+ * Description of schedule
  *
- * @author dat.pt173001
+ * @author 1920
  */
-class Review_tour extends Model {
+class Schedule extends Model {
     //foreign key
-    var $id_user;
     var $id_tour;
     
     //attribute
-    var $score;
-    var $content;
-    var $create_time;
+    var $id;
+    var $day_number;
+    var $title;
+    var $description;
+    var $image1;
+    var $caption1;
+    var $image2;
+    var $caption2;
 }

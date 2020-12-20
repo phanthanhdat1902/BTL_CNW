@@ -11,6 +11,13 @@
  *
  * @author dat.pt173001
  */
-class Tour_transportation extends Model{
-    //put your code here
+class Tour_transportation extends Model {
+    //attribute
+    var $id;
+    var $bus;
+    var $train;
+    var $airplane;
+    var $ship;
+    var $trekking;
+    var $aerial_tramway;
 }

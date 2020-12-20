@@ -11,6 +11,18 @@
  *
  * @author dat.pt173001
  */
-class combo {
-    //put your code here
+class Combo extends Model {
+    //foreign key
+    var $id_hotel;
+    var $id_type_of_room;
+    var $id_service_room;
+    
+    //attribute
+    var $id;
+    var $discount;
+    var $start_date;
+    var $end_date;
+    var $minimum_number_of_rooms;
+    
+    var $hasOne = array('Hotel' => 'Hotel', 'Package' => 'Package');
 }

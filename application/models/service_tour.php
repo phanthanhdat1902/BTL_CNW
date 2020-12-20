@@ -11,6 +11,11 @@
  *
  * @author dat.pt173001
  */
-class Service_tour extends Model{
-    //put your code here
+class Service_tour extends Model {
+    //foreign key
+    var $id_tour;
+    
+    //attribute
+    var $id;
+    var $name;
 }

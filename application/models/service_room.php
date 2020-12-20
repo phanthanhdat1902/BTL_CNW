@@ -11,6 +11,7 @@
  *
  * @author dat.pt173001
  */
-class service_room {
-    //put your code here
+class Service_room extends Model {
+    //attribute
+    var $id;
 }

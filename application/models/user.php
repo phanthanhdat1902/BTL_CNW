@@ -12,14 +12,18 @@
  * @author dat.pt173001
  */
 class User extends Model {
+    //foreign key
+     var $role;
 
+    //attribute
     var $id;
-    var $role;
     var $username;
     var $password;
     var $email;
-    var $google_acount;
-    var $facebook_acount;
+    var $google_account;
+    var $facebook_account;
+    var $create_time;
+    
     var $hasOne = array('Role' => 'Role');
-    var $hasMany=array('Order'=>'Order');
+    var $hasMany=array('Order' => 'Order');
 }

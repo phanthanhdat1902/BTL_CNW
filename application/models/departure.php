@@ -12,5 +12,16 @@
  * @author dat.pt173001
  */
 class Departure extends Model {
-    //put your code here
+    //foreign key
+    var $id_tour;
+    
+    //attribute
+    var $id;
+    var $start_date;
+    var $end_date;
+    var $holiday_surcharge;
+    var $availability;
+    
+    var $hasOne = array('Tour' => 'Tour');
+    var $hasMany = array('Order_Tour' => 'Order_Tour');
 }

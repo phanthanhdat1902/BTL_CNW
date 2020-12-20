@@ -11,6 +11,24 @@
  *
  * @author dat.pt173001
  */
-class order_tour {
-    //put your code here
+class Order_tour extends Model {
+    //foreign key
+    var $id_user;
+    var $id_tour;
+    var $id_type_of_payment;
+    var $id_departure;
+    
+    //atrribute
+    var $id;
+    var $number_of_adults;
+    var $number_of_children;
+    var $price;
+    var $name;
+    var $phone_number;
+    var $email;
+    var $note;
+    var $status;
+    
+    var $hasOne = array('User' => 'User', 'Tour' => 'Tour',
+        'Type_Of_Payment' => 'Type_Of_Payment', 'Departure' => 'Departure');
 }

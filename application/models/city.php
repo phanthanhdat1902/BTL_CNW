@@ -12,5 +12,13 @@
  * @author dat.pt173001
  */
 class City extends Model {
-    //put your code here
+    //attribute
+    var $id;
+    var $name;
+    var $number_of_hotels;
+    var $number_of_tours;
+    var $image;
+    
+    var $hasMany = array('Hotel' => 'Hotel', 'Location' => 'Location',
+        'Area' => 'Area', 'Tour' => 'Tour');
 }

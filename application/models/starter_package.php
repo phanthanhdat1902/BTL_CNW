@@ -11,6 +11,9 @@
  *
  * @author dat.pt173001
  */
-class starter_package {
-    //put your code here
+class Starter_package extends Model {
+    //foreign key
+    var $id_hotel;
+    var $id_type_of_room;
+    var $id_service_room;
 }
