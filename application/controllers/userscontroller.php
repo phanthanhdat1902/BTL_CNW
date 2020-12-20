@@ -95,6 +95,21 @@ class UsersController extends Controller {
         }
     }
 
+    function view($idUser = null) {
+        if (isset($idUser)) {
+            $this->User->id = $idUser;
+            $this->User->leftOn("Roles","id_role");
+            return $this->User->search();
+        } else{
+            return null;
+        }
+    }
+
+    function viewall() {
+        $this->User->leftOn("Roles","id_role");
+        return $this->User->search();
+    }   
+
     function update() {
         
     }

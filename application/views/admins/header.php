@@ -65,7 +65,7 @@ if (!isset($_SESSION['admin'])) {
                         <li><a href="/adminDuyetHotel.html">Duyệt hotel</a></li>
                     </ul>
                 </li>
-                <li><a href="/AdminQuanLyNhanVien.html">Quản lý nhân viên</a></li>
+                <li><a href="http://localhost/BTL_CNW/admins/viewalluser">Quản lý nhân viên</a></li>
                 <li><a href="#">Overview</a></li>
             </ul>
         </div>

@@ -69,6 +69,39 @@ class AdminsController extends Controller {
         header("Location:" . BASE_PATH . 'admins/viewallOrder/1/2');
     }
 
+
+
+
+    /**
+     * Hàm lấy tất cả user
+     */
+    function viewalluser() {
+        $result=performAction('Users','viewall',array(null));
+        $this->set('users',$result);
+    }
+    /**
+     * Hàm thêm mới user
+     */
+    function addUser() {
+
+    }
+    /**
+     * Hàm lấy chi tiết 1 user
+     */
+    function detailUser($idUser) {
+        $result = performAction('Users', 'view', array($idUser));
+        $listRoles=performAction('Roles','viewall',array(null));
+        $this->set('roles',$listRoles);
+        $this->set('user',$result);
+    }
+    /**
+     * Hàm xóa user
+     */
+    function deleteUser($idUser) {
+        
+    }
+
+    
     function logout() {
         session_start();
         unset($_SESSION["admin"]);

@@ -22,6 +22,10 @@ class RolesController extends Controller {
         return $this->Role->search();
     }
 
+    function viewall() {
+        return $this->Role->search();
+    }
+
     function afterAction() {
         
     }
