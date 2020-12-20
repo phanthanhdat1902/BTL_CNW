@@ -59,33 +59,37 @@ function onActionOrderTour(button) {
     var priceChil = document.getElementById("price_chil").value;
     var spanNum = document.getElementsByClassName("numPeople");
     var numPeople = Array.from(spanNum, el => el.innerText);
+
     var price1 = document.getElementById("price1");
     var price2 = document.getElementById("price2");
     var sunPrice = document.getElementById("sunPrice");
 
     if (btn.id === "btnSubOld") {
-        if (numPeople[0] === 0) {
+        if (numPeople[0] === "0") {
             return;
         } else {
-            price1.innerText = parseInt(price1.innerText) - parseInt(priceOld);
+            price1.innerText = formatNumber(parseInt(priceOld) * (parseInt(numPeople[0]) - 1)) + " VND";
             spanNum[0].innerText = parseInt(numPeople[0]) - 1;
         }
     }
     if (btn.id === "btnAddOld") {
-        price1.innerText = parseInt(price1.innerText) + parseInt(priceOld);
+        price1.innerText = formatNumber(parseInt(priceOld) * (parseInt(numPeople[0]) + 1))  + " VND";
         spanNum[0].innerText = parseInt(numPeople[0]) + 1;
     }
     if (btn.id === "btnSubChil") {
-        if (numPeople[1] === 0) {
-            return ;
+        if (numPeople[1] === "0") {
+            return;
         } else {
-            price2.innerText = parseInt(price2.innerText) - parseInt(priceChil);
+            price2.innerText = formatNumber(parseInt(priceChil) * (parseInt(numPeople[1]) - 1)) + " VND";
             spanNum[1].innerText = parseInt(numPeople[1]) - 1;
         }
     }
     if (btn.id === "btnAddChil") {
-        price2.innerText = parseInt(price2.innerText) + parseInt(priceChil);
+        price2.innerText = formatNumber(parseInt(priceChil) * (parseInt(numPeople[1]) + 1))  + " VND";
         spanNum[1].innerText = parseInt(numPeople[1]) + 1;
     }
-    sunPrice.innerText = parseInt(price2.innerText) + parseInt(price1.innerText);
+    sunPrice.innerText = formatNumber(parseInt(spanNum[1].innerText) * priceChil + parseInt(spanNum[0].innerText) * priceOld)  + " VND";
+}
+function formatNumber(num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
 }
