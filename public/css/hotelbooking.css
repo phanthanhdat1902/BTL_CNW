@@ -139,61 +139,81 @@ body{
 
 
 /* Container */
-.container {
+.content_booking {
     display: flex;
     flex-direction: row;
     margin-left: 5%;
     margin-right:5%;
     margin-top: 5%;
 }
-.container .left {
+.content_booking .left {
     width: 25%;
     border: solid 1px #f8be82;
     padding: 5%;
 }
-.container .right {
+.content_booking .right {
     width: 65%;
     margin-left: 5%;
 }
 
 
 /* left */
-.container  .title {
+.content_booking .left  .title {
     font-weight: bold;
     color: blue;
 }
-.container .left .Khachsantuongtu {
+.content_booking .left .Khachsantuongtu {
   color: blue;
   font-weight: bold;
 }
-.container .left .hotel_item {
+.content_booking .left .hotel_item {
   display: flex;
   flex-direction: row;
 }
-.container .left .hotel_item .hotel_image {
-  background-image: url('/image/khu-nghi-duong-furama-da-nang-60x45.jfif');
+.content_booking .left .hotel_item .hotel_image_1 {
   width: 65px;
   height: 50px;
   margin-top: 10%;
 }
-.container .left .hotel_item .hotel_infor {
+.content_booking .left .hotel_item .hotel_image_2 {
+  width: 65px;
+  height: 50px;
+  margin-top: 10%;
+}
+.content_booking .left .hotel_item .hotel_image_3 {
+  width: 65px;
+  height: 50px;
+  margin-top: 10%;
+}
+.content_booking .left .hotel_item .hotel_image_4 {
+  width: 65px;
+  height: 50px;
+  margin-top: 10%;
+}
+.content_booking .left .hotel_item .hotel_infor {
   margin-left: 5%;
   color: #F79321;
 }
 
 /* right */
-.container .right .hotel_booking_header {
+.content_booking .right .hotel_booking_header {
     display: flex;
+    
     flex-direction: row;
 }
-.container .right .hotel_booking_header .title_price{
-  margin-left:30%
-
+.content_booking .right .hotel_booking_header .title {
+  color: blue;
+  font-size: 18px;
+  font-weight: bold;
 }
-.container .right .hotel_booking_header .title_price .price {
+.content_booking .right .hotel_booking_header .title_price{
+  margin-left:30%;
+  
+}
+.content_booking .right .hotel_booking_header .title_price .price {
   color: blue;
 }
-.container .right .submit {
+.content_booking .right .submit {
     margin-left: 10%;
     width: 130px;
     height: 35px;
@@ -301,6 +321,7 @@ body{
     background-color: #feeec5;
     margin-top: 5%;
   }
+
   .right .detail .detail_left {
     width: 65%;
   }
@@ -311,7 +332,7 @@ body{
     margin-top: 2%;
     margin-left: 2%;
     border: 1px solid #fde29d;  
-    height: 300px;
+    height: 800px;
   }
   .right .detail .detail_right .khoihanh {
     display: flex;
@@ -322,3 +343,114 @@ body{
     font-weight: bold;
     padding-left: 25px;
   }
+  .right .Information .title{
+    font-size: 20px;
+    font-weight: bold;
+    color: blue;
+  }
+  .right .Information .police .police_1 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  .right .Information .police .police_1 .col_1{
+    width: 50%;
+    font-weight: bold;
+    color:  blue;
+  }
+  .right .Information .police .police_1 .col_2 {
+    width: 50%;
+  }
+  .right .Information  .review .review_start {
+    color: green;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .comment_current 
+  {
+    display: flex;
+    flex-direction: column;
+  }
+  .comment_current .person{
+    display: flex;
+    flex-direction: row;
+  }
+  .right .Information .review .comment_current .name{
+    width: 50%;
+    color: green;
+    font-weight: bold;
+  }
+
+
+  /* Modal display form combo hotel */
+  
+    /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  /* position: relative; */
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal .modal-content .date_room {
+  display: flex;
+  flex-direction: row;
+}
+.modal .modal-content .date_room .room{
+ margin-left: 20px;
+ display: flex;
+ flex-direction: column;
+}
+.modal .modal-content .date_room .room .select_count {
+  display: flex;
+  flex-direction: column;
+}
+.modal .modal-content .date_room .room .select_count .room_count{
+  display: flex;
+  flex-direction: row;
+}
+.modal .modal-content .date_room .room .select_count .room_count .btn {
+  display: flex;
+  flex-direction: row;
+  margin-left: 15%;
+}
+.modal .modal-content .date_room .room .select_count .room_count .btn .btn_sub, .btn_add {
+  width: 50px;
+  height: 30px;
+  background: #f59233;
+  border-radius: 5px;
+}
+.modal .modal-content .date_room .room .select_count .room_count .btn  .btn_add {
+  margin-left: 5%;
+} 

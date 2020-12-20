@@ -151,6 +151,7 @@ body{
   }
   
 .container {
+  margin-top: 2%;
     margin-left: 5%;
     margin-right: 5%;
     height: 1800px;
@@ -172,10 +173,10 @@ body{
 .left .support .avatar {
     margin-top: 10px;
     margin-left: 10px;
-    width: 120px;
-    height: 120px;
-    background-image: url('/image/da lat.jpg');
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
+    border:1px solid orange;
 }
 .support {
     margin-left: 5px;
@@ -265,7 +266,6 @@ body{
 }
 .container  .right .hotel_item .left{
     width: 15%;
-    background-image: url('/image/moc-chau2.png');
 }
 .container  .right .hotel_item .left .voucher{
     width: 90%;
