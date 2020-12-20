@@ -12,8 +12,9 @@ and open the template in the editor.
     <body>
         <?php
 //        print_r($tour);
-        foreach ($listTour as $item):
-            print_r($item);
+        foreach ($tour as $key=>$value):
+            print($key.'===>>>');
+            print_r($value);
             echo"<br>";
             echo"<br>";
             echo"<br>";

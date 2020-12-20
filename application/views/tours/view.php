@@ -18,14 +18,14 @@
                 <span><?php echo $tour['city'] ?></span>
                 <span><?php echo $tour['number_of_days'] ?> Ngày <?php echo $tour['number_of_nights'] ?> Đêm</span>
                 <span>Phương tiện: <?php
-                                    array_shift($tour['transportation']);
-                                    foreach ($tour['transportation'] as $key => $value) :
-                                        if ($value == 1) {
-                                            echo ucfirst($key);
-                                            echo ' - ';
-                                        }
-                                    endforeach;
-                                    ?></span>
+                    array_shift($tour['transportation']);
+                    foreach ($tour['transportation'] as $key => $value) :
+                        if ($value == 1) {
+                            echo ucfirst($key);
+                            echo ' - ';
+                        }
+                    endforeach;
+                    ?></span>
                 <span>Mã Tour: <?php echo $tour['code'] ?></span>
             </div>
         </div>
@@ -46,17 +46,27 @@
 
         <div class="tourSchedule">
             <h1>Chương trình tour</h1>
-
-            <h3>NGÀY 01: TP HỒ CHÍ MINH - SAPA ( ĂN TRƯA, TỐI)</h3>
-            <span>Sáng: 05h30 Nhân viên đón đoàn tại sân bay Tân Sơn Nhất làm thủ tục bay đi Hà Nội ( chuyến bay của Viet Jet Air VJ 128 lúc 07h55). Đến sân bay Nội Bài, xe khởi hành đưa đoàn đi Sapa.Đoàn dùng cơm trưa tại Lào Cai.Quý khách tự do tham quan và chụp hình tại cột mốc hữu nghị Việt Nam – Trung Quốc,</span>
-            <img src="https://cdn2.ivivu.com/2020/05/19/11/ivivu-cua-khau-huu-nghi.gif">
-            <p><em>Cột mốc Hữu Nghị.</em></p>
-
-            <h3>NGÀY 02: KHÁM PHÁ SAPA ( ĂN SÁNG, TRƯA, ĂN TỐI TỰ TÚC)</h3>
-            <span>Sáng: Điểm tâm sáng, Xe và HDV đưa Quý khách đến bản Cát Cát, bắt đầu hành trình khám phá bản làng - Tham quan bản Cát Cát - Sín Chải của người H’mong. Quý khách sẽ được thăm và tìm hiểu phong tục tập quán sinh hoạt kỳ thú, đơn sơ đến bình dị của những người dân tộc thiểu số.</span>
-            <img src="https://cdn2.ivivu.com/2020/05/19/11/ivivu-cat-cat-sin-chai.gif">
-            <p><em>Bản Cát Cát - Sín Chải.</em></p>
-
+            <?php foreach ($tour['schedules'] as $item): ?>
+                <h3><?php
+                    $item['Schedule']['title'] = str_replace('\n', PHP_EOL, $item['Schedule']['title']);
+                    echo $item['Schedule']['title'];
+                    ?></h3>
+                <span><?php
+                    $item['Schedule']['description'] = str_replace('\n', PHP_EOL, $item['Schedule']['description']);
+                    echo $item['Schedule']['description'];
+                    ?></span>
+                <?php if (isset($item['Schedule']['image1'])) { ?>
+                    <img src="<?php echo ('http://localhost/BTL_CNW/public/img/' . $item['Schedule']['image1']) ?>">
+                    <p><em><?php echo $item['Schedule']['caption1'] ?></em></p>
+                    <?php
+                }
+                if (isset($item['Schedule']['image2'])) {
+                    ?>
+                    <img src="<?php echo ('http://localhost/BTL_CNW/public/img/' . $item['Schedule']['image2']) ?>">
+                    <p><em><?php echo $item['Schedule']['caption2'] ?></em></p>
+                <?php } ?>
+            <?php endforeach;
+            ?>
         </div>
 
         <div class="departureSchedule">
@@ -64,10 +74,10 @@
                 <h1>Lịch khởi hành</h1>
                 <table>
                     <thead>
-                        <th>Ngày khởi hành</th>
-                        <th>Ngày về</th>
-                        <th>Tình trạng</th>
-                        <th>Giá</th>
+                    <th>Ngày khởi hành</th>
+                    <th>Ngày về</th>
+                    <th>Tình trạng</th>
+                    <th>Giá</th>
                     </thead>
                     <tbody>
                         <?php foreach ($tour['departures'] as $item) : ?>
@@ -94,9 +104,9 @@
                     </div>
                     <div class="colxr">
                         <select>
-                            <option>10/08/1999</option>
-                            <option>10/08/1999</option>
-                            <option>10/08/1999</option>
+                            <?php foreach ($tour['departures'] as $item) : ?>
+                                <option value="<?php echo $item['Departure']['id_departure'] ?>"><?php echo $item['Departure']['start_date'] ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                 </div>
@@ -228,46 +238,31 @@
 
         <div class="customerReview">
             <h2>Đánh giá gần đây</h2>
-            <dl>
-                <?php
-                foreach ($tour['reviewUsers'] as $item) :
-                    foreach ($item as $content) :
-                ?>
-                        <h2>
-                            <dt><?php echo $content['email'] . ' - ' . str_replace('-', '/', $content['create_time']) ?> :</dt>
-                        </h2>
-                        <dd>- <?php echo $content['content'] ?></dd>
-                <?php
-                    endforeach;
+            <?php
+            foreach ($tour['reviewUsers'] as $item) :
+                foreach ($item as $content) :
+                    ?>
+                    <h2>
+                        <dt><?php echo $content['email'] . ' - ' . str_replace('-', '/', $content['create_time']) ?> :</dt>
+                    </h2>
+                    <dd>- <?php echo $content['content'] ?></dd>
+                    <div class="customerReviewDetail">
+                        <div class="reviewDetailLeft">
+                            <span>&#10064;</span>
+                            <span>Trang Nguyễn</span>
+                        </div>
+                        <div class="reviewDetailRight">
+                            <div>
+                                <span class="scoreSpan">8.0</span>
+                                <span class="scoreReviewDate">24-06-2020</span>
+                            </div>
+                            <span class="customerReviewContent">Tour tư vấn ban đầu có 25 khách nhưng khi đến sân bay là 45 khách. Tour đi quá đông, hdv không thể chăm sóc tốt hết được</span>
+                        </div>
+                    </div>
+                    <?php
                 endforeach;
-                ?>
-            </dl>
-            <div class="customerReviewDetail">
-                <div class="reviewDetailLeft">
-                    <span>&#10064;</span>
-                    <span>Trang Nguyễn</span>
-                </div>
-                <div class="reviewDetailRight">
-                    <div>
-                        <span class="scoreSpan">8.0</span>
-                        <span class="scoreReviewDate">24-06-2020</span>
-                    </div>
-                    <span class="customerReviewContent">Tour tư vấn ban đầu có 25 khách nhưng khi đến sân bay là 45 khách. Tour đi quá đông, hdv không thể chăm sóc tốt hết được</span>
-                </div>
-            </div>
-            <div class="customerReviewDetail">
-                <div class="reviewDetailLeft">
-                    <span>&#10064;</span>
-                    <span>Trần Định</span>
-                </div>
-                <div class="reviewDetailRight">
-                    <div>
-                        <span class="scoreSpan">8.0</span>
-                        <span class="scoreReviewDate">24-06-2020</span>
-                    </div>
-                    <span class="customerReviewContent">Tour tư vấn ban đầu có 25 khách nhưng khi đến sân bay là 45 khách. Tour đi quá đông, hdv không thể chăm sóc tốt hết được</span>
-                </div>
-            </div>
+            endforeach;
+            ?>
         </div>
     </div>
 </div>
