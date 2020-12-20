@@ -65,7 +65,7 @@ function onActionOrderTour(button) {
 
     if (btn.id === "btnSubOld") {
         if (numPeople[0] === 0) {
-            return
+            return;
         } else {
             price1.innerText = parseInt(price1.innerText) - parseInt(priceOld);
             spanNum[0].innerText = parseInt(numPeople[0]) - 1;
@@ -77,7 +77,7 @@ function onActionOrderTour(button) {
     }
     if (btn.id === "btnSubChil") {
         if (numPeople[1] === 0) {
-            return
+            return ;
         } else {
             price2.innerText = parseInt(price2.innerText) - parseInt(priceChil);
             spanNum[1].innerText = parseInt(numPeople[1]) - 1;

@@ -120,7 +120,7 @@
                     <div class="colxr">
                         <span>x</span>
                         <span id="price1"><?php echo ($html->asDollars($tour['price_per_adult'])); ?></span>
-                        <input type="hidden" value="20000" id="price_old">
+                        <input type="hidden" value="<?php echo (($tour['price_per_adult'])); ?>" id="price_old">
                         <span>VND</span>
                         <button type="button" id="btnSubOld" onclick="onActionOrderTour(this)">-</button>
                         <button type="button" id="btnAddOld" onclick="onActionOrderTour(this)">+</button>
@@ -135,7 +135,7 @@
                         <span>x</span>
                         <span id="price2"><?php echo ($html->asDollars($tour['price_per_adult'])); ?></span>
                         <span>VND</span>
-                        <input type="hidden" value="50000" id="price_chil">
+                        <input type="hidden" value="<?php echo (($tour['price_per_adult'])); ?>" id="price_chil">
                         <button type="button" id="btnSubChil" onclick="onActionOrderTour(this)">-</button>
                         <button type="button" id="btnAddChil" onclick="onActionOrderTour(this)">+</button>
                     </div>
@@ -157,16 +157,16 @@
                         <span class="close">&times;</span>
                     </div>
                     <div class="modal-body">
-                        <h1>Yêu cầu đặt tour</h1>
-                        <span>Họ & Tên *</span>
-                        <input type="text">
-                        <span>Điện thoại *</span>
-                        <input type="text">
-                        <span>Email</span>
-                        <input type="text">
-                        <span>Yêu cầu khác</span>
-                        <input type="text">
-                        <button type="submit">Gửi yêu cầu</button>
+                            <h1>Yêu cầu đặt tour</h1>
+                            <span>Họ & Tên *</span>
+                            <input type="text">
+                            <span>Điện thoại *</span>
+                            <input type="text">
+                            <span>Email</span>
+                            <input type="text">
+                            <span>Yêu cầu khác</span>
+                            <input type="text">
+                            <button type="submit">Gửi yêu cầu</button>
                     </div>
                 </div>
             </div>
@@ -261,21 +261,6 @@
                 endforeach;
             endforeach;
             ?>
-
-
-            <div class="customerReviewDetail">
-                <div class="reviewDetailLeft">
-                    <span>&#10064;</span>
-                    <span>Trang Nguyễn</span>
-                </div>
-                <div class="reviewDetailRight">
-                    <div>
-                        <span class="scoreSpan">8.0</span>
-                        <span class="scoreReviewDate">24-06-2020</span>
-                    </div>
-                    <span class="customerReviewContent">Tour tư vấn ban đầu có 25 khách nhưng khi đến sân bay là 45 khách. Tour đi quá đông, hdv không thể chăm sóc tốt hết được</span>
-                </div>
-            </div>
         </div>
     </div>
 </div>
