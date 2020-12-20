@@ -26,10 +26,10 @@
                 </div>
                 <div class="input_infor">
                     <p> Email/Username</p>
-                    <input type="text" placeholder="email" name="email" id="email">
+                    <input type="text" placeholder="email" name="email" id="email" maxlength="30">
                     <p> Password</p>
 
-                    <input type="password" placeholder="password" name="password" id="password">
+                    <input type="password" placeholder="password" name="password" id="password" maxlength="30">
                     <a> <p>Quên mật khẩu?</p></a>
                 </div>          
                 <input class="submit_btn" type="submit" value="Đăng nhập"/>

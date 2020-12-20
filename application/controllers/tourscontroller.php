@@ -17,6 +17,19 @@ class ToursController extends Controller {
         //check cookie
     }
 
+    function asNumber($value) {
+        if ($value < 0)
+            return "-" . asDollars(-$value);
+        $array = str_split($value);
+        $result = null;
+        foreach ($array as $item):
+            if ($item != '.') {
+                $result .= $item;
+            }
+        endforeach;
+        return $result;
+    }
+
     /*
 
      * Ham thuc hien chuc nang tim kiem tour theo thanh pho     */
@@ -74,6 +87,77 @@ class ToursController extends Controller {
         return $result;
     }
 
+    function updateTour($tourId) {
+        $this->Tour->id = $tourId;
+        $this->Tour->name = $_POST['nameTour'];
+        $this->Tour->id_theme_tour = $_POST['theme_tour'];
+        $this->Tour->number_of_days = $_POST['day'];
+        $this->Tour->number_of_nights = $_POST['night'];
+        if ($_POST['img_thumnail']) {
+            $this->Tour->thumbnail = $_POST['img_thumnail'];
+        }
+        $this->Tour->introduction_heading = $_POST['introduction_heading'];
+        $this->Tour->introduction = $_POST['introduction_content'];
+        $this->Tour->description_heading = $_POST['description_heading'];
+        $this->Tour->description = $_POST['description_content'];
+        $this->Tour->term_surcharge = $_POST['term_surcharge'];
+        $this->Tour->term_price_included = $_POST['term_price_included'];
+        $this->Tour->term_price_not_included = $_POST['term_price_not_included'];
+        $this->Tour->term_cancelling = $_POST['term_cancelling'];
+        $this->Tour->term_note = $_POST['term_note'];
+        $this->Tour->price_per_adult = $this->asNumber($_POST['price_per_adult']);
+        $this->Tour->price_per_adult = $this->asNumber($_POST['price_per_child']);
+        performAction('service_tours', 'deleteServiceByTourId', array($tourId));
+        foreach ($_POST['service_tour'] as $item) {
+            performAction('Service_tours', 'addService', array($tourId, $item));
+        }
+        performAction('schedules', 'deleteSchedulesById', array($tourId));
+        $dayNumber = $_POST['day_number'];
+        for ($i = 0; $i < count($dayNumber); $i++) {
+            performAction('Schedules', 'addSchedules', array($tourId, $dayNumber[$i], $_POST['title'][$i], $_POST['description'][$i], $_POST['image1'][$i], $_POST['caption1'][$i], $_POST['image2'][$i], $_POST['caption2'][$i]));
+        }
+        performAction('departures', 'deleteDeparturesByTourId', array($tourId));
+        $start_date = $_POST['start_date'];
+        for ($i = 0; $i < count($start_date); $i++) {
+            performAction('departures', 'addDeparture', array($tourId, $start_date[$i], $_POST['end_date'][$i], $_POST['holiday_surcharge'][$i]));
+        }
+        $this->Tour->save();
+    }
+
+    function addTour() {
+        $this->Tour->name = $_POST['nameTour'];
+        $this->Tour->id_theme_tour = $_POST['theme_tour'];
+        $this->Tour->number_of_days = $_POST['day'];
+        $this->Tour->number_of_nights = $_POST['night'];
+        if ($_POST['img_thumnail']) {
+            $this->Tour->thumbnail = $_POST['img_thumnail'];
+        }
+        $this->Tour->introduction_heading = $_POST['introduction_heading'];
+        $this->Tour->introduction = $_POST['introduction_content'];
+        $this->Tour->description_heading = $_POST['description_heading'];
+        $this->Tour->description = $_POST['description_content'];
+        $this->Tour->term_surcharge = $_POST['term_surcharge'];
+        $this->Tour->term_price_included = $_POST['term_price_included'];
+        $this->Tour->term_price_not_included = $_POST['term_price_not_included'];
+        $this->Tour->term_cancelling = $_POST['term_cancelling'];
+        $this->Tour->term_note = $_POST['term_note'];
+        $this->Tour->price_per_adult = $this->asNumber($_POST['price_per_adult']);
+        $this->Tour->price_per_adult = $this->asNumber($_POST['price_per_child']);
+        $this->Tour->save();
+        $tourId=$this->Tour->getLastId();
+        foreach ($_POST['service_tour'] as $item) {
+            performAction('Service_tours', 'addService', array($tourId, $item));
+        }
+        $dayNumber = $_POST['day_number'];
+        for ($i = 0; $i < count($dayNumber); $i++) {
+            performAction('Schedules', 'addSchedules', array($tourId, $dayNumber[$i], $_POST['title'][$i], $_POST['description'][$i], $_POST['image1'][$i], $_POST['caption1'][$i], $_POST['image2'][$i], $_POST['caption2'][$i]));
+        }
+        $start_date = $_POST['start_date'];
+        for ($i = 0; $i < count($start_date); $i++) {
+            performAction('departures', 'addDeparture', array($tourId, $start_date[$i], $_POST['end_date'][$i], $_POST['holiday_surcharge'][$i]));
+        }
+    }
+
     /*
 
      * Ham thuc hien chuc nang lay thong tin ve Tour theo ID     */
@@ -92,19 +176,19 @@ class ToursController extends Controller {
             $tour['Tour']['term_note'] = explode('\n', $tour['Tour']['term_note']);
             $service_tour = performAction('service_tours', 'findService', array($idTour));
             $city = performAction('cities', 'findCity', array($tour['Tour']['id_city']));
-            $transportation = performAction('tour_transportations', 'findTrasportation', array($tour['Tour']['id_destination_city']));
+            $transportation = performAction('tour_transportations', 'findTrasportation', array($tour['Tour']['id_tour_transportation']));
             $reviewUsers = performAction('review_tours', 'findReviewById', array($idTour));
             $departures = performAction('departures', 'findDepartureById', array($idTour));
-            $schedules=performAction('schedules','findSchedules',array($idTour));
+            $schedules = performAction('schedules', 'findSchedules', array($idTour));
             $tour['Tour']['service_tours'] = $service_tour;
             $tour['Tour']['city'] = $city;
             $tour['Tour']['transportation'] = $transportation;
             $tour['Tour']['reviewUsers'] = $reviewUsers;
             $tour['Tour']['departures'] = $departures;
-            $tour['Tour']['schedules']=$schedules;
+            $tour['Tour']['schedules'] = $schedules;
             $this->set('tour', $tour['Tour']);
             return $tour['Tour'];
-        }else{
+        } else {
             return null;
         }
 //        header("Location:" . BASE_PATH . '');
@@ -117,10 +201,12 @@ class ToursController extends Controller {
         $this->Tour->leftOn('Cities', 'id_city');
         return $this->Tour->search();
     }
-    function getTotal($limit=10){
+
+    function getTotal($limit = 10) {
         $this->Tour->setLimit($limit);
         return $this->Tour->totalPages();
     }
+
     function afterAction() {
         
     }

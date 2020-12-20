@@ -14,7 +14,7 @@ body {
 
 .menu{
     position: fixed;
-    width: 250px;
+    width: 190px;
     height: 100%;
     left: -250px;
     background: #1b1b1b;
@@ -25,7 +25,7 @@ body {
     color: white;
     background: #07294d;
     text-align: center;
-    line-height: 65px;
+    line-height: 45px;
 }
 
 .menu ul{
@@ -45,10 +45,12 @@ body {
     text-decoration: none;
     padding-left: 20px;
     font-weight: 600;
+    font-size: 14px;
     display: block;
     width: 100%;
     border-left: 3px solid transparent;
     position: relative;
+    
 }
 .menu ul li a:hover{
     color: cyan;
@@ -72,9 +74,9 @@ body {
     border-bottom: none;
 }
 .menu ul ul li a{
-    font-size: 17px;
+    font-size: 12px;
     color: #e6e6e6;
-    padding-left: 80px;
+    padding-left: 60px;
 }
 .menu ul li a span{
     position: absolute;
@@ -91,10 +93,10 @@ body {
 
 #btnMenu{
     position: absolute;
-    top: 15px;
+    top: 4px;
     left: 15px;
-    height: 45px;
-    width: 45px;
+    height: 35px;
+    width: 35px;
     text-align: center;
     background: #1b1b1b;
     border-radius: 5px;
@@ -103,11 +105,11 @@ body {
 }
 #btnMenu span{
     color: white;
-    font-size: 22px;
-    line-height: 45px;
+    font-size: 18px;
+    line-height: 39px;
 }
 #btnMenu.click{
-    left: 260px;
+    left: 198px;
 }
 .menu.show{
     left: 0px;
@@ -116,7 +118,7 @@ body {
 /*css header*/
 .header{
     position: absolute;
-    height: 64px;
+    height: 45px;
     left: 0px;
     right: 0px;
     background-color:#464775;
@@ -135,14 +137,14 @@ body {
     color: white;
 }
 .header .header_conent .btn_search{
-    margin-left: 170px;
+    margin-left: 100px;
     position: relative;
 }
 .header .header_conent .btn_search input{
-    padding: 10px;
-    border-radius: 15px;
+    padding: 8px;
+    border-radius: 10px;
     outline: none;
-    font-size: 14px;
+    font-size: 12px;
     border: 0px;
 }
 .header .header_conent .btn_search .btn_submit_search{
@@ -153,7 +155,7 @@ body {
     position: absolute;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
-    left: 180px;
+    left: 150px;
 }
 .header .header_conent ul{
     list-style: none;
@@ -161,16 +163,16 @@ body {
     line-height: 0px;
 }
 .header .header_conent ul li{
-    padding: 10px;
+    padding: 8px;
     display: inline;
     position:relative;
-    margin: 10px;
+    margin: 8px;
 }
 .header .header_conent ul li>a:hover{
     border: 2px solid white;
 }
 .header .header_conent ul li>a{
-    font-size: 20px;
+    font-size: 13px;
     color: white;
     font-weight: 600;
     border-radius: 5px;
@@ -200,24 +202,26 @@ body {
 
 .dropdown-content a {
     color: black !important;
-    padding: 12px 16px;
+    padding: 10px 10px;
     text-decoration: none;
     display: block;
     margin-top: 10px;
+    font-size: 12px;
 }
 .dropdown-content a:hover{background-color: #ddd;}
 
 /**/
 .content{
     position: absolute;
-    top: 64px;
+    top: 45px;
     height: 100%;
     right: 0px;
     left: 0px;
     transition: left 0.4s ease;
+    font-size: 12px;
 }
 .content.show{
-    left: 255px;
+    left: 198px;
 }
 .content .container{
     padding: 10px;
@@ -247,9 +251,9 @@ body {
     float: left;
 }
 .container .action .action_left button{
-    padding: 10px;
-    font-size: 14px;
-    border-radius: 15px;
+    padding: 6px;
+    font-size: 10px;
+    border-radius: 10px;
     border: 1px solid#d0d0d0;
     outline: none;
     cursor: pointer;
@@ -279,7 +283,7 @@ body {
     position: relative;
 }
 .container .action .action_right input{
-    padding: 10px;
+    padding: 6px;
     border-radius: 5px;
     outline: none;
 }
@@ -292,19 +296,19 @@ body {
 
 
 .container input{
-    padding: 10px;
+    padding: 6px;
     border-radius: 5px;
     border: 1px solid#d0d0d0;
     outline: none;
-    font-size: 16px;
+    font-size: 12px;
 }
 .container select{
-    padding: 10px;
+    padding: 6px;
     border-radius: 5px;
     border: 1px solid#d0d0d0;
 }
 .container button{
-    padding: 10px;
+    padding: 6px;
     background-color: #003c71;
     font-weight: 600;
     color: white;
@@ -417,6 +421,7 @@ table,th,td{
     padding: 15px;
     text-align: left;
     border: 1px solid #d0d0d0;
+    overflow-wrap: break-word;
 }
 tr:nth-child(even){
     background-color: #f2f2f2;
@@ -429,9 +434,10 @@ tr:nth-child(even){
     background-color: #ECF0F1;
     color:#5D6D7E ;
     padding: 0px;
-    width: 35px;
+    width: 30px;
     border: 0px;
-    font-size: 24px;
+    font-size: 16px;
+    height: 27px;
     font-weight: 100;
     border-radius: 2px;
 }

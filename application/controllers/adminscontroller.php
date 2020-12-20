@@ -29,22 +29,34 @@ class AdminsController extends Controller {
         $this->set('tours', $result);
     }
 
-    function getdata($idTour) {
+    function detailTour($idTour) {
         $result = performAction('Tours', 'view', array($idTour));
         $theme_tours = performAction('Theme_tours', 'viewallTheme', array(null));
-        $result['listThemeTours']=$theme_tours;
-        $total=performAction('Tours', 'getTotal', array(10));
-        $this->set('tours', $total);
+        $result['listThemeTours'] = $theme_tours;
+//        $total = performAction('Tours', 'getTotal', array(10));
+        $this->set('tours', $result);
+//        return $total;
     }
 
     function addTour() {
-        
+        if (count($_POST)>0) {
+            performAction('Tours', 'addTour',array(null));
+        } else {
+            $theme_tours = performAction('Theme_tours', 'viewallTheme', array(null));
+            $this->set('theme_tours', $theme_tours);
+        }
     }
 
     function deleteTour() {
         
     }
-
+    function updateTour($tourId){
+        $result=$_POST;
+        if (isset($result)){
+            performAction('Tours', 'updateTour',array($tourId));
+            header("Location:".BASE_PATH.'admins/detailtour/'.$tourId);
+        }
+    }
     /*
      * Ham thuc hien chuc nang cap nhat Tour     */
 
@@ -69,6 +81,39 @@ class AdminsController extends Controller {
         header("Location:" . BASE_PATH . 'admins/viewallOrder/1/2');
     }
 
+
+
+
+    /**
+     * Hàm lấy tất cả user
+     */
+    function viewalluser() {
+        $result=performAction('Users','viewall',array(null));
+        $this->set('users',$result);
+    }
+    /**
+     * Hàm thêm mới user
+     */
+    function addUser() {
+
+    }
+    /**
+     * Hàm lấy chi tiết 1 user
+     */
+    function detailUser($idUser) {
+        $result = performAction('Users', 'view', array($idUser));
+        $listRoles=performAction('Roles','viewall',array(null));
+        $this->set('roles',$listRoles);
+        $this->set('user',$result);
+    }
+    /**
+     * Hàm xóa user
+     */
+    function deleteUser($idUser) {
+        
+    }
+
+    
     function logout() {
         session_start();
         unset($_SESSION["admin"]);

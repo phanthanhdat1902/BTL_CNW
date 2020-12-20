@@ -11,7 +11,7 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        print_r($tours);
+        print_r($theme_tours);
 //        foreach ($tours as $item):
 //            print_r($item);
 //            echo '<br>';

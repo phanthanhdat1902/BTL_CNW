@@ -13,16 +13,6 @@ session_start();
         <title>Đặt Tour VIP </title>
         <script src="http://localhost/BTL_CNW/public/js/scriptHome.js"></script>
         <link rel="stylesheet" href="http://localhost/BTL_CNW/public/css/header.css" />
-        <script>
-            function showMenu() {
-                var myMenu = document.getElementById("myMenu");
-                if (myMenu.className === "navHeader") {
-                    myMenu.className += " responsive";
-                } else {
-                    myMenu.className = "navHeader";
-                }
-            }
-        </script>
     </head>
     <body>
         <div class="header" >

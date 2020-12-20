@@ -14,6 +14,7 @@
 class Theme_toursController extends Controller {
 
     function beforeAction() {
+        
     }
 
     /*
@@ -27,7 +28,7 @@ class Theme_toursController extends Controller {
 //        $this->Theme_tour->leftOn('service_tours', 'id_service', 'tours');
         // noi 2 bang voi nhau cung voi bang Theme_tour, tham so 1 la bang can noi,  tham so 2 la cot, tham so 3 la bang noi voi bang trong tham so 1
         $theme_tour = $this->Theme_tour->search();
-        $result = array();
+        $result = [];
         $id = null;
         $arrayTour = array();
         $template_theme = null;

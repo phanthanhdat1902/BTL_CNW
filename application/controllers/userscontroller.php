@@ -77,7 +77,7 @@ class UsersController extends Controller {
                 $password = $_POST['password'];
                 $this->User->email = $email;
                 $this->User->password = password_hash($password, PASSWORD_DEFAULT);
-                $this->User->id_role = 1;
+                $this->User->id_role = 3;
                 $this->User->create_time = gmdate('Y-m-d h:i:s');
                 $result = $this->User->save();
                 if ($result != -1) {
@@ -94,6 +94,21 @@ class UsersController extends Controller {
             $this->set('result', true);
         }
     }
+
+    function view($idUser = null) {
+        if (isset($idUser)) {
+            $this->User->id = $idUser;
+            $this->User->leftOn("Roles","id_role");
+            return $this->User->search();
+        } else{
+            return null;
+        }
+    }
+
+    function viewall() {
+        $this->User->leftOn("Roles","id_role");
+        return $this->User->search();
+    }   
 
     function update() {
         
