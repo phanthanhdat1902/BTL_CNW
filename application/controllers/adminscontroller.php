@@ -24,9 +24,13 @@ class AdminsController extends Controller {
     /*
      * Ham thuc hien chuc nang hien thi toan bo Order_Tour */
 
-    function viewallTour($page = 1, $limit = 1) {
+    function viewallTour($page = 1, $limit = 10) {
         $result = performAction('Tours', 'viewall', array($page, $limit));
         $this->set('tours', $result);
+        $this->set('page', $page);
+        $total = performAction('Tours', 'getTotal', array($limit));
+        $this->set('total',$total);
+        $this->set('limit', $limit);
     }
 
     function detailTour($idTour) {
@@ -39,8 +43,8 @@ class AdminsController extends Controller {
     }
 
     function addTour() {
-        if (count($_POST)>0) {
-            performAction('Tours', 'addTour',array(null));
+        if (count($_POST) > 0) {
+            performAction('Tours', 'addTour', array(null));
         } else {
             $theme_tours = performAction('Theme_tours', 'viewallTheme', array(null));
             $this->set('theme_tours', $theme_tours);
@@ -50,13 +54,15 @@ class AdminsController extends Controller {
     function deleteTour() {
         
     }
-    function updateTour($tourId){
-        $result=$_POST;
-        if (isset($result)){
-            performAction('Tours', 'updateTour',array($tourId));
-            header("Location:".BASE_PATH.'admins/detailtour/'.$tourId);
+
+    function updateTour($tourId) {
+        $result = $_POST;
+        if (isset($result)) {
+            performAction('Tours', 'updateTour', array($tourId));
+            header("Location:" . BASE_PATH . 'admins/detailtour/' . $tourId);
         }
     }
+
     /*
      * Ham thuc hien chuc nang cap nhat Tour     */
 

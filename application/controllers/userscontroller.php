@@ -36,6 +36,7 @@ class UsersController extends Controller {
                 if ($role['Role']['name'] == 'admin') {
                     session_start();
                     $_SESSION['admin'] = $user[0]['User']['email'];
+                     $_SESSION["id_user"]=$user[0]['User']['id_user'];
                     header('Location:' . BASE_PATH . 'admins/index');
                     return;
                 }
@@ -58,6 +59,7 @@ class UsersController extends Controller {
     function logout() {
         session_start();
         unset($_SESSION["email"]);
+        unset($_SESSION["id_user"]);
         header("Location:" . BASE_PATH . $_COOKIE['currentURL']);
     }
 
@@ -83,6 +85,7 @@ class UsersController extends Controller {
                 if ($result != -1) {
                     session_start();
                     $_SESSION["email"] = $email;
+                    $_SESSION["id_user"]=$this->User->getLastId();
                     header("Location:http://localhost/BTL_CNW/" . $_COOKIE['currentURL']);
                 } else {
                     $this->set('result', false);

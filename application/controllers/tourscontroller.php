@@ -190,7 +190,7 @@ class ToursController extends Controller {
 //        header("Location:" . BASE_PATH . '');
     }
 
-    function viewall($page = 1, $limit = 1) {
+    function viewall($page = 1, $limit = 10) {
         $this->Tour->setLimit($limit);
         $this->Tour->setPage($page);
         $this->Tour->leftOn('Theme_tours', 'id_theme_tour');
