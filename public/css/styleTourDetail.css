@@ -101,6 +101,10 @@ body{
     height: 390px;
     background-size: 100%;
 }
+.container img{
+    width: 100%;
+    padding: 10px;
+}
 .content .container .tourHeaderContainer .tourHeaderInfor{
     padding-top: 10px;
     padding-bottom: 10px;
