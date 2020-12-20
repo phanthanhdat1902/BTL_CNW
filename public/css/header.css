@@ -208,7 +208,8 @@ responsive colum
     width: 25%;
     padding: 0 10px;
     margin-bottom: 20px;
-    min-width: 200px; 
+    min-width: 200px;
+    min-height: 380px;
 }
 /* Clear floats after the columns */
 .row {
@@ -224,6 +225,7 @@ responsive colum
         display: block;
         margin-bottom: 20px;
         min-width: 400px;
+        min-height: 380px;
     }
     .col_x{
         width: 100%;
@@ -236,6 +238,7 @@ responsive colum
         width: 50%;
         margin-bottom: 20px;
         min-width: 300px;
+        min-height: 380px;
     }
     .col_x{
         width: 50%;
