@@ -32,15 +32,15 @@
             <div class="input_infor">
                 <p> Email</p>
 
-                <input type="text" placeholder="email" name="email" id="email">
+                <input type="text" placeholder="email" name="email" id="email" maxlength="30">
 
                 <p> Password</p>
 
-                <input type="password" placeholder="password" name="password" id="password">
+                <input type="password" placeholder="password" name="password" id="password" maxlength="30">
 
                 <p>Confirm Password</p>
 
-                <input type="password" name="comfirmpassword" id="comfirmpassword">
+                <input type="password" name="comfirmpassword" id="comfirmpassword" maxlength="30">
             </div>
 
             <div class="agree">
