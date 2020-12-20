@@ -13,7 +13,9 @@
     </div>
     <div class="container">
         <div class="tourHeaderContainer">
-            <div class="tourHeaderImage" <?php echo $html->includeImg($tour['image']) ?>></div>
+            <!-- <div class="tourHeaderImage" <?php echo $html->includeImg($tour['image']) ?>></div> -->
+            <img src="http://localhost/BTL_CNW/public/img/<?php echo $tour['image'] ?>">
+
             <div class="tourHeaderInfor">
                 <span><?php echo $tour['city'] ?></span>
                 <span><?php echo $tour['number_of_days'] ?> Ngày <?php echo $tour['number_of_nights'] ?> Đêm</span>
@@ -228,37 +230,33 @@
 
         <div class="customerReview">
             <h2>Đánh giá gần đây</h2>
-            <dl>
-                <?php
-                foreach ($tour['reviewUsers'] as $item) :
-                    foreach ($item as $content) :
-                ?>
-                        <h2>
-                            <dt><?php echo $content['email'] . ' - ' . str_replace('-', '/', $content['create_time']) ?> :</dt>
-                        </h2>
-                        <dd>- <?php echo $content['content'] ?></dd>
-                <?php
-                    endforeach;
+            <?php
+            foreach ($tour['reviewUsers'] as $item) :
+                foreach ($item as $content) :
+            ?>
+                    <div class="customerReviewDetail">
+                        <div class="reviewDetailLeft">
+                            <span>&#10064;</span>
+                            <span><?php echo $content['email'] ?></span>
+                        </div>
+                        <div class="reviewDetailRight">
+                            <div>
+                                <span class="scoreSpan"><?php echo $content['score'] ?></span>
+                                <span class="scoreReviewDate"><?php echo $content['create_time'] ?></span>
+                            </div>
+                            <span class="customerReviewContent"><?php echo $content['content'] ?></span>
+                        </div>
+                    </div>
+            <?php
                 endforeach;
-                ?>
-            </dl>
+            endforeach;
+            ?>
+
+
             <div class="customerReviewDetail">
                 <div class="reviewDetailLeft">
                     <span>&#10064;</span>
                     <span>Trang Nguyễn</span>
-                </div>
-                <div class="reviewDetailRight">
-                    <div>
-                        <span class="scoreSpan">8.0</span>
-                        <span class="scoreReviewDate">24-06-2020</span>
-                    </div>
-                    <span class="customerReviewContent">Tour tư vấn ban đầu có 25 khách nhưng khi đến sân bay là 45 khách. Tour đi quá đông, hdv không thể chăm sóc tốt hết được</span>
-                </div>
-            </div>
-            <div class="customerReviewDetail">
-                <div class="reviewDetailLeft">
-                    <span>&#10064;</span>
-                    <span>Trần Định</span>
                 </div>
                 <div class="reviewDetailRight">
                     <div>
