@@ -1,5 +1,4 @@
-
-body{
+body {
     font-family: sans-serif;
     color: #494b55;
 }
@@ -30,7 +29,7 @@ body{
 }
 
 .menu ul{
-    background: #07294d;
+    background: #33344a;
     height: 100%;
     width: 100%;
     padding-left: 8px;
@@ -120,7 +119,7 @@ body{
     height: 64px;
     left: 0px;
     right: 0px;
-    background-color:#1b1b1b;
+    background-color:#464775;
 }
 .header .header_conent{
     margin-left: 80px;
@@ -359,6 +358,24 @@ body{
     width: 60%;
 }
 
+.container .rowx1{
+    display: flex;
+    width: 100%;
+}
+.container .colx1{
+    width: 33%;
+}
+.container .colx1 input{
+    margin: 10px;
+    padding: 10px;
+    width: 20px;
+    height: 20px;
+}
+.container h3{
+    border-top: 2px solid#e0e0e0;
+    margin-top: 10px;
+    padding-top: 10px;
+}
 
 .container h1{
     color: #003c71;
