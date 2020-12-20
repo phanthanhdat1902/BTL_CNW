@@ -11,6 +11,8 @@
  *
  * @author dat.pt173001
  */
-class type_of_payment {
-    //put your code here
+class Type_of_payment extends Model {
+    //attribute
+    var $id;
+    var $name;
 }

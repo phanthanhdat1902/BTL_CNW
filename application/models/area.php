@@ -12,5 +12,14 @@
  * @author dat.pt173001
  */
 class Area extends Model {
+    //foreign key
+    var $id_city;
     
+    //attribute
+    var $id;
+    var $name;
+    var $number_of_hotels;
+    
+    var $hasOne = array('City' => 'City');
+    var $hasMany = array('Hotel' => 'Hotel');
 }

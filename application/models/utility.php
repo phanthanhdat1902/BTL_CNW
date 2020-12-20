@@ -11,6 +11,14 @@
  *
  * @author dat.pt173001
  */
-class utility {
-    //put your code here
+class Utility extends Model {
+    //attribute
+    var $id;
+    var $family_room;
+    var $private_beach;
+    var $car_park;
+    var $pool;
+    var $free_airport_transportation;
+    var $children_amusement_park;
+    var $package_service;
 }

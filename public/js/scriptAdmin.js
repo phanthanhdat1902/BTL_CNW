@@ -74,6 +74,7 @@ window.onload = function (e) {
         var btnUpdate = document.getElementById("btnUpdate");
         var btnDelete = document.getElementById("btnDelete");
         var btnApproval = document.getElementById("btnApproval");
+        var btnCancel = document.getElementById("btnCancel");
         if (tick.length === 1) {
             if (btnUpdate.classList.contains("disable")) {
                 btnUpdate.classList.remove("disable");
@@ -90,6 +91,9 @@ window.onload = function (e) {
             if (btnApproval != null && btnApproval.classList.contains("disable")) {
                 btnApproval.classList.remove("disable")
             }
+            if (btnCancel != null && btnCancel.classList.contains("disable")) {
+                btnCancel.classList.remove("disable");
+            }
         } else {
             if (!btnDelete.classList.contains("disable")) {
                 btnDelete.classList.add("disable");
@@ -97,30 +101,44 @@ window.onload = function (e) {
             if (btnApproval != null && !btnApproval.classList.contains("disable")) {
                 btnApproval.classList.add("disable")
             }
+            if (btnCancel != null && !btnCancel.classList.contains("disable")) {
+                btnCancel.classList.add("disable");
+            }
         }
     }
 
 
-    /*model duyệt và xóa */
+    /*
+        model duyệt và xóa  và hủy duyệt:  
+    */
     // Get the modal
     var modalApproval = document.getElementById("modalApproval");
     var modalDelete = document.getElementById("modalDelete");
+    var modalCancel = document.getElementById("modalCancel");
     // Get the button that opens the modal
     var btnApproval = document.getElementById("btnApproval");
     var btnDelete = document.getElementById("btnDelete");
+    var btnCancel = document.getElementById("btnCancel");
     // Get the <span> element that closes the modal
     var spanApproval = document.getElementsByClassName("close")[1];
     var spanDelete = document.getElementsByClassName("close")[0];
-
+    var spanCancel = document.getElementsByClassName("close")[2];
     //btn confirm
     var btnConfirmNoDelete = document.getElementsByClassName("btnConfirmNo")[0];
     var btnConfirmNoApproval = document.getElementsByClassName("btnConfirmNo")[1];
+    var btnConfirmNoCancel = document.getElementsByClassName("btnConfirmNo")[2];
     // When the user clicks the button, open the modal 
     if (btnApproval != null) {
         btnApproval.onclick = function () {
             if (!document.getElementById("btnApproval").classList.contains("disable")) {
                 modalApproval.style.display = "block";
             }
+        }
+        spanApproval.onclick = function () {
+            modalApproval.style.display = "none";
+        }
+        btnConfirmNoApproval.onclick = function () {
+            modalApproval.style.display = "none";
         }
     }
     if (btnDelete != null) {
@@ -129,26 +147,25 @@ window.onload = function (e) {
                 modalDelete.style.display = "block";
             }
         }
-    }
-    // When the user clicks on <span> (x), close the modal
-    if (spanApproval != null) {
-        spanApproval.onclick = function () {
-            modalApproval.style.display = "none";
-        }
-    }
-    if (btnDelete != null) {
         spanDelete.onclick = function () {
             modalDelete.style.display = "none";
         }
-    }
-    if (btnConfirmNoDelete != null) {
         btnConfirmNoDelete.onclick = function () {
             modalDelete.style.display = "none";
         }
     }
-    if (btnConfirmNoApproval != null) {
-        btnConfirmNoApproval.onclick = function () {
-            modalApproval.style.display = "none";
+
+    if (btnCancel != null) {
+        btnCancel.onclick = function () {
+            if (!document.getElementById("btnCancel").classList.contains("disable")) {
+                modalCancel.style.display = "block";
+            }
+        }
+        spanCancel.onclick = function () {
+            modalCancel.style.display = "none";
+        }
+        btnConfirmNoCancel.onclick = function () {
+            modalCancel.style.display = "none";
         }
     }
 }

@@ -11,6 +11,11 @@
  *
  * @author dat.pt173001
  */
-class Theme_hotel extends Model{
-    //put your code here
+class Theme_hotel extends Model {
+    //attribute
+    var $id;
+    var $name;
+    var $description;
+    var $image;
+    var $number_of_hotels;
 }

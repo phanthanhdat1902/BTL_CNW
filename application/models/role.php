@@ -11,6 +11,8 @@
  *
  * @author dat.pt173001
  */
-class Role extends Model{
-    //put your code here
+class Role extends Model {
+    //attribute
+    var $id;
+    var $name;
 }

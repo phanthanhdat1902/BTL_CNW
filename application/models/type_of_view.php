@@ -11,6 +11,13 @@
  *
  * @author dat.pt173001
  */
-class type_of_view {
-    //put your code here
+class Type_of_view extends Model {
+    //attribute
+    var $id;
+    var $urban;
+    var $garden;
+    var $sea;
+    var $golf_court;
+    var $pool;
+    var $mountain;
 }

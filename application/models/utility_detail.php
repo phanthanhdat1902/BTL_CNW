@@ -7,10 +7,15 @@
  */
 
 /**
- * Description of tour_consulting_request
+ * Description of utility_detail
  *
- * @author dat.pt173001
+ * @author 1920
  */
-class tour_consulting_request {
-    //put your code here
+class Utility_detail extends Model {
+    //foreign key
+    var $id_hotel;
+            
+    //attribute
+    var $id;
+    var $name;
 }

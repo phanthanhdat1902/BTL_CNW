@@ -11,6 +11,8 @@
  *
  * @author dat.pt173001
  */
-class type_of_hotel {
-    //put your code here
+class Type_of_hotel extends Model {
+    //attribute
+    var $id;
+    var $name;
 }

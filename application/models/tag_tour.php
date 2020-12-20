@@ -7,17 +7,15 @@
  */
 
 /**
- * Description of review_tour
+ * Description of tag_tour
  *
- * @author dat.pt173001
+ * @author 1920
  */
-class Review_tour extends Model {
+class Tag_tour extends Model {
     //foreign key
-    var $id_user;
     var $id_tour;
     
     //attribute
-    var $score;
-    var $content;
-    var $create_time;
+    var $id;
+    var $name;
 }

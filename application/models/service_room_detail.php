@@ -7,17 +7,15 @@
  */
 
 /**
- * Description of review_tour
+ * Description of service_room_details
  *
- * @author dat.pt173001
+ * @author 1920
  */
-class Review_tour extends Model {
+class Service_room_detail extends Model {
     //foreign key
-    var $id_user;
-    var $id_tour;
+    var $id_service_room;
     
     //attribute
-    var $score;
-    var $content;
-    var $create_time;
+    var $id;
+    var $name;
 }

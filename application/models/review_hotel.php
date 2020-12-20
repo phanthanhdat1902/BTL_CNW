@@ -11,6 +11,13 @@
  *
  * @author dat.pt173001
  */
-class review_hotel {
-    //put your code here
+class Review_hotel extends Model {
+    //foreign key
+    var $id_user;
+    var $id_hotel;
+    
+    //attribute
+    var $score;
+    var $content;
+    var $create_time;
 }

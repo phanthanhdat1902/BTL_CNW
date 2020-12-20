@@ -11,6 +11,16 @@
  *
  * @author dat.pt173001
  */
-class room {
-    //put your code here
+class Room extends Model {
+    //foreign key
+    var $id_type_of_room;
+    var $id_hotel;
+    
+    //attribute
+    var $id;
+    var $name;
+    var $availability;
+    var $checkin_date;
+    var $checkout_date;
+    var $note;
 }

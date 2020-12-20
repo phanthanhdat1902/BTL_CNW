@@ -11,6 +11,15 @@
  *
  * @author dat.pt173001
  */
-class Location extends Model{
-    //put your code here
+class Location extends Model {
+    //foreign_key
+    var $id_city;
+    
+    //attribute
+    var $id;
+    var $country;
+    var $district;
+    var $street_number;
+    
+    var $hasOne = array('Hotel' => 'Hotel', 'City' => 'City');
 }

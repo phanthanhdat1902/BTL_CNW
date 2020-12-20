@@ -12,8 +12,10 @@
  * @author dat.pt173001
  */
 class Theme_tour extends Model {
-
+    //attribute
+    var $id;
+    var $name;
+    
     var $hasMany = array('Tour' => 'Tour',
-        'city'=>'City');
-
+        'City'=>'City');
 }

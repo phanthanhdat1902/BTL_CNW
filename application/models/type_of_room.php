@@ -11,6 +11,16 @@
  *
  * @author dat.pt173001
  */
-class type_of_room {
-    //put your code here
+class Type_of_room extends Model {
+    //foreign key
+    var $id_hotel;
+    var $id_type_of_view;
+    
+    //attribure
+    var $id;
+    var $name;
+    var $adult_capacity;
+    var $children_capacity;
+    var $size;
+    var $image;
 }
