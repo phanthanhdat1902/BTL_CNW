@@ -32,45 +32,47 @@
             <tbody>
                 <?php
                 $i = 0;
-                foreach ($tours as $item):
-                    ?>
+                foreach ($tours as $item) :
+                ?>
                     <tr>
-                <input type="hidden" value="<?php echo $item['Tour']['id_tour'] ?>" name="id">
-                <td><?php echo ++$i; ?></td>
-                <td><?php echo $item['Theme_tours']['name'] ?></td>
-                <td><?php echo $item['Tour']['name'] ?></td>
-                <td><?php echo $item['Tour']['score'] ?></td>
-                <td><?php echo $item['Tour']['number_of_reviews'] ?></td>
-                <td><?php echo $html->asDollars($item['Tour']['price_per_adult']) ?></td>
-                <td><?php echo $html->asDollars($item['Tour']['price_per_child']) ?></td>
-                <td><?php echo $html->asDollars($item['Tour']['price_per_child'] + $item['Tour']['price_per_adult']) ?></td>
-                <td><?php echo $item['Cities']['name'] ?></td>
-                <td>Sẵn sàng</td>
+                        <input type="hidden" value="<?php echo $item['Tour']['id_tour'] ?>" name="id">
+                        <td><?php echo ++$i; ?></td>
+                        <td><?php echo $item['Theme_tours']['name'] ?></td>
+                        <td><?php echo $item['Tour']['name'] ?></td>
+                        <td><?php echo $item['Tour']['score'] ?></td>
+                        <td><?php echo $item['Tour']['number_of_reviews'] ?></td>
+                        <td><?php echo $html->asDollars($item['Tour']['price_per_adult']) ?></td>
+                        <td><?php echo $html->asDollars($item['Tour']['price_per_child']) ?></td>
+                        <td><?php echo $html->asDollars($item['Tour']['price_per_child'] + $item['Tour']['price_per_adult']) ?></td>
+                        <td><?php echo $item['Cities']['name'] ?></td>
+                        <td>Sẵn sàng</td>
 
-                </tr>
-            <?php endforeach; ?>
+                    </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
         <div class="pageTable">
-            <span>Tổng 24 trang</span>
-            <button class="first btn_page">
+            <span>Tổng</span>
+            <span id="page_total">24</span>
+            <span>trang</span>
+            <button class="btn_page" id="btn_first" onclick="onPage(this)">
                 <span>&#10096;&#10096;</span>
             </button>
-            <button class="prev btn_page">
+            <button class="btn_page" id="btn_prev" onclick="onPage(this)">
                 <span>&#10096;</span>
             </button>
-            <input type="number" value="1" class="page-index" />
-            <button class="next btn_page">
+            <input type="text" value="1" id="page_index" />
+            <button class="btn_page" id="btn_next" onclick="onPage(this)">
                 <span>&#10097;</span>
             </button>
-            <button class="last btn_page">
+            <button class="btn_page" id="btn_last" onclick="onPage(this)">
                 <span>&#10097;&#10097;</span>
             </button>
             <span>Page size</span>
-            <select name="pagasize" id="pageSize">
-                <option selected="selected">10</option>
-                <option>20</option>
-                <option>30</option>
+            <select name="pagasize" id="page_size" onchange="onPage(this)">
+                <option selected="selected" value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
             </select>
         </div>
     </div>
@@ -111,7 +113,7 @@
                  */
                 var row = Array.from(document.querySelectorAll('.main-table tbody tr.tick input'), el => el.value);
                 var orderId = row[0];
-//                alert("tour id: " + orderId);
+                //                alert("tour id: " + orderId);
                 window.location = "http://localhost/BTL_CNW/admins/detailtour/" + orderId;
             }
         }
@@ -120,10 +122,49 @@
             var row = Array.from(document.querySelectorAll('.main-table tbody tr.tick input'), el => el.value);
             //xóa                    
             if (status === 1) {
-                        alert("xóa: " + row);
-//                window.location = "http://localhost/BTL_CNW/admins/deleteTour/" + row;
+                alert("xóa: " + row);
+                //                window.location = "http://localhost/BTL_CNW/admins/deleteTour/" + row;
             }
         }
+    }
+    var page_index = document.getElementById("page_index");
+    page_index.addEventListener('keypress', function(e) {
+        if (e.keyCode === 13) {
+            var pageIndex = page_index.value;
+            var pageTotal = document.getElementById("page_total").innerText;
+            var pageSize = document.getElementById("page_size").options[document.getElementById("page_size").selectedIndex].value;
+            alert("page: page index=" + pageIndex + " page size=" + pageSize + " page total=" + pageTotal);
+        }
+    });
+
+    function onPage(button, event) {
+        var btn = button;
+
+        var pageIndex = parseInt(page_index.value);
+        var pageSize = document.getElementById("page_size").options[document.getElementById("page_size").selectedIndex].value;
+        var pageTotal = parseInt(document.getElementById("page_total").innerText);
+
+        if (btn.id === "btn_first") {
+            pageIndex = 1;
+        }
+
+        if (btn.id === "btn_prev") {
+            pageIndex = pageIndex - 1;
+        }
+        if (btn.id === "btn_next") {
+            pageIndex = pageIndex + 1;
+        }
+        if (btn.id === "btn_last") {
+            pageIndex = pageTotal;
+        }
+        if (pageIndex <= 1) {
+            pageIndex = 1;
+        }
+        if (pageIndex >= pageTotal) {
+            pageIndex = pageTotal;
+        }
+        page_index.value = pageIndex;
+        alert("page: page index= " + pageIndex + " page size=" + pageSize + " page total=" + pageTotal);
     }
 </script>
 </body>
