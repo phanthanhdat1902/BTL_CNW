@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form booking</title>
+</head>
+<link rel="stylesheet" href="formroomhotel.css">
+<body>
+    <div class="title_booking"> Thông tin người đặt</div>
+    <div class="formroomhotel">
+        <div class="left">
+            <p class="infor"> Thông tin người đặt</p>
+            <p>Vui lòng điền đầy đủ thông tin</p>
+            <form action="" method="post">
+                Danh xưng: <input type="checkbox"> Anh <input type="checkbox"> Chị 
+                <br>
+                <br>
+                Họ và tên đầy đủ: <input type="text">
+                <br>
+                <br>
+                Điện thoại: <input type="text">
+                <br>
+                <br>
+                Email: <input type="text">
+            <p class="infor"> Thông tin yêu cầu khác</p>
+            <input type="text">
+            <br>
+            <br>
+            <input type="checkbox"> Xuất hóa đơn điện tử
+            <p class="infor">Chọn nhân viên tư vấn từ</p>
+             <div class="submit" style="display: flex; flex-direction: row;">
+                <div class="HCM" style="display: flex; flex-direction: row;"><input type="checkbox" > <span>HCM</span></div>
+                <div class="HN" style="display: flex; flex-direction: row;"> <input type="checkbox"  ><span>HN</span></div>
+                <div class="CT" style="display: flex; flex-direction: row;"> <input type="checkbox"><span>CT</span></div>  
+             </div>
+             <br>
+             <div class="payment_method">
+                 <input type="submit" value="Thanh toán ngay" class="pay_current">
+                 <input type="submit" value="Trả góp Chỉ từ 592.000đ/tháng" class="installment">
+             </div>
+            </form>
+        </div>
+        <div class="right">
+            <p class="infor"> Khu nghỉ dưỡng VinOasis Phú Quốc</p>
+            <p>
+                Bãi Dài, X. Gành Dầu, H. Phú Quốc, T. Kiên Giang
+                T6, 01/01/2021 → T7, 02/01/2021 · 1 đêm
+                2 Phòng Standard Room · Gồm ăn sáng
+                2 người lớn · 3 trẻ em (7t, 7t, 7t)
+                Phụ thu trẻ em nằm chung giường (từ 4 đến 11 tuổi) | 1 bé | 1 trẻ em | 1 đêm (360.000 VND)
+               - Bây giờ đến 12:00 PM ngày T4, 23-12-2020 sẽ bị tính phí là: 3.380.000 VND
+               
+               - Sau 12:00 PM ngày T4, 23-12-2020 sẽ bị tính phí là: 6.760.000 VND
+            </p>
+            <hr  width="80%" align="center" size="1px" />
+            <p class="infor"> Bạn có mã khuyến mãi</p>
+            <span style="color: #ec971f;">Nhập mã</span>
+            <br>
+            <br>
+            <div class="inputcode">
+                <input type="text" value="Nhập mã ở đây"> 
+                <input type="submit" value="Áp dụng">
+            </div>
+            <hr  width="80%" align="center" size="1px" />
+            <p class="infor">Tổng cộng thanh toán</p>
+            <div class="pay_hotel">
+                <p>Khách sạn</p>
+                <span class="price"> 6.760.000 VND</span>
+            </div>
+            <div class="sum_price">
+                <p>Tổng tiền</p>
+                <span class="price">6.760.000 VND</span>
+            </div>
+            <p style="font-size: 12px; color: gray;"> Giá đã bao gồm cả thuế và phí</p>
+        </div>
+    </div>
+</body>
+
+</html>
