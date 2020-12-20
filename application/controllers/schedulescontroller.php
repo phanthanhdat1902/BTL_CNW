@@ -12,12 +12,12 @@
  * @author dat.pt173001
  */
 class SchedulesController extends Controller {
-
+    
     function findSchedules($tourId) {
         $this->Schedule->where('id_tour', $tourId);
         return $this->Schedule->search();
     }
-
+    
     function addSchedules($id_tour, $day_number, $title, $description, $image1, $caption1, $image2, $caption2) {
         $this->Schedule->id_tour = $id_tour;
         $this->Schedule->day_number = $day_number;

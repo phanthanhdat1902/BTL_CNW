@@ -11,6 +11,6 @@
  *
  * @author dat.pt173001
  */
-class type_of_hotelscontroller {
+class Type_of_hotelsController extends Controller {
     //put your code here
 }

@@ -11,6 +11,6 @@
  *
  * @author dat.pt173001
  */
-class type_of_roomscontroller {
+class Type_of_roomsController extends Controller {
     //put your code here
 }

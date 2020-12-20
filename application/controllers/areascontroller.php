@@ -11,7 +11,7 @@
  *
  * @author dat.pt173001
  */
-class AreasController extends Controller{
+class AreasController extends Controller {
     function findAreaByIdCity($id_city) {
         $this->Area->where('id_city', $id_city);
         return $this->Area->search();

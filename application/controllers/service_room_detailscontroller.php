@@ -7,10 +7,10 @@
  */
 
 /**
- * Description of utilitiescontroller
+ * Description of service_room_detailscontroller
  *
- * @author dat.pt173001
+ * @author 1920
  */
-class UtilitiesController extends Controller {
+class Service_room_detailsController extends Controller {
     //put your code here
 }

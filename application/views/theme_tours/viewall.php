@@ -23,18 +23,39 @@
                                     </div>
                                     <div class="col_4">
                                         <div class="scoreContainer">
-                                            <span><?php echo $touritem['score'] ?></span>
-                                            <span>Rất tốt</span>
-                                            <span>| <?php echo $touritem['number_of_reviews'] ?></span>
+                                            <span>
+                                                <?php if ($touritem['score'] != 0) { ?>
+                                                    <?php echo $touritem['score'] ?>
+                                                <?php } ?>
+                                            </span>
+                                            <span>
+                                                <?php $score = $touritem['score']; ?>
+                                                <?php if($score >= 9.0) { ?>
+                                                    <?php echo 'Rất tốt' ?>
+                                                <?php } else if ($score >= 8.0) { ?>
+                                                    <?php echo 'Tốt' ?>
+                                                <?php } else if ($score >= 7.0) { ?>
+                                                    <?php echo 'Ổn' ?>
+                                                <?php } else if ($score >= 6.0) { ?>
+                                                    <?php echo 'Tạm được' ?>
+                                                <?php } else if ($score >= 5.0) { ?>
+                                                    <?php echo 'Trung bình' ?>
+                                                <?php } else { ?>
+                                                    <?php echo 'Tệ' ?>
+                                                <?php } ?>
+                                            </span>
+                                            <span>| 
+                                                <?php if ($touritem['number_of_reviews'] != 0) { ?>
+                                                    <?php echo $touritem['number_of_reviews'] ?>
+                                                <?php } ?>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="col_4">
                                         <ul class="tourListPros">
-                                            <li>Cendeluxe tiêu chuẩn 5 sao</li>
-                                            <li>Đảo Kỳ Co</li>
-                                            <li>Giành Đá Đĩa</li>
-                                            <li>Bãi Xếp</li>
-                                            <li>Mũi Điện Đại Lãnh</li>
+                                            <?php foreach ($touritem['tag'] as $tag) : ?>
+                                                <li><?php echo $tag ?></li>
+                                            <?php endforeach; ?>
                                         </ul>
                                     </div>
                                     <div class="col_4">

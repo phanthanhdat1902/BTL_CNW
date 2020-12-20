@@ -35,6 +35,8 @@ class Theme_toursController extends Controller {
         for ($i = 0; $i < count($theme_tour); $i++) {
             if (isset($theme_tour[$i + 1]['Theme_tour']['id_theme_tour'])) {
                 if (isset($theme_tour[$i]['tours']['id_tour'])) {
+                    $tourId = array($theme_tour[$i]['tours']['id_tour']);
+                    $theme_tour[$i]['tours']['tags'] = performAction('tag_tours', 'findTagTourById', tourId);
                     array_push($arrayTour, $theme_tour[$i]['tours']);
                 }
                 if ($id != $theme_tour[$i + 1]['Theme_tour']['id_theme_tour']) {
