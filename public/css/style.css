@@ -71,11 +71,12 @@ div .text_register {
     text-align: center;
 }
 .form .submit_btn {
-    width: 50%;
+    width: 30%;
     height: 10%;
     color: #003C71;
     font-weight:800;
     margin-top: 3%;
+    margin-left: 20%;
     border-radius: 5% ;
     padding: 5px;
 }

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel_content</title>
 </head>
-<link rel="stylesheet" href="hotelcontent.css">
+<link rel="stylesheet" href="/public/css/hotelcontent.css">
 <script>
     function showMenu() {
         var myMenu = document.getElementById("myMenu");
@@ -42,6 +42,17 @@
             <div class="userControl">
                 <a href="#">Đăng ký</a>
                 <a href="#">Đăng nhập</a>
+                <div href="#" class="dropdown">
+                    <button class="dropbtn">Profile</button>
+                    <div class="dropdown-content">
+                        <a href="#">Kì nghỉ của tôi</a>
+                        <a href="#">Ưu đãi của tôi</a>
+                        <a href="#">IVIVUPoint</a>
+                        <a href="#">Hồ sơ của tôi</a>
+                        <a href="#">Nhận xét của tôi</a>
+                    </div>
+
+                </div>
                 <span id="btnMenu" onclick="showMenu()">&#9776;</span>
             </div>
         </div>
@@ -72,7 +83,7 @@
 
             <a href="http://127.0.0.1:5500/searchotel.html">
                 <div class="col_1">
-                    <div class="card_1" style="background-image: url('/image/1.jpg');
+                    <div class="card_1" style="background-image: url('/public/img/1.jpg');
                 background-size: cover;">
                         <p class="Infor">Năm mới</p>
                         <p class="description">Nghỉ lễ xả hơi, chào năm tươi mới - <span>98 khách sạn</span></p>
@@ -82,7 +93,7 @@
 
             <a href="http://127.0.0.1:5500/searchotel.html">
                 <div class="col_1">
-                    <div class="card_2" style=" background-image: url('/image/tichcuc.png');
+                    <div class="card_2" style=" background-image: url('/public/img/tichcuc.png');
         
                     background-size: cover;">
                         <p class="Infor">Tích cực</p>
@@ -90,10 +101,10 @@
                     </div>
                 </div>
             </a>
-            
+
             <a href="http://127.0.0.1:5500/searchotel.html">
                 <div class="col_1">
-                    <div class="card_3" style="background-image: url('/image/hop_qua.png');
+                    <div class="card_3" style="background-image: url('/public/img/hop_qua.png');
         
                     background-size: cover;">
                         <p class="Infor">Vượt dịch</p>
@@ -101,10 +112,10 @@
                     </div>
                 </div>
             </a>
-           
+
             <a href="http://127.0.0.1:5500/searchotel.html">
                 <div class="col_1">
-                    <div class="card_4" style="background-image: url('/image/hop_qua.png');
+                    <div class="card_4" style="background-image: url('/public/img/hop_qua.png');
                     background-size: cover;">
                         <p class="Infor">Năm mới</p>
                         <p class="description">Nghỉ lễ xả hơi, chào năm tươi mới - <span>98 khách sạn</span></p>
@@ -118,7 +129,7 @@
         <div class="Content_2">
             <p class="title">Ưu đãi tốt nhất hôm nay</p>
             <p class="detail">Nhanh tay đặt ngay. Để mai sẽ lỡ</p>
-            <div class="Discount" style="background-image: url('/image/Vung_tau.png');
+            <div class="Discount" style="background-image: url('/public/img/Vung_tau.png');
             width: 100%;
             height: 250px;"></div>
         </div>
@@ -127,49 +138,48 @@
             <p class="title">Điểm đến yêu thích trong nước</p>
             <p class="detail">Lên rừng xuống biển. Trọn vẹn Việt Nam</p>
             <div class="area">
-                    <div class="row_1" >
-                        <a class="area_1" style="background-image: url('/image/phuquoc-755x190.jpg');"
-                        href="http://127.0.0.1:5500/searchotel.html"
-                        style="text-decoration: none;">
-                            <div class="name">Phú Quốc</div>
-                        </a>
-                        <a class="area_2" style="background-image: url('/image/quynhon_2-370x190.jpg');"
+                <div class="row_1">
+                    <a class="area_1" style="background-image: url('/public/img/phuquoc-755x190.jpg');"
+                        href="http://127.0.0.1:5500/searchotel.html" style="text-decoration: none;">
+                        <div class="name">Phú Quốc</div>
+                    </a>
+                    <a class="area_2" style="background-image: url('/public/img/quynhon_2-370x190.jpg');"
                         href="http://127.0.0.1:5500/searchotel.html">
-                            <div class="name">Quy Nhơn</div>
-                        </a>
-                        <a class="area_3" style="background-image: url('/image/sa-pa-370x190.jfif');"
+                        <div class="name">Quy Nhơn</div>
+                    </a>
+                    <a class="area_3" style="background-image: url('/public/img/sa-pa-370x190.jfif');"
                         href="http://127.0.0.1:5500/searchotel.html">
-                            <div class="name">Sa Pa</div>
-                        </a>
-                    </div>
-               
-                    <div class="row_2">
-                        <a class="area_4" style="background-image: url('/image/Da Nang.jpg');"
-                        href="http://127.0.0.1:5500/searchotel.html">
-                            <div class="name">Đà Nẵng</div>
-                        </a>
-                        <a class="area_5" style="background-image: url('/image/da lat.jpg');"
-                        href="http://127.0.0.1:5500/searchotel.html">
-                            <div class="name">Đà Lạt</div>
-                        </a>
-                    </div>
+                        <div class="name">Sa Pa</div>
+                    </a>
+                </div>
 
-                
-                    <div class="row_3">
-                        <a class="area_6" style="background-image: url('/image/vungtau_2-370x395.jpg');"
+                <div class="row_2">
+                    <a class="area_4" style="background-image: url('/public/img/Da Nang.jpg');"
                         href="http://127.0.0.1:5500/searchotel.html">
-                            <div class="name">Vũng Tàu</div>
-                        </a>
-                        <a class="area_7" style="background-image: url('/image/Nha trang.jpg');"
+                        <div class="name">Đà Nẵng</div>
+                    </a>
+                    <a class="area_5" style="background-image: url('/public/img/da lat.jpg');"
                         href="http://127.0.0.1:5500/searchotel.html">
-                            <div class="name">Nha Trang</div>
-                        </a>
-                        <a class="area_8" style=" background-image: url('/image/moc-chau2.png');"
+                        <div class="name">Đà Lạt</div>
+                    </a>
+                </div>
+
+
+                <div class="row_3">
+                    <a class="area_6" style="background-image: url('/public/img/vungtau_2-370x395.jpg');"
                         href="http://127.0.0.1:5500/searchotel.html">
-                            <div class="name">Mộc Châu</div>
-                        </a>
-                    </div>
-                
+                        <div class="name">Vũng Tàu</div>
+                    </a>
+                    <a class="area_7" style="background-image: url('/public/img/Nha trang.jpg');"
+                        href="http://127.0.0.1:5500/searchotel.html">
+                        <div class="name">Nha Trang</div>
+                    </a>
+                    <a class="area_8" style=" background-image: url('/public/img/moc-chau2.png');"
+                        href="http://127.0.0.1:5500/searchotel.html">
+                        <div class="name">Mộc Châu</div>
+                    </a>
+                </div>
+
 
             </div>
         </div>
@@ -179,26 +189,26 @@
             <p class="title">Điểm đến yêu thích nước ngoài</p>
             <p class="detail">Bao la thế giới. Bốn bể là nhà</p>
             <div class="area">
-                    <div class="row_1">
-                        <a class="area_1" style="background-image: url('/image/madives.jpg');">
-                            <div class="name">Maldives</div>
-                        </a>
-                        <a class="area_2" style="background-image: url('/image/switzerland.jpg');">
-                            <div class="name">Switzerland</div>
-                        </a>
-                        <a class="area_3" style="background-image: url('/image/singapore.jpg');">
-                            <div class="name">Singapore</div>
-                        </a>
-                    </div>
-    
-                    <div class="row_2">
-                        <a class="area_4" style="background-image: url('/image/bangcok.jfif');">
-                            <div class="name">Bangkok</div>
-                        </a>
-                        <a class="area_5" style="background-image: url('/image/bali.jpg');">
-                            <div class="name">Bali</div>
-                        </a>
-                    </div>
+                <div class="row_1">
+                    <a class="area_1" style="background-image: url('/public/img/madives.jpg');">
+                        <div class="name">Maldives</div>
+                    </a>
+                    <a class="area_2" style="background-image: url('/public/img/switzerland.jpg');">
+                        <div class="name">Switzerland</div>
+                    </a>
+                    <a class="area_3" style="background-image: url('/public/img/singapore.jpg');">
+                        <div class="name">Singapore</div>
+                    </a>
+                </div>
+
+                <div class="row_2">
+                    <a class="area_4" style="background-image: url('/public/img/bangcok.jfif');">
+                        <div class="name">Bangkok</div>
+                    </a>
+                    <a class="area_5" style="background-image: url('/public/img/bali.jpg');">
+                        <div class="name">Bali</div>
+                    </a>
+                </div>
 
             </div>
         </div>
