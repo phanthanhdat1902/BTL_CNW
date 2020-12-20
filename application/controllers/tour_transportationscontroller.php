@@ -11,8 +11,8 @@
  *
  * @author dat.pt173001
  */
-class Tour_transportationsController extends Controller{
-    function findTrasportation($tour_transportationId){
+class Tour_transportationsController extends Controller {
+    function findTrasportation($tour_transportationId) {
         $this->Tour_transportation->id=$tour_transportationId;
         return $this->Tour_transportation->search()['Tour_transportation'];
     }

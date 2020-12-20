@@ -11,6 +11,18 @@
  *
  * @author dat.pt173001
  */
-class review_hotelscontroller {
-    //put your code here
+class Review_hotelsController {
+    function findReviewById($hotelId) {
+        $this->Review_hotel->leftOn('users', 'id_user');
+        $this->Review_hotel->where('id_hotel', $hotelId);
+        $temp = $this->Review_hotel->search();
+        $reviewArr = array();
+
+        foreach ($temp as $item):
+            $item['Review_hotel']['username'] = $item['users']['username'];
+            array_push($reviewArr, $item['Review_hotel']);
+        endforeach;
+        $result['Review_hotel'] = $reviewArr;
+        return $result;
+    }
 }

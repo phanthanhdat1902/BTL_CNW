@@ -121,7 +121,6 @@
                         <span>x</span>
                         <span id="price1"><?php echo ($html->asDollars($tour['price_per_adult'])); ?></span>
                         <input type="hidden" value="<?php echo (($tour['price_per_adult'])); ?>" id="price_old">
-                        <span>VND</span>
                         <button type="button" id="btnSubOld" onclick="onActionOrderTour(this)">-</button>
                         <button type="button" id="btnAddOld" onclick="onActionOrderTour(this)">+</button>
                     </div>
@@ -134,7 +133,6 @@
                     <div class="colxr">
                         <span>x</span>
                         <span id="price2"><?php echo ($html->asDollars($tour['price_per_adult'])); ?></span>
-                        <span>VND</span>
                         <input type="hidden" value="<?php echo (($tour['price_per_adult'])); ?>" id="price_chil">
                         <button type="button" id="btnSubChil" onclick="onActionOrderTour(this)">-</button>
                         <button type="button" id="btnAddChil" onclick="onActionOrderTour(this)">+</button>
