@@ -33,18 +33,18 @@ class Theme_toursController extends Controller {
         $arrayTour = array();
         $template_theme = null;
         for ($i = 0; $i < count($theme_tour); $i++) {
-            if (isset($theme_tour[$i + 1]['Theme_tour']['id_theme'])) {
+            if (isset($theme_tour[$i + 1]['Theme_tour']['id_theme_tour'])) {
                 if (isset($theme_tour[$i]['tours']['id_tour'])) {
                     array_push($arrayTour, $theme_tour[$i]['tours']);
                 }
-                if ($id != $theme_tour[$i + 1]['Theme_tour']['id_theme']) {
+                if ($id != $theme_tour[$i + 1]['Theme_tour']['id_theme_tour']) {
                     $template_theme = $theme_tour[$i]['Theme_tour'];
                     $template['tours'] = $arrayTour;
                     $template['theme'] = $template_theme;
                     array_push($result, $template);
                     unset($arrayTour);
                     $arrayTour = array();
-                    $id = $theme_tour[$i + 1]['Theme_tour']['id_theme'];
+                    $id = $theme_tour[$i + 1]['Theme_tour']['id_theme_tour'];
                 }
             } else {
                 $template['tours'] = $arrayTour;
@@ -66,7 +66,14 @@ class Theme_toursController extends Controller {
         $result['Theme_tour'] = $this->Theme_tour->search($fields)[0]['Theme_tour'];
         $this->set('listTour', $result);
     }
-
+    
+    function viewallTheme($themeId=null){
+        if($themeId!=null){
+            $this->Theme_tour->id=$themeId;
+        }
+        return $this->Theme_tour->search();
+    }
+    
     function afterAction() {
         
     }

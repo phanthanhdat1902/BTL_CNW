@@ -120,8 +120,8 @@
             var row = Array.from(document.querySelectorAll('.main-table tbody tr.tick input'), el => el.value);
             //xóa                    
             if (status === 1) {
-//                        alert("xóa: " + row);
-                window.location = "http://localhost/BTL_CNW/admins/deleteTour/" + row;
+                        alert("xóa: " + row);
+//                window.location = "http://localhost/BTL_CNW/admins/deleteTour/" + row;
             }
         }
     }

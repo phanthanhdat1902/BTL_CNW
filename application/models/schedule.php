@@ -2,7 +2,6 @@
 
 class Schedule extends Model {
 
-    //foreign key
     var $id_tour;
     //attribute
     var $id;

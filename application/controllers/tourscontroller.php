@@ -52,7 +52,7 @@ class ToursController extends Controller {
     }
 
     function findTourByThemeId($themeId) {
-        $this->Tour->where('id_theme', $themeId);
+        $this->Tour->where('id_theme_tour', $themeId);
         $fields = array();
         array_push($fields, 'id_tour');
         array_push($fields, 'name');
@@ -109,7 +109,7 @@ class ToursController extends Controller {
     function viewall($page = 1, $limit = 1) {
 //        $this->Tour->setLimit($limit);
 //        $this->Tour->setPage($page);
-        $this->Tour->leftOn('Theme_tours', 'id_theme');
+        $this->Tour->leftOn('Theme_tours', 'id_theme_tour');
         $this->Tour->leftOn('Cities', 'id_city');
         return $this->Tour->search();
     }

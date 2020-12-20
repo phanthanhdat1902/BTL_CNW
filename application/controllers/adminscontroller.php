@@ -31,15 +31,19 @@ class AdminsController extends Controller {
 
     function detailtour($idTour) {
         $result = performAction('Tours', 'view', array($idTour));
-        $this->set('tours',$result);
+        $theme_tours = performAction('Theme_tours', 'viewallTheme', array(null));
+        $result['listThemeTours']=$theme_tours;
+        $this->set('tours', $result);
     }
 
     function addTour() {
         
     }
-    function deleteTour(){
+
+    function deleteTour() {
         
     }
+
     /*
      * Ham thuc hien chuc nang cap nhat Tour     */
 

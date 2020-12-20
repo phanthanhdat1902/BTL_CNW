@@ -14,8 +14,8 @@
 class Order_toursController extends Controller {
 
     function viewOrder($page = 1, $limit = 1) {
-        $this->Order_tour->setLimit($limit);
-        $this->Order_tour->setPage($page);
+//        $this->Order_tour->setLimit($limit);
+//        $this->Order_tour->setPage($page);
         return $this->Order_tour->search();
     }
 

@@ -9,9 +9,20 @@
             <div class="col1">
                 <label>Chọn chủ đề</label>
                 <select>
-                    <option selected="selected">Không chọn chủ đề nao</option>
-                    <option>Chủ đề 1</option>
-                    <option>Chủ đề 2</option>
+                    <?php
+                    foreach ($tours['listThemeTours'] as $item):
+                        if ($item['Theme_tour']['id_theme_tour'] == $tours['id_theme_tour']) {
+                            
+                        }
+                        ?>
+                        <option <?php
+                        if ($item['Theme_tour']['id_theme_tour'] == $tours['id_theme_tour']) {
+                            echo 'selected="selected"';
+                        }
+                        ?> ><?php echo $item['Theme_tour']['name'] ?></option>
+                            <?php
+                        endforeach;
+                        ?>
                 </select>
             </div>
         </div>
@@ -197,13 +208,13 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($tours['departures'] as $item) :?>
-                <tr>
-                    <td><input type="text" value="<?php echo $item['Departure']['start_date']?>"></td>
-                    <td><input type="text" value="<?php echo $item['Departure']['end_date']?>"></td>
-                    <td><input type="text" value="<?php echo $item['Departure']['holiday_surcharge']?>"></td>
-                </tr>
-                <?php endforeach;?>
+                <?php foreach ($tours['departures'] as $item) : ?>
+                    <tr>
+                        <td><input type="text" value="<?php echo $item['Departure']['start_date'] ?>"></td>
+                        <td><input type="text" value="<?php echo $item['Departure']['end_date'] ?>"></td>
+                        <td><input type="text" value="<?php echo $item['Departure']['holiday_surcharge'] ?>"></td>
+                    </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
         <button type="button">Thêm lịch khởi hành</button>
