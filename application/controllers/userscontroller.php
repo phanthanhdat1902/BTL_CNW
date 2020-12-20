@@ -77,7 +77,7 @@ class UsersController extends Controller {
                 $password = $_POST['password'];
                 $this->User->email = $email;
                 $this->User->password = password_hash($password, PASSWORD_DEFAULT);
-                $this->User->id_role = 1;
+                $this->User->id_role = 3;
                 $this->User->create_time = gmdate('Y-m-d h:i:s');
                 $result = $this->User->save();
                 if ($result != -1) {
