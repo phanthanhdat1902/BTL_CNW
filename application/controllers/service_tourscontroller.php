@@ -23,4 +23,13 @@ class Service_toursController extends Controller {
         return $result;
     }
 
+    function deleteServiceByTourId($tourId) {
+        $this->Service_tour->where('id_tour', $tourId);
+        return $this->Service_tour->delete();
+    }
+    function addService($tourId=null,$name=null){
+        $this->Service_tour->id_tour=$tourId;
+        $this->Service_tour->name=$name;
+        $this->Service_tour->save();
+    }
 }

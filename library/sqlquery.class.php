@@ -87,7 +87,7 @@ class SQLQuery {
         }
     }
 
-    function search($fields=null) {
+    function search($fields = null) {
 
         global $inflect;
 
@@ -129,15 +129,15 @@ class SQLQuery {
         if (isset($fields)) {
             $this->_query = 'SELECT ';
             foreach ($fields as $item):
-                $this->_query.='`'.$item.'`,';
+                $this->_query .= '`' . $item . '`,';
             endforeach;
-            $this->_query= substr($this->_query, 0,-1);
-            $this->_query.=' FROM';
+            $this->_query = substr($this->_query, 0, -1);
+            $this->_query .= ' FROM';
         } else {
-            $this->_query = 'SELECT * FROM ' ;
+            $this->_query = 'SELECT * FROM ';
         }
         #echo '<!--'.$this->_query.'-->';
-        $this->_query.= $from . ' WHERE ' . $conditions;
+        $this->_query .= $from . ' WHERE ' . $conditions;
         $this->_result = mysqli_query($this->_dbHandle, $this->_query);
         $result = array();
         $table = array();
@@ -337,8 +337,14 @@ class SQLQuery {
                 return -1;
             }
         } else {
-            /** Error Generation * */
-            return -1;
+            $conditions = substr($this->_extraConditions, 0, -4);
+            $query = 'DELETE FROM ' . $this->_table . ' as`' . $this->_model . '` WHERE ' . $conditions;
+            $this->_result = mysqli_query($this->_dbHandle, $query);
+            $this->clear();
+            if ($this->_result == 0) {
+                /** Error Generation * */
+                return -1;
+            }
         }
     }
 
@@ -401,7 +407,7 @@ class SQLQuery {
     /** Pagination Count * */
     function totalPages() {
         if ($this->_limit) {
-            $countQuery = 'SELECT COUNT(*) FROM '. $this->_table;
+            $countQuery = 'SELECT COUNT(*) FROM ' . $this->_table;
             $this->_result = mysqli_query($this->_dbHandle, $countQuery);
             $row = mysqli_fetch_row($this->_result)[0];
             $totalPages = ceil($row / $this->_limit);
@@ -410,6 +416,10 @@ class SQLQuery {
             /* Error Generation Code Here */
             return -1;
         }
+    }
+
+    function getLastId() {
+        return $this->_dbHandle->insert_id;
     }
 
     /** Get error string * */
