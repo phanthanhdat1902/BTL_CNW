@@ -262,6 +262,10 @@ class HotelsController extends Controller {
 //        header("Location:" . BASE_PATH . '');
     }
     
+    function viewallnopage(){
+        return $this->Hotel->search();
+    }
+
     function afterAction() {
         
     }

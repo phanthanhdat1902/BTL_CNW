@@ -228,6 +228,10 @@ class ToursController extends Controller {
         return $this->Tour->totalPages();
     }
 
+    function viewallnopage(){
+        return $this->Tour->search();
+    }
+
     function afterAction() {
         
     }

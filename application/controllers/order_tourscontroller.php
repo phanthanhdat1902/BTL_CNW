@@ -60,4 +60,8 @@ class Order_toursController extends Controller {
         return;
     }
 
+    function viewallnopage(){
+        return $this->Order_tour->search();
+    }
+
 }
