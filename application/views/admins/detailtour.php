@@ -1,6 +1,6 @@
 <div class="container">
     <h1>Xem chi tiết tour</h1>
-    <form action="http://localhost/BTL_CNW/admins/updateTour/<?php echo $tours['id_tour'] ?>" method="POST">
+    <form action="http://localhost/BTL_CNW/admins/updateTour/<?php echo $tours['id_tour'] ?>" method="POST" enctype="multipart/form-data">
         <div class="row">
             <div class="col1">
                 <label>Tên tour</label>

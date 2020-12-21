@@ -46,18 +46,20 @@
                     echo $item['Order_tour']['number_of_adults'];
                 } ?></td>
                 <td><?php echo $item['Order_tour']['number_of_children'] ?></td>
-                <td><?php echo $item['Order_tour']['start_date'] ?></td>
-                <td><?php echo $item['Order_tour']['end_date'] ?></td>
+                <td><?php echo $item['departures']['start_date'] ?></td>
+                <td><?php echo $item['departures']['end_date'] ?></td>
                 <td><?php echo $html->asDollars($item['Order_tour']['price']) ?></td>
                 <td><?php echo $item['Order_tour']['number_of_children'] ?></td>
                 <td><?php echo $item['Order_tour']['phone_number'] ?></td>
                 <td><?php echo $item['Order_tour']['email'] ?></td>
                 <td><?php echo $item['Order_tour']['note'] ?></td>
                 <td><?php
-                    if ($item['Order_tour']['status']) {
+                    if ($item['Order_tour']['status']==1) {
                         echo "Đã duyệt ";
-                    } else {
+                    } else if($item['Order_tour']['status']==0) {
                         echo "Chưa duyệt";
+                    }else{
+                        echo "Đã Hủy";
                     }
                     ?></td>
 
@@ -177,7 +179,7 @@
                 window.location = "http://localhost/BTL_CNW/admins/commitTour/" + row;
             }
             if (status === 3) {
-                alert("Hủy duyệt tour: " + row);
+                window.location = "http://localhost/BTL_CNW/admins/cancelOrderTour/" + row;
             }
         }
     }

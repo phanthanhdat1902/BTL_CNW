@@ -1,6 +1,6 @@
 <div class="container">
     <h1>Thêm Tour</h1>
-    <form action="http://localhost/BTL_CNW/admins/addTour" method="POST">
+    <form action="http://localhost/BTL_CNW/admins/addTour" method="POST" enctype="multipart/form-data">
         <div class="row">
             <div class="col1">
                 <label>Tên tour</label>
@@ -123,7 +123,7 @@
                     <input name="caption1[]" value="">
                 </div>
                 <div class="col1">
-                    <input name="image1[]" type="file">
+                    <input name="image1" type="file">
                 </div>
             </div>
             <div class="row">
@@ -132,7 +132,7 @@
                     <input name="caption2[]">
                 </div>
                 <div class="col1">
-                    <input name="image2[]" type="file">
+                    <input name="image2" type="file">
                 </div>
             </div>
         </div>

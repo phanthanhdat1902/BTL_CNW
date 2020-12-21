@@ -34,7 +34,7 @@ class ToursController extends Controller {
 
      * Ham thuc hien chuc nang tim kiem tour theo thanh pho     */
 
-    function searchTour() {
+    function getdata() {
         if (isset($_GET['toCity'])) {
             $city = base64_decode($_GET['toCity']);
             $this->Tour->like('name', $city);
@@ -49,7 +49,7 @@ class ToursController extends Controller {
             $result = array();
             foreach ($listTours as $item) :
                 $temp = performAction('departures', 'findDepartureById', array($item['Tour']['id_tour']));
-                $tag = performAction('tag_tours', 'findTagTourById', array($item['Tour']['id_tour']));    
+                $tag = performAction('tag_tours', 'findTagTourById', array($item['Tour']['id_tour']));
                 $item['departures'] = $temp;
                 $item['tags'] = $tag;
                 array_push($result, $item);
@@ -93,8 +93,12 @@ class ToursController extends Controller {
         $this->Tour->id_theme_tour = $_POST['theme_tour'];
         $this->Tour->number_of_days = $_POST['day'];
         $this->Tour->number_of_nights = $_POST['night'];
-        if ($_POST['img_thumnail']) {
-            $this->Tour->thumbnail = $_POST['img_thumnail'];
+        $uploads_dir = 'http://localhost/BTL_CNW/public/img';
+        if ($_FILES['img_thumnail']) {
+            $this->Tour->thumbnail = $_FILES['img_thumnail']['name'];
+            $tmp_name1 = $_FILES['img_thumnail']['name'];
+            $name1 = basename($_FILES['img_thumnail']['name']);
+            move_uploaded_file($tmp_name1, "$uploads_dir/$name1");
         }
         $this->Tour->introduction_heading = $_POST['introduction_heading'];
         $this->Tour->introduction = $_POST['introduction_content'];
@@ -114,10 +118,17 @@ class ToursController extends Controller {
         performAction('schedules', 'deleteSchedulesById', array($tourId));
         $dayNumber = $_POST['day_number'];
         for ($i = 0; $i < count($dayNumber); $i++) {
-            performAction('Schedules', 'addSchedules', array($tourId, $dayNumber[$i], $_POST['title'][$i], $_POST['description'][$i], $_POST['image1'][$i], $_POST['caption1'][$i], $_POST['image2'][$i], $_POST['caption2'][$i]));
+            performAction('Schedules', 'addSchedules', array($tourId, $dayNumber[$i], $_POST['title'][$i], $_POST['description'][$i], $_FILE['image1']['name'][$i], $_FILE['caption1'][$i], $_FILES['image2']['name'][$i], $_POST['caption2'][$i]));
+            $tmp_name1 = $_FILES["image1"]["name"][$i];
+            $tmp_name2 = $_FILES["image2"]["name"][$i];
+            $name1 = basename($_FILES["image1"]["name"][$i]);
+            $name2 = basename($_FILES["image2"]["name"][$i]);
+            move_uploaded_file($tmp_name1, "$uploads_dir/$name1");
+            move_uploaded_file($tmp_name2, "$uploads_dir/$name2");
         }
         performAction('departures', 'deleteDeparturesByTourId', array($tourId));
         $start_date = $_POST['start_date'];
+
         for ($i = 0; $i < count($start_date); $i++) {
             performAction('departures', 'addDeparture', array($tourId, $start_date[$i], $_POST['end_date'][$i], $_POST['holiday_surcharge'][$i]));
         }
@@ -129,8 +140,12 @@ class ToursController extends Controller {
         $this->Tour->id_theme_tour = $_POST['theme_tour'];
         $this->Tour->number_of_days = $_POST['day'];
         $this->Tour->number_of_nights = $_POST['night'];
-        if ($_POST['img_thumnail']) {
-            $this->Tour->thumbnail = $_POST['img_thumnail'];
+        $uploads_dir = 'http://localhost/BTL_CNW/public/img';
+        if ($_FILES['img_thumnail']) {
+            $this->Tour->thumbnail = $_FILES['img_thumnail']['name'];
+            $tmp_name1 = $_FILES['img_thumnail']['name'];
+            $name1 = basename($_FILES['img_thumnail']['name']);
+            move_uploaded_file($tmp_name1, "$uploads_dir/$name1");
         }
         $this->Tour->introduction_heading = $_POST['introduction_heading'];
         $this->Tour->introduction = $_POST['introduction_content'];
@@ -144,13 +159,19 @@ class ToursController extends Controller {
         $this->Tour->price_per_adult = $this->asNumber($_POST['price_per_adult']);
         $this->Tour->price_per_adult = $this->asNumber($_POST['price_per_child']);
         $this->Tour->save();
-        $tourId=$this->Tour->getLastId();
+        $tourId = $this->Tour->getLastId();
         foreach ($_POST['service_tour'] as $item) {
             performAction('Service_tours', 'addService', array($tourId, $item));
         }
         $dayNumber = $_POST['day_number'];
         for ($i = 0; $i < count($dayNumber); $i++) {
-            performAction('Schedules', 'addSchedules', array($tourId, $dayNumber[$i], $_POST['title'][$i], $_POST['description'][$i], $_POST['image1'][$i], $_POST['caption1'][$i], $_POST['image2'][$i], $_POST['caption2'][$i]));
+            performAction('Schedules', 'addSchedules', array($tourId, $dayNumber[$i], $_POST['title'][$i], $_POST['description'][$i], $_FILE['image1']['name'][$i], $_FILE['caption1'][$i], $_FILES['image2']['name'][$i], $_POST['caption2'][$i]));
+            $tmp_name1 = $_FILES["image1"]["name"][$i];
+            $tmp_name2 = $_FILES["image2"]["name"][$i];
+            $name1 = basename($_FILES["image1"]["name"][$i]);
+            $name2 = basename($_FILES["image2"]["name"][$i]);
+            move_uploaded_file($tmp_name1, "$uploads_dir/$name1");
+            move_uploaded_file($tmp_name2, "$uploads_dir/$name2");
         }
         $start_date = $_POST['start_date'];
         for ($i = 0; $i < count($start_date); $i++) {

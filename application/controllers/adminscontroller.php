@@ -66,25 +66,25 @@ class AdminsController extends Controller {
     /*
      * Ham thuc hien chuc nang cap nhat Tour     */
 
-    function updateOrderTour($orderId, $status) {
-//        performAction('Order_tours', 'updateOrderTour', array($orderId, $status));
-//        header("Location:" . BASE_PATH . 'admins/viewalltour/1/2');
+    function cancelOrderTour($orderId, $status) {
+        performAction('Order_tours', 'cancelOrderTour', array($orderId, $status));
+        header("Location:" . BASE_PATH . 'admins/viewallOrder');
     }
 
     //ham thuc hien chuc nang xoa order
     function deleteOrderTour($orderId) {
         performAction('Order_tours', 'deleteOrderTour', array($orderId));
-        header("Location:" . BASE_PATH . 'admins/viewalltour/1/2');
+        header("Location:" . BASE_PATH . 'admins/viewallOrder');
     }
 
-    function viewallOrder($page = 1, $limit = 1) {
+    function viewallOrder($page = 1, $limit = 10) {
         $result = performAction('Order_tours', 'viewOrder', array($page, $limit));
         $this->set('orderTours', $result);
     }
 
     function commitTour($orderId, $status) {
         performAction('Order_tours', 'commitTour', array($orderId, $status));
-        header("Location:" . BASE_PATH . 'admins/viewallOrder/1/2');
+        header("Location:" . BASE_PATH . 'admins/viewallOrder');
     }
 
 

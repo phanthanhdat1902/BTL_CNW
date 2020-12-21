@@ -53,7 +53,7 @@
                                     </div>
                                     <div class="col_4">
                                         <ul class="tourListPros">
-                                            <?php foreach ($touritem['tag'] as $tag) : ?>
+                                            <?php foreach ($touritem['tags'] as $tag) : ?>
                                                 <li><?php echo $tag ?></li>
                                             <?php endforeach; ?>
                                         </ul>

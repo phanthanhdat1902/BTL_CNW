@@ -12,7 +12,7 @@ and open the template in the editor.
     <body>
         <?php
 //        print_r($tour);
-        foreach ($tour as $key=>$value):
+        foreach ($listTour as $key=>$value):
             print($key.'===>>>');
             print_r($value);
             echo"<br>";
