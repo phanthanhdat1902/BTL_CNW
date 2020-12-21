@@ -19,6 +19,7 @@
     <p class="title">Du lịch an toàn</p>
     <p class="detail">Nâng cao súc khỏe, cân bằng cuộc sống</p>
     <div class="Content_1">
+        <?php $theme_hotels = $template['listTheme'] ?>
         <?php foreach ($theme_hotels as $theme_hotelsitem): ?>
             <a href="../theme_hotels/view/<?php echo $theme_hotelsitem['Theme_hotel']['id_theme'] ?>">
                 <div class="col_1">
@@ -42,37 +43,38 @@
     <div class="Content_3">
         <p class="title">Điểm đến yêu thích trong nước</p>
         <p class="detail">Lên rừng xuống biển. Trọn vẹn Việt Nam</p>
+        <?php $listCity = $template['listCity'] ?>
         <div class="area">
             <div class="row_1">
-                <a class="area_1">
-                    <div class="name">Phú Quốc</div>
+                <a class="area_1" href="../cities/view/<?php echo $listCity[0]['City']['id_city'] ?>">
+                    <div class="name" ""><?php $listCity[0]['City']['name'] ?></div>
                 </a>
-                <a class="area_2">
-                    <div class="name">Quy Nhơn</div>
+                <a class="area_2" href="../cities/view/<?php echo $listCity[1]['City']['id_city'] ?>">
+                    <div class="name"><?php echo $listCity[1]['City']['name'] ?></div>
                 </a>
-                <a class="area_3">
-                    <div class="name">Sa Pa</div>
+                <a class="area_3" href="../cities/view/<?php echo $listCity[2]['City']['id_city'] ?>">
+                    <div class="name"><?php echo $listCity[2]['City']['name'] ?></div>
                 </a>
             </div>
 
             <div class="row_2">
-                <a class="area_4">
-                    <div class="name">Đà Nẵng</div>
+                <a class="area_4" href="../cities/view/<?php echo $listCity[3]['City']['id_city'] ?>">
+                    <div class="name"><?php echo $listCity[3]['City']['name'] ?></div>
                 </a>
-                <a class="area_5">
-                    <div class="name">Đà Lạt</div>
+                <a class="area_5" href="../cities/view/<?php echo $listCity[4]['City']['id_city'] ?>">
+                    <div class="name"><?php echo $listCity[4]['City']['name'] ?></div>
                 </a>
             </div>
 
             <div class="row_3">
-                <a class="area_6">
-                    <div class="name">Vũng Tàu</div>
+                <a class="area_6" href="../cities/view/<?php echo $listCity[5]['City']['id_city'] ?>">
+                    <div class="name"><?php echo $listCity[5]['City']['name'] ?></div>
                 </a>
-                <a class="area_7">
-                    <div class="name">Nha Trang</div>
+                <a class="area_7" href="../cities/view/<?php echo $listCity[6]['City']['id_city'] ?>">
+                    <div class="name"><?php echo $listCity[6]['City']['name'] ?></div>
                 </a>
-                <a class="area_8">
-                    <div class="name">Mộc Châu</div>
+                <a class="area_8" href="../cities/view/<?php echo $listCity[7]['City']['id_city'] ?>">
+                    <div class="name"><?php echo $listCity[7]['City']['name'] ?></div>
                 </a>    
             </div>
 

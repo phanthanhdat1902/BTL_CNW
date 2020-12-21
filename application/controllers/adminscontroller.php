@@ -18,7 +18,16 @@ class AdminsController extends Controller {
     }
 
     function index() {
-        
+        $users=performAction('Users','viewall',array(null));
+        $tours=performAction('Tours','viewallnopage',array(null));
+        $order_tours=performAction('Order_tours','viewallnopage',array(null));
+        $hotels=performAction('Hotels','viewallnopage',array(null));
+        $order_hotels=performAction('Order_hotels','viewallnopage',array(null));
+        $this->set('users',$users);
+        $this->set('tours',$tours);
+        $this->set('order_tours',$order_tours);
+        $this->set('hotels',$hotels);
+        $this->set('order_hotels',$order_hotels);
     }
 
     /*
