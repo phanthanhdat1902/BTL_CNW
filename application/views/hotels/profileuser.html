@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<link rel="stylesheet" href="/public/css/profileuser.css">
+
+<script>
+    function showMenu() {
+        var myMenu = document.getElementById("myMenu");
+        if (myMenu.className === "navHeader") {
+            myMenu.className += " responsive";
+        } else {
+            myMenu.className = "navHeader";
+        }
+    }
+
+
+    function readURL(input) {
+
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result)
+                    .width(150)
+                    .height(200);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function changePass() {
+        var checkbox = document.getElementById("changePass");
+        var formPass = document.getElementsByClassName("changepassword");
+        if (checkbox.checked == true) {
+            formPass.style.display = "block";
+        }
+        else {
+            formPass.style.display = "none";
+        }
+    }
+</script>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                <h4>LOGO</h4>
+            </div>
+            <ul class="navHeader" id="myMenu">
+                <li><a href="#">Khách sạn</a></li>
+                <li><a href="#">Tour</a></li>
+                <li><a href="#">Vé máy bay</a></li>
+                <li><a href="#">Cẩm nang du lịch</a></li>
+                <li><a href="#">...</a>
+                    <ul class="subMenu">
+                        <li><a href="#">Tài khoản đặt tour</a></li>
+                        <li><a href="#">Ưu đãi đặc biệt</a></li>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Hỏi đáp</a></li>
+                        <li><a href="#">Hỗ trợ</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="userControl">
+                <a href="#">Đăng ký</a>
+                <a href="#">Đăng nhập</a>
+                <div href="#" class="dropdown">
+                    <button class="dropbtn">Profile</button>
+                    <div class="dropdown-content">
+                        <a href="#">Kì nghỉ của tôi</a>
+                        <a href="#">Ưu đãi của tôi</a>
+                        <a href="#">IVIVUPoint</a>
+                        <a href="">Hồ sơ của tôi</a>
+                        <a href="#">Nhận xét của tôi</a>
+                    </div>
+
+                </div>
+                <span id="btnMenu" onclick="showMenu()">&#9776;</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="center">
+        <div class="left">
+            <div class="avatar" style="background-image: url('/public/img/avatar_person.png'); width: 100px; 
+            height: 100px; border-radius: 50%;"></div>
+            <p class="email">abc@gmail.com</p>
+            <div class="menu">
+                <ul>
+                    <li><a>Kì nghỉ của tôi</a></li>
+                    <li><a>Ưu đãi cho bạn</a></li>
+                    <li><a>Bữa trưa của tôi</a></li>
+                    <li><a>IVIVUPoint</a></li>
+                    <li><a>Hồ sơ của tôi</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="right">
+            <form>
+                <input type='file' onchange="readURL(this);" class="upimage" />
+                <img id="blah" src="#" alt="your image" style="margin-left: 50px;" />
+                <br>
+                <br>
+                <span> Tên đầy đủ :</span>
+                <input type="text" class="infor">
+                <br>
+                <br>
+                <span> Số di động :</span> <input type="text" class="infor">
+                <br>
+                <br>
+                <span> Email :</span> <input type="text" class="infor">
+                <br>
+                <br>
+                <input type="checkbox" class="infor" id="changePass" onclick="changePass()"> Đổi mật khẩu
+                <br>
+                <br>
+            </form>
+            <form class="changepassword" action="" id="formchangepass">
+                <span> Mật khẩu cũ :</span> <input type="text" class="infor">
+                <br>
+                <br>
+                <span> Mật khẩu mới :</span><input type="text" class="infor">
+                <br>
+                <br>
+                <span> Xác nhận mật khẩu mới :</span><input type="text" class="infor">
+                <br>
+                <br>
+                <div class="btn_submit">
+                    <input type="submit" class="infor_old" value="Lấy lại thông tin cũ">
+                    <input type="submit" class="saveinfor" value="Lưu thông tin">
+
+                </div>
+            </form>
+
+        </div>
+
+</body>
+
+</html>

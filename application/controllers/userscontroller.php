@@ -98,6 +98,9 @@ class UsersController extends Controller {
         }
     }
 
+    /**
+     * Lấy theo id
+     */
     function view($idUser = null) {
         if (isset($idUser)) {
             $this->User->id = $idUser;
@@ -107,14 +110,55 @@ class UsersController extends Controller {
             return null;
         }
     }
-
+    /**
+     * Lất tất cả
+     */
     function viewall() {
         $this->User->leftOn("Roles","id_role");
         return $this->User->search();
     }   
-
-    function update() {
-        
+    /**
+     * Cập nhật user
+     */
+    function updateUser($idUser) {
+        if (isset($_POST['email']) && isset($_POST['id_role'])){
+            $this->User->id = $idUser;
+            $searchResult = $this->User->search();
+            if($searchResult!==null){
+                $this->User->id_user=$idUser;
+                $this->User->username=$_POST['username'];
+                $this->User->id_role=$_POST['id_role'];
+                $this->User->password=$searchResult['User']['password'];
+                $this->User->create_time=$searchResult['User']['create_time'];
+                $this->User->save();
+            }
+        }
+    }
+    /**
+     * Thêm mới user
+     */
+    function addUser(){
+        if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['id_role'])) {
+            $email = $_POST['email'];
+            $this->User->where('email', $email);
+            $this->User->showHasOne();
+            $searchResult = $this->User->search();
+            if ($searchResult == null) {
+                $password = $_POST['password'];
+                $this->User->email = $email;
+                if(isset($_POST['username'])) {
+                    $this->User->username=$_POST['username'];
+                }
+                $this->User->password = password_hash($password, PASSWORD_DEFAULT);
+                $this->User->id_role = $_POST['id_role'];
+                $this->User->create_time = gmdate('Y-m-d h:i:s');
+                $result = $this->User->save();
+                if ($result != -1) {
+                    return $this->User->getLastId();
+                }
+            }
+        }
+        return 0;
     }
 
     function afterAction() {
