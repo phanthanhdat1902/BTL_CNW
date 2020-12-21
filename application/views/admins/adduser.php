@@ -1,22 +1,22 @@
         <div class="container">
             <h1>Thêm mới thành viên</h1>
-            <form>
+            <form action="http://localhost/BTL_CNW/admins/adduser" method="POST">
                 <div class="row">
                     <div class="col2">
                         <label>UserName</label>
-                        <input type="text" value="" name="username">
+                        <input type="text" name="username">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col2">
                         <label>Password</label>
-                        <input type="text" value="" name="password" disabled>
+                        <input type="text" name="password">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col2">
                         <label>Email</label>
-                        <input type="text" value="" name="email">
+                        <input type="text" name="email">
                     </div>
                 </div>
                 <div class="row">
@@ -33,7 +33,7 @@
                 </div>
                 <div class="row">
                     <div class="col2">
-                        <button>Thêm mới</button>
+                        <button type="submit">Thêm mới</button>
                     </div>
                 </div>
             </form>

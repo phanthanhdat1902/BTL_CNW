@@ -1,6 +1,6 @@
 <div class="container">
-    <h1>Thêm mới thành viên</h1>
-    <form>
+    <h1>Thông tin chi tiết</h1>
+    <form action="http://localhost/BTL_CNW/admins/updateuser/<?php echo $user['User']['id_user'] ?>" method="POST">
         <div class="row">
             <div class="col2">
                 <label>ID</label>

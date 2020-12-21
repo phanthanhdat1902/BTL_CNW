@@ -48,7 +48,7 @@ if (!isset($_SESSION['admin'])) {
                 <h1>IVIVU</h1>
             </div>
             <ul>
-                <li><a href="/admin.html">Dashboard </a></li>
+                <li><a href="http://localhost/BTL_CNW/admins/index">Dashboard </a></li>
                 <li>
                     <a id="features">Quản lý tour <span id="iconFirst">&#10097;</span></a>
                     <ul class="subFeatures">

@@ -87,9 +87,6 @@ class AdminsController extends Controller {
         header("Location:" . BASE_PATH . 'admins/viewallOrder/1/2');
     }
 
-
-
-
     /**
      * Hàm lấy tất cả user
      */
@@ -101,8 +98,31 @@ class AdminsController extends Controller {
      * Hàm thêm mới user
      */
     function addUser() {
-
+        if (count($_POST) > 0) {
+            $result=performAction('Users', 'addUser', array(null));
+            if ($result !==0) {
+                header("Location:" . BASE_PATH . 'admins/detailuser/' . $result);
+            }else{
+                $roles = performAction('Roles', 'viewall', array(null));
+                $this->set('roles', $roles);
+            }
+        } else {
+            $roles = performAction('Roles', 'viewall', array(null));
+            $this->set('roles', $roles);
+        }
     }
+    /**
+     * Hàm cập nhật user
+     */
+    function updateUser($idUser){
+        $result = $_POST;
+        if (isset($result)) {
+            performAction('Users', 'updateUser', array($idUser));
+            header("Location:" . BASE_PATH . 'admins/detailuser/' . $idUser);
+        }
+    }
+
+
     /**
      * Hàm lấy chi tiết 1 user
      */
