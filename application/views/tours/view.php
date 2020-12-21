@@ -4,7 +4,6 @@
     <div class="contentHeader">
         <ol>
             <li>Trang chủ</li>
-            <li>Bến Tre</li>
             <li><?php echo $tour['name']; ?></li>
         </ol>
     </div>

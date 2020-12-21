@@ -142,8 +142,11 @@ class AdminsController extends Controller {
     /**
      * Hàm xóa user
      */
-    function deleteUser($idUser) {
-        
+    function deleteuser($idUser) {
+        if(isset($idUser)){
+            performAction('Users', 'deleteUser',array($idUser));
+            header("Location:http://localhost/BTL_CNW/admins/viewalluser");
+        }
     }
 
     function logout() {
