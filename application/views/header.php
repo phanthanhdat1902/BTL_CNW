@@ -42,7 +42,9 @@ session_start();
                         <?php echo $html->link('Đăng ký','users/register')?>
                         <?php echo $html->link('Đăng nhập','users/login')?>
                     <?php } else { ?>
-                        <span style="color:white;">Xin Chào <?php echo $_SESSION["email"]; ?>&nbsp;</span>
+                        <a href="<?php echo BASE_PATH . 'users/view/' . $_SESSION["id_user"] ?>">
+                            <span style="color:white;">Xin Chào <?php echo $_SESSION["email"]; ?>&nbsp;</span>
+                        </a>
                         <?php echo $html->link('Logout','users/logout')?>
                     <?php } ?>
                     <span id="btnMenu" onclick="showMenu()">&#9776;</span>

@@ -105,6 +105,7 @@ class UsersController extends Controller {
         if (isset($idUser)) {
             $this->User->id = $idUser;
             $this->User->leftOn("Roles","id_role");
+            $this->set('user',$this->User->search());
             return $this->User->search();
         } else{
             return null;
