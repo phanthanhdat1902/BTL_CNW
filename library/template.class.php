@@ -38,13 +38,13 @@ class Template {
             include (ROOT . DS . 'application' . DS . 'views' . DS . $this->_controller . DS . $this->_action . '.php');
         }
 
-//        if ($doNotRenderHeader == 0) {
-//            if (file_exists(ROOT . DS . 'application' . DS . 'views' . DS . $this->_controller . DS . 'footer.php')) {
-//                include (ROOT . DS . 'application' . DS . 'views' . DS . $this->_controller . DS . 'footer.php');
-//            } else {
-//                include (ROOT . DS . 'application' . DS . 'views' . DS . 'footer.php');
-//            }
-//        }
+        if ($doNotRenderHeader == 0) {
+            if (file_exists(ROOT . DS . 'application' . DS . 'views' . DS . $this->_controller . DS . 'footer.php')) {
+                include (ROOT . DS . 'application' . DS . 'views' . DS . $this->_controller . DS . 'footer.php');
+            } else {
+                include (ROOT . DS . 'application' . DS . 'views' . DS . 'footer.php');
+            }
+        }
     }
 
 }

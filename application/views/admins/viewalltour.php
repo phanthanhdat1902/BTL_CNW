@@ -70,15 +70,21 @@
             </button>
             <span>Page size</span>
             <select name="pagasize" id="page_size" onchange="onPage(this)">
-                <option <?php if ($limit == 10) {
-                echo 'selected="selected"';
-            } ?>  value="10">10</option>
-                <option <?php if ($limit == 20) {
-                echo 'selected="selected"';
-            } ?>  value="20">20</option>
-                <option <?php if ($limit == 30) {
-                echo 'selected="selected"';
-            } ?>  value="30">30</option>
+                <option <?php
+                if ($limit == 10) {
+                    echo 'selected="selected"';
+                }
+                ?>  value="10">10</option>
+                <option <?php
+                if ($limit == 20) {
+                    echo 'selected="selected"';
+                }
+                ?>  value="20">20</option>
+                <option <?php
+                    if ($limit == 30) {
+                        echo 'selected="selected"';
+                    }
+                ?>  value="30">30</option>
             </select>
         </div>
     </div>
@@ -100,10 +106,6 @@
             </div>
         </div>
     </div>
-</div>
-<div class="footer">
-    <span>Copyright © Your Website 2020</span>
-</div>
 </div>
 
 <script>
@@ -173,6 +175,3 @@
         window.location = "http://localhost/BTL_CNW/admins/viewalltour/" + pageIndex + '/' + pageSize;
     }
 </script>
-</body>
-
-</html>

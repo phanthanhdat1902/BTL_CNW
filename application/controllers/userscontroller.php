@@ -30,7 +30,7 @@ class UsersController extends Controller {
             $password = $_POST['password'];
             $this->User->where('email', $email);
             $user = $this->User->search();
-            if (password_verify($password, $user[0]['User']['password'])) {
+            if (count($user)>0&&password_verify($password, $user[0]['User']['password'])) {
                 $this->set('user', $user);
                 $role = performAction('roles', 'findRoleById', array($user[0]['User']['id_role']));
                 if ($role['Role']['name'] == 'admin') {
@@ -73,7 +73,6 @@ class UsersController extends Controller {
         if (isset($_POST['email']) && isset($_POST['password'])) {
             $email = $_POST['email'];
             $this->User->where('email', $email);
-            $this->User->showHasOne();
             $searchResult = $this->User->search();
             if ($searchResult == null) {
                 $password = $_POST['password'];
