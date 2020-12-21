@@ -32,6 +32,22 @@ class HotelsController extends Controller {
         return $this->Hotel->query($query);    
     }
     
+    function findHotelExtraByListOfIdLocation($list_id_loction) {
+        $listHotel = findHotelByListOfIdLocation($list_id_location);
+        $result = array();
+        foreach ($listHotel as $hotel) :
+            $starter_price = performAction('starter_packages' 
+                                          ,'findStarterPackageByIdHotel' 
+                                          ,array($hotel['Hotel']['id_hotel']));
+            $combo = performAction('combos', 'findComboByIdHotel'
+                                   , array($hotel['Hotel']['id_hotel']));
+            $hotel['Hotel']['startPrice'] = $starter_price;
+            $hotel['Hotel']['combo'] = $combo;
+            array_push($result, $hotel);
+        endforeach;
+        return $result;
+    }
+    
     function findHotelByIdLocation($id_location) {
         $this->Hotel->where('id_location', $id_location);
         return $this->Hotel->search();
@@ -50,6 +66,22 @@ class HotelsController extends Controller {
         $query = substr($query, 0, -2);
         $query .= ')';
         return $this->Hotel->query($query);
+    }
+    
+    function findHotelExtraByIdCity($id_city) {    
+        $list_id_location = performAction('locations', 'findIdLocationByIdCity', array($id_city));    
+        return $this->findHotelExtraByListOfIdLocation($list_id_location);
+    }
+    
+    function findHotelByThemeId($id_theme_hotel) {
+        $query = 'SELECT title, cities.name, price_per_night'
+              . ' FROM hotels JOIN locations ON hotels.id_location = locations.id_location'
+              . ' JOIN cities ON cities.id_city = locations.id_city'
+              . ' JOIN starter_packages ON hotels.id_hotel = starter_packages.id_hotel'
+              . ' JOIN packages ON (starter_packages.id_type_of_room = packages.id_type_of_room'
+              . ' AND starter_packages.id_service_room = packages.id_service_room'
+              . ' WHERE id_theme_hotel = '.$id_theme_hotel;
+        return $this->Hotel->custom($query);
     }
     
     
@@ -72,7 +104,7 @@ class HotelsController extends Controller {
      * 0 là truy ván theo tên thành phố/ tỉnh
      * 1 là truy vấn theo tên khách sạn
      * Ham thuc hien chuc nang tim kiem hotel theo thanh pho     */
-
+    
     function searchHotel() {
         if (isset($_POST['keyword'])) {
             $keyword = $_POST['keyword'];
@@ -109,10 +141,10 @@ class HotelsController extends Controller {
             $list_id_location = performAction('locations', 'findIdLocationByIdCity', array($id_city));    
             $list_id_hotel = $this->findIdHotelByListOfIdLocation($list_id_location);
 
-            $query = 'SELECT id_hotel'
+            $query = 'SELECT hotels.id_hotel'
                   . ' FROM hotels'
                   . ' LEFT JOIN type_of_rooms'
-                  . ' ON hotels.id_hotel = rooms.id_hotel'
+                  . ' ON hotels.id_hotel = type_of_rooms.id_hotel'
                   . ' LEFT JOIN rooms'
                   . ' ON type_of_rooms.id_type_of_room = rooms.id_type_of_room'
                   . ' WHERE id_hotel IN (';        
@@ -126,13 +158,13 @@ class HotelsController extends Controller {
                    . ' AND (adult_capacity - '.$number_of_adults.' + '
                    . ' children_capacity) >= '.$number_of_children
                    . ' AND availability = 1'
-                   . ' GROUP BY id_hotel'
+                   . ' GROUP BY hotels.id_hotel'
                    . ' HAVING COUNT(DISTINCT(id_room)) >= '.$number_of_rooms;
             
         } else {
             $this->set('typeOfSearch', 1);
             
-            $query = 'SELECT id_hotel'
+            $query = 'SELECT hotels.id_hotel'
                   . ' FROM hotels'
                   . ' LEFT JOIN type_of_rooms'
                   . ' ON hotels.id_hotel = rooms.id_hotel'
@@ -143,23 +175,27 @@ class HotelsController extends Controller {
                   . ' AND (adult_capacity - '.$number_of_adults.' +'
                   . ' children_capacity) >= '.$number_of_children
                   . ' AND availability = 1'
-                  . ' GROUP BY id_hotel'
+                  . ' GROUP BY hotels.id_hotel'
                   . ' HAVING COUNT(DISTINCT(id_room)) >= '.$number_of_rooms;
             
         }
-        $list_id_hotel_filtered = $this->Hotel->custom($query)['Hotel']['id_hotel'];
+        $list_id_hotel_filtered = array();
+        $tmpList = $this->Hotel->custom($query);
+        foreach ($tmpList as $tmp):
+            array_push($list_id_hotel_filtered, $tmp['Hotel']['id_hotel']);
+        endforeach;
         $listHotel = $this->Hotel->findHotelByListOfIdHotel($list_id_hotel_filtered);
         
         //Tìm giá khởi điểm và combo của hotel
         $result = array();
         foreach ($listHotel as $hotel) :
-            $starter_package = performAction('starter_packages' 
-                                            ,'findStarterPackageByIdHotel' 
-                                            ,array($hotel['Hotel']['id_hotel']));
+            $starter_price = performAction('starter_packages' 
+                                          ,'findStarterPackageByIdHotel' 
+                                          ,array($hotel['Hotel']['id_hotel']));
             $combo = performAction('combos', 'findComboByIdHotel'
                                    , array($hotel['Hotel']['id_hotel']));
-            $hotel['startPackage'] = $starter_package;
-            $hotel['combo'] = $combo;
+            $hotel['Hotel']['startPrice'] = $starter_price;
+            $hotel['Hotel']['combo'] = $combo;
             array_push($result, $hotel);
         endforeach;
         

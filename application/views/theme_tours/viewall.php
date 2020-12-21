@@ -40,20 +40,20 @@
                                                     <?php echo 'Tạm được' ?>
                                                 <?php } else if ($score >= 5.0) { ?>
                                                     <?php echo 'Trung bình' ?>
-                                                <?php } else { ?>
+                                                <?php } else if ($score != 0) { ?>
                                                     <?php echo 'Tệ' ?>
                                                 <?php } ?>
                                             </span>
-                                            <span>| 
+                                            <span> 
                                                 <?php if ($touritem['number_of_reviews'] != 0) { ?>
-                                                    <?php echo $touritem['number_of_reviews'] ?>
-                                                <?php } ?>
+                                                    <?php echo '|'.$touritem['number_of_reviews'] ?>
+                                                <?php } ?> review
                                             </span>
                                         </div>
                                     </div>
                                     <div class="col_4">
                                         <ul class="tourListPros">
-                                            <?php foreach ($touritem['tag'] as $tag) : ?>
+                                            <?php foreach ($touritem['tags'] as $tag) : ?>
                                                 <li><?php echo $tag ?></li>
                                             <?php endforeach; ?>
                                         </ul>
