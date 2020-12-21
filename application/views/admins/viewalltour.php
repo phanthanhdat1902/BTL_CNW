@@ -31,29 +31,29 @@
             </thead>
             <tbody>
                 <?php
-                $i = ($page-1)*$limit;
+                $i = ($page - 1) * $limit;
                 foreach ($tours as $item) :
-                ?>
+                    ?>
                     <tr>
-                        <input type="hidden" value="<?php echo $item['Tour']['id_tour'] ?>" name="id">
-                        <td><?php echo ++$i; ?></td>
-                        <td><?php echo $item['Theme_tours']['name'] ?></td>
-                        <td><?php echo $item['Tour']['name'] ?></td>
-                        <td><?php echo $item['Tour']['score'] ?></td>
-                        <td><?php echo $item['Tour']['number_of_reviews'] ?></td>
-                        <td><?php echo $html->asDollars($item['Tour']['price_per_adult']) ?></td>
-                        <td><?php echo $html->asDollars($item['Tour']['price_per_child']) ?></td>
-                        <td><?php echo $html->asDollars($item['Tour']['price_per_child'] + $item['Tour']['price_per_adult']) ?></td>
-                        <td><?php echo $item['Cities']['name'] ?></td>
-                        <td>Sẵn sàng</td>
+                <input type="hidden" value="<?php echo $item['Tour']['id_tour'] ?>" name="id">
+                <td><?php echo ++$i; ?></td>
+                <td><?php echo $item['Theme_tours']['name'] ?></td>
+                <td><?php echo $item['Tour']['name'] ?></td>
+                <td><?php echo $item['Tour']['score'] ?></td>
+                <td><?php echo $item['Tour']['number_of_reviews'] ?></td>
+                <td><?php echo $html->asDollars($item['Tour']['price_per_adult']) ?></td>
+                <td><?php echo $html->asDollars($item['Tour']['price_per_child']) ?></td>
+                <td><?php echo $html->asDollars($item['Tour']['price_per_child'] + $item['Tour']['price_per_adult']) ?></td>
+                <td><?php echo $item['Cities']['name'] ?></td>
+                <td>Sẵn sàng</td>
 
-                    </tr>
-                <?php endforeach; ?>
+                </tr>
+            <?php endforeach; ?>
             </tbody>
         </table>
         <div class="pageTable">
             <span>Tổng</span>
-            <span id="page_total"><?php echo $total ;?></span>
+            <span id="page_total"><?php echo $total; ?></span>
             <span>trang</span>
             <button class="btn_page" id="btn_first" onclick="onPage(this)">
                 <span>&#10096;&#10096;</span>
@@ -61,7 +61,7 @@
             <button class="btn_page" id="btn_prev" onclick="onPage(this)">
                 <span>&#10096;</span>
             </button>
-            <input type="text" value="<?php echo $page;?>" id="page_index" />
+            <input type="text" value="<?php echo $page; ?>" id="page_index" />
             <button class="btn_page" id="btn_next" onclick="onPage(this)">
                 <span>&#10097;</span>
             </button>
@@ -70,9 +70,15 @@
             </button>
             <span>Page size</span>
             <select name="pagasize" id="page_size" onchange="onPage(this)">
-                <option <?php if ($limit==10){echo 'selected="selected"';}?>  value="10">10</option>
-                <option <?php if ($limit==20){echo 'selected="selected"';}?>  value="20">20</option>
-                <option <?php if ($limit==30){echo 'selected="selected"';}?>  value="30">30</option>
+                <option <?php if ($limit == 10) {
+                echo 'selected="selected"';
+            } ?>  value="10">10</option>
+                <option <?php if ($limit == 20) {
+                echo 'selected="selected"';
+            } ?>  value="20">20</option>
+                <option <?php if ($limit == 30) {
+                echo 'selected="selected"';
+            } ?>  value="30">30</option>
             </select>
         </div>
     </div>
@@ -122,13 +128,13 @@
             var row = Array.from(document.querySelectorAll('.main-table tbody tr.tick input'), el => el.value);
             //xóa                    
             if (status === 1) {
-                alert("xóa: " + row);
-                //                window.location = "http://localhost/BTL_CNW/admins/deleteTour/" + row;
+//                alert("xóa: " + row);
+                window.location = "http://localhost/BTL_CNW/admins/deleteTour/" + row;
             }
         }
     }
     var page_index = document.getElementById("page_index");
-    page_index.addEventListener('keypress', function(e) {
+    page_index.addEventListener('keypress', function (e) {
         if (e.keyCode === 13) {
             var pageIndex = page_index.value;
             var pageTotal = document.getElementById("page_total").innerText;
@@ -164,7 +170,7 @@
             pageIndex = pageTotal;
         }
         page_index.value = pageIndex;
-        window.location = "http://localhost/BTL_CNW/admins/viewalltour/" + pageIndex+'/'+pageSize;
+        window.location = "http://localhost/BTL_CNW/admins/viewalltour/" + pageIndex + '/' + pageSize;
     }
 </script>
 </body>
