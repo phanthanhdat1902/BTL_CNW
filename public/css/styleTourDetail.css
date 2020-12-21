@@ -60,6 +60,10 @@ body{
     border: 1px solid#e0e0e0;
     cursor: pointer;
 }
+.rowx .colxl input{
+    width: 30px;
+    padding: 6px;
+}
 .container .bookingForm .rowx .colxr button{
     width: 73px;
     color: #003c71;

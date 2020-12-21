@@ -120,7 +120,7 @@
                 </div>
                 <div class="rowx">
                     <div class="colxl">
-                        <span class="numPeople" name="number_of_adults">1</span>
+                        <input class="numPeople" name="number_of_adults" value="1">
                         <span>Người lớn</span>
                     </div>
                     <div class="colxr">
@@ -133,7 +133,7 @@
                 </div>
                 <div class="rowx">
                     <div class="colxl">
-                        <span class="numPeople" name="number_of_children">1</span>
+                        <input class="numPeople" name="number_of_children" value="1">
                         <span>Trẻ em</span>
                     </div>
                     <div class="colxr">
