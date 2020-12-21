@@ -37,30 +37,34 @@
                 <?php
                 $i = 0;
                 foreach ($orderTours as $item) :
-                ?>
+                    ?>
                     <tr>
-                        <input type="hidden" value="<?php echo $item['Order_tour']['id_order_tour'] . '/' . $item['Order_tour']['status'] ?>" name="id">
-                        <td><?php echo ++$i; ?></td>
-                        <td>123</td>
-                        <td><?php echo $item['Order_tour']['number_of_adults'] ?></td>
-                        <td><?php echo $item['Order_tour']['number_of_children'] ?></td>
-                        <td><?php echo $item['Order_tour']['start_date'] ?></td>
-                        <td><?php echo $item['Order_tour']['end_date'] ?></td>
-                        <td><?php echo $html->asDollars($item['Order_tour']['price']) ?></td>
-                        <td><?php echo $item['Order_tour']['number_of_children'] ?></td>
-                        <td><?php echo $item['Order_tour']['phone_number'] ?></td>
-                        <td><?php echo $item['Order_tour']['email'] ?></td>
-                        <td><?php echo $item['Order_tour']['note'] ?></td>
-                        <td><?php
-                            if ($item['Order_tour']['status']) {
-                                echo "Đã duyệt ";
-                            } else {
-                                echo "Chưa duyệt";
-                            }
-                            ?></td>
+                <input type="hidden" value="<?php echo $item['Order_tour']['id_order_tour'] . '/' . $item['Order_tour']['status'] ?>" name="id">
+                <td><?php echo ++$i; ?></td>
+                <td>123</td>
+                <td><?php if (isset($item['Order_tour']['number_of_adults'])) {
+                    echo $item['Order_tour']['number_of_adults'];
+                } ?></td>
+                <td><?php echo $item['Order_tour']['number_of_children'] ?></td>
+                <td><?php echo $item['departures']['start_date'] ?></td>
+                <td><?php echo $item['departures']['end_date'] ?></td>
+                <td><?php echo $html->asDollars($item['Order_tour']['price']) ?></td>
+                <td><?php echo $item['Order_tour']['number_of_children'] ?></td>
+                <td><?php echo $item['Order_tour']['phone_number'] ?></td>
+                <td><?php echo $item['Order_tour']['email'] ?></td>
+                <td><?php echo $item['Order_tour']['note'] ?></td>
+                <td><?php
+                    if ($item['Order_tour']['status']==1) {
+                        echo "Đã duyệt ";
+                    } else if($item['Order_tour']['status']==0) {
+                        echo "Chưa duyệt";
+                    }else{
+                        echo "Đã Hủy";
+                    }
+                    ?></td>
 
-                    </tr>
-                <?php endforeach; ?>
+                </tr>
+<?php endforeach; ?>
             </tbody>
         </table>
         <div class="pageTable">
@@ -137,7 +141,7 @@
                 <h2>Bạn hủy duyệt tour?</h2>
             </div>
             <div class="btnConfirm">
-                <button type="button" class="btnConfirmYes" onclick="onActionBtn(this,3)">Yes</button>
+                <button type="button" class="btnConfirmYes" onclick="onActionBtn(this, 3)">Yes</button>
                 <button type="button" class="btnConfirmNo">No</button>
             </div>
         </div>
@@ -175,13 +179,13 @@
                 window.location = "http://localhost/BTL_CNW/admins/commitTour/" + row;
             }
             if (status === 3) {
-                alert("Hủy duyệt tour: " + row);
+                window.location = "http://localhost/BTL_CNW/admins/cancelOrderTour/" + row;
             }
         }
     }
 
     var page_index = document.getElementById("page_index");
-    page_index.addEventListener('keypress', function(e) {
+    page_index.addEventListener('keypress', function (e) {
         if (e.keyCode === 13) {
             var pageIndex = page_index.value;
             var pageTotal = document.getElementById("page_total").innerText;

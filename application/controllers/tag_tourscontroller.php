@@ -12,8 +12,9 @@
  * @author 1920
  */
 class Tag_toursController extends Controller {
-    function findTagTourById($tourId) {
-        $this->Tag_tour->where('id_tour', $tourID);
+
+    function findTagTourById($tourId=null) {
+        $this->Tag_tour->where('id_tour', $tourId);
         $temp = $this->Tag_tour->search();
         $result = array();
         foreach ($temp as $item):
@@ -21,4 +22,5 @@ class Tag_toursController extends Controller {
         endforeach;
         return $result;
     }
+
 }

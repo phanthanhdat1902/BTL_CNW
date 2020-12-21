@@ -24,9 +24,13 @@ class AdminsController extends Controller {
     /*
      * Ham thuc hien chuc nang hien thi toan bo Order_Tour */
 
-    function viewallTour($page = 1, $limit = 1) {
+    function viewallTour($page = 1, $limit = 10) {
         $result = performAction('Tours', 'viewall', array($page, $limit));
         $this->set('tours', $result);
+        $this->set('page', $page);
+        $total = performAction('Tours', 'getTotal', array($limit));
+        $this->set('total',$total);
+        $this->set('limit', $limit);
     }
 
     function detailTour($idTour) {
@@ -39,8 +43,8 @@ class AdminsController extends Controller {
     }
 
     function addTour() {
-        if (count($_POST)>0) {
-            performAction('Tours', 'addTour',array(null));
+        if (count($_POST) > 0) {
+            performAction('Tours', 'addTour', array(null));
         } else {
             $theme_tours = performAction('Theme_tours', 'viewallTheme', array(null));
             $this->set('theme_tours', $theme_tours);
@@ -50,39 +54,38 @@ class AdminsController extends Controller {
     function deleteTour() {
         
     }
-    function updateTour($tourId){
-        $result=$_POST;
-        if (isset($result)){
-            performAction('Tours', 'updateTour',array($tourId));
-            header("Location:".BASE_PATH.'admins/detailtour/'.$tourId);
+
+    function updateTour($tourId) {
+        $result = $_POST;
+        if (isset($result)) {
+            performAction('Tours', 'updateTour', array($tourId));
+            header("Location:" . BASE_PATH . 'admins/detailtour/' . $tourId);
         }
     }
+
     /*
      * Ham thuc hien chuc nang cap nhat Tour     */
 
-    function updateOrderTour($orderId, $status) {
-//        performAction('Order_tours', 'updateOrderTour', array($orderId, $status));
-//        header("Location:" . BASE_PATH . 'admins/viewalltour/1/2');
+    function cancelOrderTour($orderId, $status) {
+        performAction('Order_tours', 'cancelOrderTour', array($orderId, $status));
+        header("Location:" . BASE_PATH . 'admins/viewallOrder');
     }
 
     //ham thuc hien chuc nang xoa order
     function deleteOrderTour($orderId) {
         performAction('Order_tours', 'deleteOrderTour', array($orderId));
-        header("Location:" . BASE_PATH . 'admins/viewalltour/1/2');
+        header("Location:" . BASE_PATH . 'admins/viewallOrder');
     }
 
-    function viewallOrder($page = 1, $limit = 1) {
+    function viewallOrder($page = 1, $limit = 10) {
         $result = performAction('Order_tours', 'viewOrder', array($page, $limit));
         $this->set('orderTours', $result);
     }
 
     function commitTour($orderId, $status) {
         performAction('Order_tours', 'commitTour', array($orderId, $status));
-        header("Location:" . BASE_PATH . 'admins/viewallOrder/1/2');
+        header("Location:" . BASE_PATH . 'admins/viewallOrder');
     }
-
-
-
 
     /**
      * Hàm lấy tất cả user
@@ -95,8 +98,31 @@ class AdminsController extends Controller {
      * Hàm thêm mới user
      */
     function addUser() {
-
+        if (count($_POST) > 0) {
+            $result=performAction('Users', 'addUser', array(null));
+            if ($result !==0) {
+                header("Location:" . BASE_PATH . 'admins/detailuser/' . $result);
+            }else{
+                $roles = performAction('Roles', 'viewall', array(null));
+                $this->set('roles', $roles);
+            }
+        } else {
+            $roles = performAction('Roles', 'viewall', array(null));
+            $this->set('roles', $roles);
+        }
     }
+    /**
+     * Hàm cập nhật user
+     */
+    function updateUser($idUser){
+        $result = $_POST;
+        if (isset($result)) {
+            performAction('Users', 'updateUser', array($idUser));
+            header("Location:" . BASE_PATH . 'admins/detailuser/' . $idUser);
+        }
+    }
+
+
     /**
      * Hàm lấy chi tiết 1 user
      */

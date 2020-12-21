@@ -63,6 +63,7 @@ body{
   display: flex;
   line-height: 50px;
   margin: 5px;
+  margin-right: 100px;
 }
 .header .container .userControl a{
   text-decoration: none;
@@ -142,17 +143,16 @@ body{
 /* 
 Profile */
  .header .container .userControl .dropdown .dropbtn {
-  background-color: #6e8cf9;
+  background-color:#003C71;
     color: white;
     padding: 16px;
-    font-size: 16px;
+    font-size: 14px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    width: 80px;
-    height: 50px;
-    text-align: center;
-}
+    width: 60px;
+    height: 40px;
+ }
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
@@ -164,7 +164,7 @@ Profile */
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: #003C71;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;

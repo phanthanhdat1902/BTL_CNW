@@ -95,8 +95,7 @@
             function onActionBtn(button, status) {
                 var btn = button;
                 if (btn.id === "btnAdd") {
-                    //http://localhost/BTL_CNW/admins/adduser
-                    window.location = "/AdminAddUser.html"
+                    window.location = "http://localhost/BTL_CNW/admins/adduser"
                 }
                 if (btn.id === "btnUpdate") {
                     if (!btn.classList.contains("disable")) {
@@ -113,7 +112,7 @@
                     var row = Array.from(document.querySelectorAll('.main-table tbody tr.tick input'), el => el.value);
                     //xóa
                     if (status === 1) {
-                        alert("xóa: " + row);
+                       // window.location = "http://localhost/BTL_CNW/admins/deleteuser"+row;
                     }
                 }
             }

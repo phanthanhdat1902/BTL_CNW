@@ -95,7 +95,13 @@
             </form>
         </div>
 
-        <form>
+        <form action="http://localhost/BTL_CNW/order_tours/add/<?php
+        if (isset($_SESSION['id_user'])) {
+            echo $tour['id_tour'] . '/' . $_SESSION['id_user'];
+        } else {
+            echo $tour['id_tour'];
+        }
+        ?>"method="POST">
             <div class="bookingForm">
                 <div>
                     <h1>Đặt ngay, chỉ 2 phút. Hoặc gọi (028) 3933 8002</h1>
@@ -105,7 +111,7 @@
                         <span>Chọn ngày khởi hành: </span>
                     </div>
                     <div class="colxr">
-                        <select>
+                        <select name="id_departure">
                             <?php foreach ($tour['departures'] as $item) : ?>
                                 <option value="<?php echo $item['Departure']['id_departure'] ?>"><?php echo $item['Departure']['start_date'] ?></option>
                             <?php endforeach; ?>
@@ -114,7 +120,7 @@
                 </div>
                 <div class="rowx">
                     <div class="colxl">
-                        <span class="numPeople">1</span>
+                        <input class="numPeople" name="number_of_adults" value="1">
                         <span>Người lớn</span>
                     </div>
                     <div class="colxr">
@@ -127,7 +133,7 @@
                 </div>
                 <div class="rowx">
                     <div class="colxl">
-                        <span class="numPeople">1</span>
+                        <input class="numPeople" name="number_of_children" value="1">
                         <span>Trẻ em</span>
                     </div>
                     <div class="colxr">
@@ -140,7 +146,7 @@
                 </div>
                 <div class="rowx">
                     <span>Tổng cộng</span>
-                    <span id="sunPrice"><?php echo $html->asDollars($tour['price_per_adult'] * 2); ?></span>
+                    <span id="sunPrice" id="price"><?php echo $html->asDollars($tour['price_per_adult'] * 2); ?></span>
                 </div>
                 <div class="rowx">
                     <button type="button" id="btnRequestOrder">Yêu cầu đặt</button>
@@ -155,16 +161,16 @@
                         <span class="close">&times;</span>
                     </div>
                     <div class="modal-body">
-                            <h1>Yêu cầu đặt tour</h1>
-                            <span>Họ & Tên *</span>
-                            <input type="text">
-                            <span>Điện thoại *</span>
-                            <input type="text">
-                            <span>Email</span>
-                            <input type="text">
-                            <span>Yêu cầu khác</span>
-                            <input type="text">
-                            <button type="submit">Gửi yêu cầu</button>
+                        <h1>Yêu cầu đặt tour</h1>
+                        <span name="name">Họ & Tên *</span>
+                        <input type="text">
+                        <span name="phone_number">Điện thoại *</span>
+                        <input type="text">
+                        <span name="email">Email</span>
+                        <input type="text">
+                        <span name="note">Yêu cầu khác</span>
+                        <input type="text">
+                        <button type="submit">Gửi yêu cầu</button>
                     </div>
                 </div>
             </div>

@@ -31,7 +31,7 @@
             </thead>
             <tbody>
                 <?php
-                $i = 0;
+                $i = ($page-1)*$limit;
                 foreach ($tours as $item) :
                 ?>
                     <tr>
@@ -53,7 +53,7 @@
         </table>
         <div class="pageTable">
             <span>Tổng</span>
-            <span id="page_total">24</span>
+            <span id="page_total"><?php echo $total ;?></span>
             <span>trang</span>
             <button class="btn_page" id="btn_first" onclick="onPage(this)">
                 <span>&#10096;&#10096;</span>
@@ -61,7 +61,7 @@
             <button class="btn_page" id="btn_prev" onclick="onPage(this)">
                 <span>&#10096;</span>
             </button>
-            <input type="text" value="1" id="page_index" />
+            <input type="text" value="<?php echo $page;?>" id="page_index" />
             <button class="btn_page" id="btn_next" onclick="onPage(this)">
                 <span>&#10097;</span>
             </button>
@@ -70,9 +70,9 @@
             </button>
             <span>Page size</span>
             <select name="pagasize" id="page_size" onchange="onPage(this)">
-                <option selected="selected" value="10">10</option>
-                <option value="20">20</option>
-                <option value="30">30</option>
+                <option <?php if ($limit==10){echo 'selected="selected"';}?>  value="10">10</option>
+                <option <?php if ($limit==20){echo 'selected="selected"';}?>  value="20">20</option>
+                <option <?php if ($limit==30){echo 'selected="selected"';}?>  value="30">30</option>
             </select>
         </div>
     </div>
@@ -164,7 +164,7 @@
             pageIndex = pageTotal;
         }
         page_index.value = pageIndex;
-        alert("page: page index= " + pageIndex + " page size=" + pageSize + " page total=" + pageTotal);
+        window.location = "http://localhost/BTL_CNW/admins/viewalltour/" + pageIndex+'/'+pageSize;
     }
 </script>
 </body>

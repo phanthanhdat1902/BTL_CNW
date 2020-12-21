@@ -13,7 +13,7 @@
  */
 class DeparturesController extends Controller {
 
-    function findDepartureById($tourId) {
+    function findDepartureByIdTour($tourId) {
         $this->Departure->where('id_tour', $tourId);
         return $this->Departure->search();
     }
@@ -26,7 +26,10 @@ class DeparturesController extends Controller {
         $this->Departure->availability=$availability;
         return $this->Departure->save();
     }
-
+    function findDepartureById($departureId){
+        $this->Departure->id=$departureId;
+        return $this->Departure->search();
+    }
     function deleteDeparturesByTourId($tourId) {
         $this->Departure->where('id_tour', $tourId);
         return $this->Departure->delete();
