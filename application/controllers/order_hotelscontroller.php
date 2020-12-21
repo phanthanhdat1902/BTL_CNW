@@ -13,4 +13,11 @@
  */
 class Order_hotelsController extends Controller {
     //put your code here
+
+
+
+    function viewallnopage(){
+        return $this->Order_hotel->search();
+    }
+
 }
