@@ -30,7 +30,7 @@ class UsersController extends Controller {
             $password = $_POST['password'];
             $this->User->where('email', $email);
             $user = $this->User->search();
-            if (count($user)>0 && password_verify($password, $user[0]['User']['password'])) {
+            if (password_verify($password, $user[0]['User']['password'])) {
                 $this->set('user', $user);
                 $role = performAction('roles', 'findRoleById', array($user[0]['User']['id_role']));
                 if ($role['Role']['name'] == 'admin') {
@@ -160,6 +160,11 @@ class UsersController extends Controller {
             }
         }
         return 0;
+    }
+    function deleteUser($idUser){
+        $this->User->id=$idUser;
+        $this->User->delete();
+        return;
     }
 
     function afterAction() {

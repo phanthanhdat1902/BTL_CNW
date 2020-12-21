@@ -112,7 +112,7 @@
                     var row = Array.from(document.querySelectorAll('.main-table tbody tr.tick input'), el => el.value);
                     //xóa
                     if (status === 1) {
-                       // window.location = "http://localhost/BTL_CNW/admins/deleteuser"+row;
+                       window.location = "http://localhost/BTL_CNW/admins/deleteuser/"+row;
                     }
                 }
             }
