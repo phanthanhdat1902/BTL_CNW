@@ -35,27 +35,29 @@ class ToursController extends Controller {
      * Ham thuc hien chuc nang tim kiem tour theo thanh pho     */
 
     function searchTour() {
+        $toCity = "SOG6oSBMb25n";
         if (isset($_GET['toCity'])) {
-            $city = base64_decode($_GET['toCity']);
-            $this->Tour->like('name', $city);
-            $fields = array();
-            array_push($fields, 'id_tour');
-            array_push($fields, 'name');
-            array_push($fields, 'number_of_reviews');
-            array_push($fields, 'score');
-            array_push($fields, 'price_per_adult');
-            array_push($fields, 'thumbnail');
-            $listTours = $this->Tour->search($fields);
-            $result = array();
-            foreach ($listTours as $item) :
-                $temp = performAction('departures', 'findDepartureById', array($item['Tour']['id_tour']));
-                $tag = performAction('tag_tours', 'findTagTourById', array($item['Tour']['id_tour']));
-                $item['departures'] = $temp;
-                $item['tags'] = $tag;
-                array_push($result, $item);
-            endforeach;
-            $this->set('listTour', $result);
+            $toCity = $_GET['toCity'];
         }
+        $city = base64_decode($toCity);
+        $this->Tour->like('name', $city);
+        $fields = array();
+        array_push($fields, 'id_tour');
+        array_push($fields, 'name');
+        array_push($fields, 'number_of_reviews');
+        array_push($fields, 'score');
+        array_push($fields, 'price_per_adult');
+        array_push($fields, 'thumbnail');
+        $listTours = $this->Tour->search($fields);
+        $result = array();
+        foreach ($listTours as $item) :
+            $temp = performAction('departures', 'findDepartureById', array($item['Tour']['id_tour']));
+            $tag = performAction('tag_tours', 'findTagTourById', array($item['Tour']['id_tour']));
+            $item['departures'] = $temp;
+            $item['tags'] = $tag;
+            array_push($result, $item);
+        endforeach;
+        $this->set('listTour', $result);
     }
 
     function encodingUrl() {
@@ -180,7 +182,7 @@ class ToursController extends Controller {
     }
 
     function deleteTour($tourId) {
-        $this->Tour->id=$tourId;
+        $this->Tour->id = $tourId;
         $this->Tour->delete();
     }
 
@@ -233,7 +235,7 @@ class ToursController extends Controller {
         return $this->Tour->totalPages();
     }
 
-    function viewallnopage(){
+    function viewallnopage() {
         return $this->Tour->search();
     }
 
