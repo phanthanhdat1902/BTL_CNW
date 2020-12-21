@@ -38,7 +38,7 @@ class AdminsController extends Controller {
         $this->set('tours', $result);
         $this->set('page', $page);
         $total = performAction('Tours', 'getTotal', array($limit));
-        $this->set('total',$total);
+        $this->set('total', $total);
         $this->set('limit', $limit);
     }
 
@@ -58,10 +58,6 @@ class AdminsController extends Controller {
             $theme_tours = performAction('Theme_tours', 'viewallTheme', array(null));
             $this->set('theme_tours', $theme_tours);
         }
-    }
-
-    function deleteTour() {
-        
     }
 
     function updateTour($tourId) {
@@ -100,18 +96,19 @@ class AdminsController extends Controller {
      * Hàm lấy tất cả user
      */
     function viewalluser() {
-        $result=performAction('Users','viewall',array(null));
-        $this->set('users',$result);
+        $result = performAction('Users', 'viewall', array(null));
+        $this->set('users', $result);
     }
+
     /**
      * Hàm thêm mới user
      */
     function addUser() {
         if (count($_POST) > 0) {
-            $result=performAction('Users', 'addUser', array(null));
-            if ($result !==0) {
+            $result = performAction('Users', 'addUser', array(null));
+            if ($result !== 0) {
                 header("Location:" . BASE_PATH . 'admins/detailuser/' . $result);
-            }else{
+            } else {
                 $roles = performAction('Roles', 'viewall', array(null));
                 $this->set('roles', $roles);
             }
@@ -120,10 +117,11 @@ class AdminsController extends Controller {
             $this->set('roles', $roles);
         }
     }
+
     /**
      * Hàm cập nhật user
      */
-    function updateUser($idUser){
+    function updateUser($idUser) {
         $result = $_POST;
         if (isset($result)) {
             performAction('Users', 'updateUser', array($idUser));
@@ -131,16 +129,16 @@ class AdminsController extends Controller {
         }
     }
 
-
     /**
      * Hàm lấy chi tiết 1 user
      */
     function detailUser($idUser) {
         $result = performAction('Users', 'view', array($idUser));
-        $listRoles=performAction('Roles','viewall',array(null));
-        $this->set('roles',$listRoles);
-        $this->set('user',$result);
+        $listRoles = performAction('Roles', 'viewall', array(null));
+        $this->set('roles', $listRoles);
+        $this->set('user', $result);
     }
+
     /**
      * Hàm xóa user
      */
@@ -148,11 +146,17 @@ class AdminsController extends Controller {
         
     }
 
-    
     function logout() {
         session_start();
         unset($_SESSION["admin"]);
         header("Location:" . BASE_PATH);
+    }
+    //ham thuc hien xoa tour
+    function deleteTour($tourId) {
+        if(isset($tourId)){
+            performAction('Tours', 'deleteTour',array($tourId));
+            header("Location:http://localhost/BTL_CNW/admins/viewalltour/1/10");
+        }
     }
 
     function afterAction() {

@@ -20,7 +20,12 @@ class LocationsController extends Controller {
      *      */
     function findIdLocationsByIdCity($id_city) {
         $this->Location->where('id_city', $id_city);
-        return $this->Location->search()['Location']['id_location'];
+        $listLocation = $this->Location->search();
+        $result = array();
+        foreach ($listLocation as $location):
+            $id_location = $location['Location']['id_location'];
+            array_push($result, $id_location);
+        endforeach;
     }
     
     function findLocationById($id_location) {

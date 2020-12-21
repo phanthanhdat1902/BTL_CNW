@@ -70,76 +70,36 @@
                     <span>Tên tour</span>
                 </div>
                 <?php foreach ($listTour as $item) { ?>
-                    <div class="tourItem">
-                        <div class="tourItemImage"></div>
-                        <div class="tourItemContent">
-                            <span class="tourName">Tour Miền Bắc 5N4D: Sài Gòn - Hà Nội - Sapa - Hạ Long</span>
-                            <div class="scoreContainer">
-                                <span>8.0</span>
-                                <span>Rất tốt</span>
-                                <span>| 1 đánh giá</span>
+                    <a href="http://localhost/BTL_CNW/tours/view/<?php echo $item['Tour']['id_tour'] ?>">
+                        <div class="tourItem">
+                            <div class="tourItemImage" <?php
+                            if (isset($item['Tour']['thumbnail'])) {
+                                echo $html->includeImg($item['Tour']['thumbnail']);
+                            }
+                            ?>></div>
+                            <div class="tourItemContent">
+                                <span class="tourName"><?php echo $item['Tour']['name'] ?></span>
+                                <div class="scoreContainer">
+                                    <span><?php echo $item['Tour']['score'] ?></span>
+                                    <span>Rất tốt</span>
+                                    <span><?php echo $item['Tour']['number_of_reviews'] ?></span>
+                                </div>
+                                <ul class="tourListPros">
+                                    <li>Cendeluxe tiêu chuẩn 5 sao</li>
+                                    <li>Đảo Kỳ Co</li>
+                                    <li>Giành Đá Đĩa</li>
+                                    <li>Bãi Xếp</li>
+                                    <li>Mũi Điện Đại Lãnh</li>
+                                </ul>
                             </div>
-                            <ul class="tourListPros">
-                                <li>Cendeluxe tiêu chuẩn 5 sao</li>
-                                <li>Đảo Kỳ Co</li>
-                                <li>Giành Đá Đĩa</li>
-                                <li>Bãi Xếp</li>
-                                <li>Mũi Điện Đại Lãnh</li>
-                            </ul>
+                            <div class="tourItemContentPrice">
+    <!--                            <div class="tourItemDateTime"><span>Khởi hành: <?php echo $item['departures']['start_date'] == null ? item['departures']['start_date'] : ' ' ?></span></div>
+                                <div class="tourItemPrice"><span><?php echo $item['departures']['start_date'] == null ? item['departures']['start_date'] : ' ' ?></span></div>
+                                <div class="tourItemPricePerGuest"><span>*Áp dụng nhóm 2 khách</span></div>-->
+                            </div>
                         </div>
-                        <div class="tourItemContentPrice">
-                            <div class="tourItemDateTime"><span>Khởi hành: 09-12-2020</span></div>
-                            <div class="tourItemPrice"><span>6.290.000 VND</span></div>
-                            <div class="tourItemPricePerGuest"><span>*Áp dụng nhóm 2 khách</span></div>
-                        </div>
-                    </div>
-                    <?php } ?>
-                <div class="tourItem">
-                    <div class="tourItemImage" style="background: url('http://localhost/BTL_CNW/public/img/image_1.jpg') no-repeat center;"></div>
-                    <div class="tourItemContent">
-                        <span class="tourName">Tour Miền Bắc 5N4D: Sài Gòn - Hà Nội - Sapa - Hạ Long</span>
-                        <div class="scoreContainer">
-                            <span>8.0</span>
-                            <span>Rất tốt</span>
-                            <span>| 1 đánh giá</span>
-                        </div>
-                        <ul class="tourListPros">
-                            <li>Cendeluxe tiêu chuẩn 5 sao</li>
-                            <li>Đảo Kỳ Co</li>
-                            <li>Giành Đá Đĩa</li>
-                            <li>Bãi Xếp</li>
-                            <li>Mũi Điện Đại Lãnh</li>
-                        </ul>
-                    </div>
-                    <div class="tourItemContentPrice">
-                        <div class="tourItemDateTime"><span>Khởi hành: 09-12-2020</span></div>
-                        <div class="tourItemPrice"><span>6.290.000 VND</span></div>
-                        <div class="tourItemPricePerGuest"><span>*Áp dụng nhóm 2 khách</span></div>
-                    </div>
-                </div>
-                <div class="tourItem">
-                    <div class="tourItemImage"></div>
-                    <div class="tourItemContent">
-                        <span class="tourName">Tour Miền Bắc 5N4D: Sài Gòn - Hà Nội - Sapa - Hạ Long</span>
-                        <div class="scoreContainer">
-                            <span>8.0</span>
-                            <span>Rất tốt</span>
-                            <span>| 1 đánh giá</span>
-                        </div>
-                        <ul class="tourListPros">
-                            <li>Cendeluxe tiêu chuẩn 5 sao</li>
-                            <li>Đảo Kỳ Co</li>
-                            <li>Giành Đá Đĩa</li>
-                            <li>Bãi Xếp</li>
-                            <li>Mũi Điện Đại Lãnh</li>
-                        </ul>
-                    </div>
-                    <div class="tourItemContentPrice">
-                        <div class="tourItemDateTime"><span>Khởi hành: 09-12-2020</span></div>
-                        <div class="tourItemPrice"><span>6.290.000 VND</span></div>
-                        <div class="tourItemPricePerGuest"><span>*Áp dụng nhóm 2 khách</span></div>
-                    </div>
-                </div>
+                    </a>
+                <?php } ?>
             </div>
         </div>
     </div>

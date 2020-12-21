@@ -26,4 +26,19 @@ class CitiesController extends Controller {
         $this->City->where('name', $cityName);
         return $this->City->search()['City']['id_city'];
     }
+    
+    function findTop($limit) {
+        $query = 'SELECT *'
+              . ' FROM city'
+              . ' ORDER BY number_of_hotels DESC'
+              . ' LIMIT '.$limit;
+        return $this->City->custom($query);
+    }
+    
+    function view($id_city) {
+        $listArea = performAction('areas', 'findAreaByIdCity', $id_city);
+        $listHotel = performAction('hotels', 'findHotelByIdCity', $id_city);
+        $this->set('listArea', $listArea);
+        $this->set('listHotel', $listHotel);
+    }
 }

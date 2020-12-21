@@ -34,28 +34,30 @@ class ToursController extends Controller {
 
      * Ham thuc hien chuc nang tim kiem tour theo thanh pho     */
 
-    function getdata() {
+    function searchTour() {
+        $toCity = "SOG6oSBMb25n";
         if (isset($_GET['toCity'])) {
-            $city = base64_decode($_GET['toCity']);
-            $this->Tour->like('name', $city);
-            $fields = array();
-            array_push($fields, 'id_tour');
-            array_push($fields, 'name');
-            array_push($fields, 'number_of_reviews');
-            array_push($fields, 'score');
-            array_push($fields, 'price_per_adult');
-            array_push($fields, 'thumbnail');
-            $listTours = $this->Tour->search($fields);
-            $result = array();
-            foreach ($listTours as $item) :
-                $temp = performAction('departures', 'findDepartureById', array($item['Tour']['id_tour']));
-                $tag = performAction('tag_tours', 'findTagTourById', array($item['Tour']['id_tour']));
-                $item['departures'] = $temp;
-                $item['tags'] = $tag;
-                array_push($result, $item);
-            endforeach;
-            $this->set('listTour', $result);
+            $toCity = $_GET['toCity'];
         }
+        $city = base64_decode($toCity);
+        $this->Tour->like('name', $city);
+        $fields = array();
+        array_push($fields, 'id_tour');
+        array_push($fields, 'name');
+        array_push($fields, 'number_of_reviews');
+        array_push($fields, 'score');
+        array_push($fields, 'price_per_adult');
+        array_push($fields, 'thumbnail');
+        $listTours = $this->Tour->search($fields);
+        $result = array();
+        foreach ($listTours as $item) :
+            $temp = performAction('departures', 'findDepartureById', array($item['Tour']['id_tour']));
+            $tag = performAction('tag_tours', 'findTagTourById', array($item['Tour']['id_tour']));
+            $item['departures'] = $temp;
+            $item['tags'] = $tag;
+            array_push($result, $item);
+        endforeach;
+        $this->set('listTour', $result);
     }
 
     function encodingUrl() {
@@ -111,6 +113,7 @@ class ToursController extends Controller {
         $this->Tour->term_note = $_POST['term_note'];
         $this->Tour->price_per_adult = $this->asNumber($_POST['price_per_adult']);
         $this->Tour->price_per_adult = $this->asNumber($_POST['price_per_child']);
+        $this->Tour->save();
         performAction('service_tours', 'deleteServiceByTourId', array($tourId));
         foreach ($_POST['service_tour'] as $item) {
             performAction('Service_tours', 'addService', array($tourId, $item));
@@ -132,7 +135,6 @@ class ToursController extends Controller {
         for ($i = 0; $i < count($start_date); $i++) {
             performAction('departures', 'addDeparture', array($tourId, $start_date[$i], $_POST['end_date'][$i], $_POST['holiday_surcharge'][$i]));
         }
-        $this->Tour->save();
     }
 
     function addTour() {
@@ -177,6 +179,11 @@ class ToursController extends Controller {
         for ($i = 0; $i < count($start_date); $i++) {
             performAction('departures', 'addDeparture', array($tourId, $start_date[$i], $_POST['end_date'][$i], $_POST['holiday_surcharge'][$i]));
         }
+    }
+
+    function deleteTour($tourId) {
+        $this->Tour->id = $tourId;
+        $this->Tour->delete();
     }
 
     /*
@@ -228,7 +235,7 @@ class ToursController extends Controller {
         return $this->Tour->totalPages();
     }
 
-    function viewallnopage(){
+    function viewallnopage() {
         return $this->Tour->search();
     }
 

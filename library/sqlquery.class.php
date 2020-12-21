@@ -355,7 +355,7 @@ class SQLQuery {
             $updates = '';
             foreach ($this->_describe as $field) {
                 if (isset($this->$field)) {
-                    $updates .= '`' . $field . '` = \'' . mysqli_real_escape_string($this->_dbHandle, $this->$field) . '\',';
+                    $updates .= '`' . $field . '` = \'' . mysqli_real_escape_string($this->_dbHandle, htmlentities($this->$field)) . '\',';
                 }
             }
 
@@ -369,7 +369,7 @@ class SQLQuery {
                 if (isset($this->$field)) {
                     if (strpos($field, 'id') === 0) {
                         $fields .= '`' . $field . '`,';
-                        $values .= mysqli_real_escape_string($this->_dbHandle, htmlentities($this->$field, ENT_QUOTES)) . ',';
+                        $values .= mysqli_real_escape_string($this->_dbHandle, mysqli_real_escape_string($this->_dbHandle,htmlentities($this->$field, ENT_QUOTES))) . ',';
                     } else {
                         $fields .= '`' . $field . '`,';
                         $values .= '\'' . mysqli_real_escape_string($this->_dbHandle, htmlentities($this->$field, ENT_QUOTES)) . '\',';

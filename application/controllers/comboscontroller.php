@@ -18,7 +18,7 @@ class CombosController extends Controller {
         $id_type_of_room = $combo['Combo']['id_type_of_room'];
         $id_service_room = $combo['Combo']['id_service_room'];
         $package = array ('id_type_of_room' => $id_type_of_room, 'id_service_room' => id_service_room);
-        $combo['Combo']['price_per_night'] = performAction('Packages', findPricePerNight, package);
+        $combo['Combo']['price_per_night'] = performAction('Packages', 'findPricePerNight', $package);
         return $combo;
     }
 }

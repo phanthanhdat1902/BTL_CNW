@@ -15,8 +15,8 @@ class PackagesController {
     function findPricePerNight($package) {
         $query = 'SELECT price_per_night'
               . ' FROM packages'
-              . ' WHERE id_type_of_room = '.$package['type_of_room']
-              . ' AND id_service_room = '.$package['service_room'];
+              . ' WHERE id_type_of_room = '.$package['id_type_of_room']
+              . ' AND id_service_room = '.$package['id_service_room'];
         return $this->Package->custom($query)['Package']['price_per_night'];
     }
 }
