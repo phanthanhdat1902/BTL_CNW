@@ -17,7 +17,8 @@ class Order_toursController extends Controller {
 //        $this->Order_tour->setLimit($limit);
 //        $this->Order_tour->setPage($page);
         $this->Order_tour->leftOn('departures', 'id_departure');
-        return $this->Order_tour->search();
+        $result = $this->Order_tour->search();
+        return $result;
     }
 
     function add($tourId, $idUser = null) {
@@ -26,15 +27,14 @@ class Order_toursController extends Controller {
             if (isset($idUser)) {
                 $this->Order_tour->id_user = $idUser;
             }
-            $this->Order_tour->id_tour = $_POST['id_tour'];
             $this->Order_tour->id_departure = $_POST['id_departure'];
             $this->Order_tour->number_of_children = $_POST['number_of_children'];
             $this->Order_tour->number_of_adults = $_POST['number_of_adults'];
-            $this->Order_tour->price = $_POST['price'];
-            $this->Order_tour->name = $_POST['name'];
+            $tour = performAction('Tours', 'findPriceById', array($tourId));
+            $this->Order_tour->price = $tour['Tour']['price_per_adult'] * $_POST['number_of_adults'] + $tour['Tour']['price_per_adult'] * $_POST['number_of_children'];
             $this->Order_tour->note = $_POST['note'];
-            $this->Order_tour->status = $_POST['status'];
             $this->Order_tour->phone_number = $_POST['phone_number'];
+            $this->Order_tour->email = $_POST['email'];
             $this->Order_tour->save();
             header("Location:http://localhost/BTL_CNW/tours/view/1");
         }
@@ -60,7 +60,7 @@ class Order_toursController extends Controller {
         return;
     }
 
-    function viewallnopage(){
+    function viewallnopage() {
         return $this->Order_tour->search();
     }
 

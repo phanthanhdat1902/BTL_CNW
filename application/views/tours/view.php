@@ -162,14 +162,14 @@
                     </div>
                     <div class="modal-body">
                         <h1>Yêu cầu đặt tour</h1>
-                        <span name="name">Họ & Tên *</span>
-                        <input type="text">
-                        <span name="phone_number">Điện thoại *</span>
-                        <input type="text">
-                        <span name="email">Email</span>
-                        <input type="text">
-                        <span name="note">Yêu cầu khác</span>
-                        <input type="text">
+                        <span >Họ & Tên *</span>
+                        <input type="text" name="name">
+                        <span >Điện thoại *</span>
+                        <input type="text" name="phone_number">
+                        <span >Email</span>
+                        <input type="text"name="email">
+                        <span >Yêu cầu khác</span>
+                        <input type="text"name="note">
                         <button type="submit">Gửi yêu cầu</button>
                     </div>
                 </div>

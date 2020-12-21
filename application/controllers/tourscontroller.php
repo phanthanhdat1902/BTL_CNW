@@ -239,6 +239,15 @@ class ToursController extends Controller {
         return $this->Tour->search();
     }
 
+    function findPriceById($tourId) {
+        $this->Tour->id = $tourId;
+        $field = array();
+        array_push($field, 'name');
+        array_push($field, 'price_per_adult');
+        array_push($field, 'price_per_child');
+        return $this->Tour->search($field);
+    }
+
     function afterAction() {
         
     }

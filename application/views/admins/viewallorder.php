@@ -20,7 +20,7 @@
             <thead>
                 <tr>
                     <th>STT</th>
-                    <th>Tên Tour</th>
+                    <th>ID Tour</th>
                     <th>Số Người Lớn</th>
                     <th>Số Trẻ Em</th>
                     <th>Ngày đi</th>
@@ -41,7 +41,7 @@
                     <tr>
                 <input type="hidden" value="<?php echo $item['Order_tour']['id_order_tour'] . '/' . $item['Order_tour']['status'] ?>" name="id">
                 <td><?php echo ++$i; ?></td>
-                <td>123</td>
+                <td><?php echo $item['Order_tour']['id_tour'] ?></td>
                 <td><?php if (isset($item['Order_tour']['number_of_adults'])) {
                     echo $item['Order_tour']['number_of_adults'];
                 } ?></td>
